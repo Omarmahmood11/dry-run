@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "tsx scripts/generateCorpus.ts",
+    "verify": "tsx scripts/verifyCorpus.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "tsx": "^4.16.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "thresholds": {
+    "amountThreshold": 100000,
+    "extractionConfidenceThreshold": 0.85
+  },
+  "policyChecks": {
+    "duplicate_hash_match": true,
+    "bank_details_changed": true,
+    "new_vendor": true,
+    "amount_anomaly": true,
+    "po_missing": true,
+    "po_quantity_mismatch": false,
+    "po_price_variance": false,
+    "tax_miscalculation": false,
+    "currency_mismatch": true,
+    "vendor_unverified": true
+  },
+  "vendorExceptions": []
+}
