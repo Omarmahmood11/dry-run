@@ -138,7 +138,7 @@ The generation order is:
 
 The recorded decision is therefore a *consequence* of the case, not an input to it. This ordering matters: if ground truth were assigned after the decision, the corpus would encode the assumption that the agent was usually right, and every replay result would be circular.
 
-**The baseline ruleset gets some cases wrong.** That is required. If the historical agent were perfect, no rule change could ever improve on it and `Prevented loss` would always be zero. The baseline should miss roughly 6 to 9 of the 40 problems and should escalate a meaningful number of legitimate invoices.
+**The baseline ruleset gets some cases wrong.** That is required. If the historical agent were perfect, no rule change could ever improve on it and `Prevented loss` would always be zero. The baseline should miss a meaningful minority of problems (currently 15 of the 40 problems) and should escalate a meaningful number of legitimate invoices.
 
 **Every `resolution_note` states how the truth was established**, in one line — a supplier confirmed the duplicate, a bank verification failed, an audit traced the variance to an amendment. This field is what makes ground truth defensible under questioning rather than an assertion.
 

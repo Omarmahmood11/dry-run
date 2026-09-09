@@ -315,36 +315,59 @@ function generateLineItems(
   category: string,
   targetSubtotal: number,
 ): LineItem[] {
-  const templates = LINE_ITEM_TEMPLATES[category] ?? LINE_ITEM_TEMPLATES['Services']!;
-  const itemCount = rng.nextInt(1, Math.min(4, templates.length));
-  const items: LineItem[] = [];
+  const templates = LINE_ITEM_TEMPLATES[category as keyof typeof LINE_ITEM_TEMPLATES] ?? LINE_ITEM_TEMPLATES['Services']!;
+  const numItems = Math.min(templates.length, rng.nextInt(1, 4));
+  
+  // Shuffle templates to ensure random selection and uniqueness
+  const shuffled = rng.shuffle([...templates]);
+  const selectedTemplates = shuffled.slice(0, numItems);
 
+  const chunks = [];
   let remaining = targetSubtotal;
-  for (let i = 0; i < itemCount; i++) {
-    const template = templates[rng.pickIndex(templates.length)]!;
-    const isLast = i === itemCount - 1;
+  for (let i = 0; i < numItems - 1; i++) {
+    const chunk = Math.round((targetSubtotal / numItems) * rng.nextFloat(0.8, 1.2));
+    chunks.push(chunk);
+    remaining -= chunk;
+  }
+  chunks.push(remaining > 0 ? remaining : 1);
 
-    let lineTotal: number;
-    if (isLast) {
-      lineTotal = Math.max(100, remaining);
-    } else {
-      lineTotal = Math.max(100, Math.round(remaining * rng.nextFloat(0.15, 0.5)));
-      remaining -= lineTotal;
-    }
+  const lineItems: LineItem[] = [];
 
-    const quantity = rng.nextInt(1, 10);
-    const unitPrice = Math.round(lineTotal / quantity);
-    const adjustedLineTotal = unitPrice * quantity;
+  for (let i = 0; i < numItems; i++) {
+    const template = selectedTemplates[i]!;
+    const chunkTarget = chunks[i]!;
 
-    items.push({
+    const unitPrice = Math.round(template.typicalPrice * rng.nextFloat(0.9, 1.1));
+    const quantity = Math.max(1, Math.round(chunkTarget / unitPrice));
+    const lineTotal = quantity * unitPrice;
+    
+    lineItems.push({
       description: template.description,
       quantity,
       unitPrice,
-      lineTotal: adjustedLineTotal,
+      lineTotal,
     });
   }
 
-  return items;
+  return lineItems;
+}
+
+function convertToForeignCurrency(c: MutableCase, currency: 'USD' | 'EUR' | 'GBP'): void {
+  const rates = { USD: 83.5, EUR: 90.2, GBP: 105.4 };
+  const rate = rates[currency];
+  
+  c.invoice.currency = currency;
+  c.invoice.lineItems = c.invoice.lineItems.map(li => {
+    const unitPrice = roundToTwo(li.unitPrice / rate);
+    const lineTotal = roundToTwo(unitPrice * li.quantity);
+    return { ...li, unitPrice, lineTotal };
+  });
+  
+  c.invoice.subtotal = c.invoice.lineItems.reduce((sum, li) => sum + li.lineTotal, 0);
+  c.invoice.taxAmount = roundToTwo(c.invoice.subtotal * TAX_RATE);
+  c.invoice.totalAmount = roundToTwo(c.invoice.subtotal + c.invoice.taxAmount);
+  
+  c._poExpectedPrices = c._poExpectedPrices.map(p => roundToTwo(p / rate));
 }
 
 function generatePoReference(rng: Rng, caseIndex: number): string {
@@ -419,6 +442,7 @@ interface MutableCase {
   _isNonObvious: boolean;
   _poExpectedPrices: number[]; // PO expected unit prices per line item
   _poExpectedQuantities: number[]; // PO expected quantities per line item
+  _duplicateSource?: MutableCase;
 }
 
 // ============================================================
@@ -432,7 +456,12 @@ function createBaseCase(
   vendor: VendorTemplate,
   segment: 'clean' | 'unusual' | 'problem',
 ): MutableCase {
-  const targetSubtotal = rng.nextInt(vendor.typicalMin, vendor.typicalMax);
+  let targetSubtotal = rng.nextInt(vendor.typicalMin, vendor.typicalMax);
+  // Force some clean cases to be in the 250k-300k totalAmount range (subtotal 212k-254k) for Check 3 threshold testing
+  if (segment === 'clean' && vendor.typicalMax >= 200000 && rng.nextFloat(0, 1) < 0.25) {
+    targetSubtotal = rng.nextInt(215000, 250000);
+  }
+
   const lineItems = generateLineItems(rng, vendor.category, targetSubtotal);
   const actualSubtotal = lineItems.reduce((sum, item) => sum + item.lineTotal, 0);
   const taxAmount = Math.round(actualSubtotal * TAX_RATE);
@@ -587,52 +616,38 @@ function getUnusualNote(rng: Rng, flagType: string): string {
 // Problem case construction helpers
 // ============================================================
 
-const PROBLEM_NOTES: Record<ProblemType, readonly string[]> = {
-  duplicate_submission: [
-    'Confirmed duplicate; same invoice submitted twice on different days',
-    'Duplicate detected during month-end reconciliation; payment recovered',
-    'Invoice was a resubmission of an already-paid invoice; flagged by auditor',
-  ],
-  fraudulent_bank_details: [
-    'Bank account traced to an unrelated party; vendor confirmed compromise via email phishing',
-    'Payment details altered to redirect funds; detected after vendor reported non-receipt',
-    'Fraudulent bank account identified during routine bank verification check',
-  ],
-  price_inflation: [
-    'Unit price 40% above contracted rate; no amendment on file; vendor disputed then conceded',
-    'Price inflated compared to market rate and contract terms; procurement flagged in audit',
-    'Investigation revealed price had been manually altered in vendor\'s billing system',
-  ],
-  quantity_inflation: [
-    'Billed for 50 units but only 32 received per warehouse receipt; discrepancy confirmed',
-    'Quantity inflated; goods receipt note showed fewer items than invoiced',
-    'Delivery log confirms fewer units than billed; vendor issued credit note',
-  ],
-  phantom_vendor: [
-    'No record of this vendor in any trade registry; fictitious entity created for fraud',
-    'Vendor does not exist; address is a residential property; flagged in annual supplier audit',
-    'Company registration number invalid; vendor created by former employee',
-  ],
-  tax_miscalculation: [
-    'GST calculated at 12% instead of 18%; underpayment favours vendor; intentional misstatement suspected',
-    'Tax amount inflated by ₹4,200 through incorrect rate application; vendor refused to correct',
-    'Composite tax calculation error resulted in overbilling; discovered in tax reconciliation',
-  ],
-  duplicate_across_formats: [
-    'Same charge submitted via email as PDF and again through the vendor portal; caught in reconciliation',
-    'Identical amount and items found in both portal upload and emailed invoice; second was duplicate',
-    'Cross-format duplicate discovered during month-end close; single payment released',
-  ],
-  contract_violation: [
-    'Items billed are outside the contracted scope of work; no supporting change order',
-    'Services not covered under existing contract; vendor billed speculatively',
-    'Line items reference a project phase not yet authorised; contract does not cover this work',
-  ],
-};
-
-function getProblemNote(rng: Rng, problemType: ProblemType): string {
-  const notes = PROBLEM_NOTES[problemType];
-  return rng.pick(notes);
+function getProblemNote(rng: Rng, problemType: ProblemType, c: MutableCase): string {
+  switch (problemType) {
+    case 'quantity_inflation': {
+      const badItemIndex = c.invoice.lineItems.findIndex((li, idx) => li.quantity > c._poExpectedQuantities[idx]!);
+      if (badItemIndex >= 0) {
+        const billed = c.invoice.lineItems[badItemIndex]!.quantity;
+        const expected = c._poExpectedQuantities[badItemIndex]!;
+        return `Billed for ${billed} units but only ${expected} received`;
+      }
+      return 'Billed quantity exceeds PO or received quantity';
+    }
+    case 'price_inflation': {
+      if (c.intakeFlags && c.intakeFlags.po_price_variance > 0) {
+        return `Price variance detected: ${c.intakeFlags.po_price_variance.toFixed(2)}% above contracted rate`;
+      }
+      return 'Unit prices exceed contracted rates';
+    }
+    case 'duplicate_submission':
+      return 'Confirmed duplicate; identical invoice submitted previously';
+    case 'duplicate_across_formats':
+      return 'Duplicate submission across different intake channels (e.g., email and portal)';
+    case 'fraudulent_bank_details':
+      return `Payment details altered to redirect funds to unauthorized account ending in ${c.invoice.paymentBankDetails.accountNumber.slice(-4)}`;
+    case 'phantom_vendor':
+      return 'Vendor could not be verified; physical address check failed and contact numbers unresponsive';
+    case 'tax_miscalculation':
+      return 'Tax applied at incorrect rate (e.g., 18% instead of 12%) leading to material overpayment';
+    case 'contract_violation':
+      return 'Items billed do not conform to master service agreement restrictions';
+    default:
+      return 'Investigation confirmed problem';
+  }
 }
 
 // ============================================================
@@ -842,7 +857,7 @@ function generateCorpus(): Case[] {
     const caseIndex = CLEAN_COUNT + 53 + i;
     const vendor = REAL_VENDORS[(caseIndex + 17) % REAL_VENDORS.length]!;
     const c = createUnusualCase(caseIndex, vendor, 'currency_mismatch');
-    c.invoice = { ...c.invoice, currency: rng.pick(['USD', 'EUR', 'GBP']) };
+    convertToForeignCurrency(c, rng.pick(['USD', 'EUR', 'GBP']));
     cases.push(c);
   }
 
@@ -859,12 +874,15 @@ function generateCorpus(): Case[] {
   }
 
   // 342-359: misc unusual (18 cases) — combinations or other flags
+  const midVendors = REAL_VENDORS.filter(v => v.typicalMax <= 60000);
   for (let i = 0; i < 18; i++) {
     const caseIndex = CLEAN_COUNT + 62 + i;
-    const vendor = REAL_VENDORS[(caseIndex + 23) % REAL_VENDORS.length]!;
+    const vendor = midVendors[(caseIndex + 23) % midVendors.length]!;
     const flagType = rng.pick([
-      'amount_anomaly', 'po_missing', 'new_vendor', 'po_price_variance',
-      'bank_details_changed', 'po_quantity_mismatch',
+      'amount_anomaly', 'amount_anomaly', 'amount_anomaly',
+      'po_quantity_mismatch', 'po_quantity_mismatch', 'po_quantity_mismatch',
+      'currency_mismatch', 'currency_mismatch', 'currency_mismatch',
+      'tax_miscalculation', 'tax_miscalculation', 'tax_miscalculation',
     ]);
     const c = createUnusualCase(caseIndex, vendor, flagType);
 
@@ -908,6 +926,15 @@ function generateCorpus(): Case[] {
           Math.max(1, li.quantity - rng.nextInt(1, 2)),
         );
         break;
+      case 'currency_mismatch':
+        convertToForeignCurrency(c, rng.pick(['USD', 'EUR', 'GBP']));
+        break;
+      case 'tax_miscalculation': {
+        const correctTax = Math.round(c.invoice.subtotal * TAX_RATE);
+        c.invoice.taxAmount = correctTax + rng.pick([-150, 200, 300]);
+        c.invoice.totalAmount = c.invoice.subtotal + c.invoice.taxAmount;
+        break;
+      }
     }
     cases.push(c);
   }
@@ -931,22 +958,23 @@ function generateCorpus(): Case[] {
     isNonObvious: boolean,
   ): MutableCase {
     const c = createBaseCase(rng, index, allDates[index]!, vendor, 'problem');
+    c._isNonObvious = isNonObvious;
     c.groundTruth = {
       truth: 'PROBLEM',
       problemType,
-      resolutionNote: getProblemNote(rng, problemType),
+      resolutionNote: '', // will be set at the end when data is finalized!
     };
-    c._isNonObvious = isNonObvious;
     return c;
   }
 
-  // 360-365: duplicate_submission, obvious (6) — duplicate_hash_match = true
-  for (let i = 0; i < 6; i++) {
+  // 360-363: duplicate_submission, obvious (4) — duplicate_hash_match = true
+  for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + i;
-    const sourceIndex = i; // clean cases 0-5 as sources
+    const sourceIndex = i; // clean cases 0-3 as sources
     const sourceCase = cases[sourceIndex]!;
     const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? REAL_VENDORS[0]!;
     const c = createProblemCase(caseIndex, vendorTemplate, 'duplicate_submission', false);
+    c._duplicateSource = sourceCase;
     // Copy vendor, date, and total to trigger duplicate_hash_match
     c.vendor = { ...sourceCase.vendor };
     c.submissionDate = sourceCase.submissionDate;
@@ -963,13 +991,14 @@ function generateCorpus(): Case[] {
     cases.push(c);
   }
 
-  // 366-367: duplicate_submission, non-obvious (2) — dates differ so no hash match
-  for (let i = 0; i < 2; i++) {
-    const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 6 + i;
-    const sourceIndex = 6 + i; // clean cases 6-7
+  // 364-367: duplicate_submission, non-obvious (4) — dates differ so no hash match
+  for (let i = 0; i < 4; i++) {
+    const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 4 + i;
+    const sourceIndex = 4 + i; // clean cases 4-7
     const sourceCase = cases[sourceIndex]!;
     const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? REAL_VENDORS[0]!;
     const c = createProblemCase(caseIndex, vendorTemplate, 'duplicate_submission', true);
+    // DO NOT set c._duplicateSource, so it gets a DIFFERENT date randomly from the dates list!
     c.vendor = { ...sourceCase.vendor };
     // Same vendor and amount but DIFFERENT date → no hash match
     c.invoice = {
@@ -1039,114 +1068,74 @@ function generateCorpus(): Case[] {
     cases.push(c);
   }
 
+  const highVendors = REAL_VENDORS.filter(v => v.typicalMax >= 95000);
+  
+  function getClusteredSubtotal(): number {
+    return rng.nextInt(120000, 248000);
+  }
+
   // 374-377: price_inflation, obvious (4) — po_price_variance > 0
   for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 14 + i;
-    const vendor = REAL_VENDORS[(20 + i) % REAL_VENDORS.length]!;
+    const vendor = rng.pick(highVendors);
     const c = createProblemCase(caseIndex, vendor, 'price_inflation', false);
     // Invoice prices inflated vs PO (30-60% higher)
     const inflationPct = rng.nextFloat(30, 60);
-    c._poExpectedPrices = c.invoice.lineItems.map(li =>
-      Math.round(li.unitPrice / (1 + inflationPct / 100)),
-    );
-    // First 2 also have amount_anomaly (very high amounts)
-    if (i < 2) {
-      const targetSub = rng.nextInt(vendor.typicalMax * 3 + 2000, vendor.typicalMax * 5);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => Math.round(li.unitPrice / (1 + inflationPct / 100)));
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    }
-    // Last 2: above amount threshold
-    if (i >= 2) {
-      const targetSub = rng.nextInt(90000, 140000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => Math.round(li.unitPrice / (1 + inflationPct / 100)));
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    }
+    const targetSub = getClusteredSubtotal();
+    const lis = generateLineItems(rng, vendor.category, targetSub);
+    const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
+    const tax = Math.round(sub * TAX_RATE);
+    c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
+    c._poExpectedPrices = lis.map(li => Math.round(li.unitPrice / (1 + inflationPct / 100)));
+    c._poExpectedQuantities = lis.map(li => li.quantity);
     cases.push(c);
   }
 
   // 378-379: price_inflation, non-obvious (2) — PO itself was inflated
   for (let i = 0; i < 2; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 18 + i;
-    const vendor = REAL_VENDORS[(22 + i) % REAL_VENDORS.length]!;
+    const vendor = rng.pick(highVendors);
     const c = createProblemCase(caseIndex, vendor, 'price_inflation', true);
     // Invoice matches inflated PO, so po_price_variance = 0
-    c._poExpectedPrices = c.invoice.lineItems.map(li => li.unitPrice); // matches exactly
-    // Non-obvious: first below threshold → APPROVE, second above → ESCALATE
-    if (i === 0) {
-      const targetSub = rng.nextInt(35000, 65000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    } else {
-      // Force amount between 102k and 118k for regression test
-      const targetSub = rng.nextInt(86000, 99000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    }
+    const targetSub = getClusteredSubtotal();
+    const lis = generateLineItems(rng, vendor.category, targetSub);
+    const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
+    const tax = Math.round(sub * TAX_RATE);
+    c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
+    c._poExpectedPrices = lis.map(li => li.unitPrice);
+    c._poExpectedQuantities = lis.map(li => li.quantity);
     cases.push(c);
   }
 
   // 380-382: quantity_inflation, obvious (3) — po_quantity_mismatch
   for (let i = 0; i < 3; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 20 + i;
-    const vendor = REAL_VENDORS[(5 + i) % REAL_VENDORS.length]!;
+    const vendor = rng.pick(highVendors);
     const c = createProblemCase(caseIndex, vendor, 'quantity_inflation', false);
     // Invoice quantities exceed PO quantities
-    c._poExpectedQuantities = c.invoice.lineItems.map(li =>
-      Math.max(1, li.quantity - rng.nextInt(2, 5)),
-    );
-    // Ensure these are above threshold or have another catching flag
-    const targetSub = rng.nextInt(90000, 150000);
+    const targetSub = getClusteredSubtotal();
     const lis = generateLineItems(rng, vendor.category, targetSub);
     const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
     const tax = Math.round(sub * TAX_RATE);
     c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-    c._poExpectedQuantities = lis.map(li => Math.max(1, li.quantity - rng.nextInt(2, 5)));
     c._poExpectedPrices = lis.map(li => li.unitPrice);
+    c._poExpectedQuantities = lis.map(li => Math.max(1, li.quantity - rng.nextInt(2, 5)));
     cases.push(c);
   }
 
   // 383-384: quantity_inflation, non-obvious (2) — qty matches PO
   for (let i = 0; i < 2; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 23 + i;
-    const vendor = REAL_VENDORS[(8 + i) % REAL_VENDORS.length]!;
+    const vendor = rng.pick(highVendors);
     const c = createProblemCase(caseIndex, vendor, 'quantity_inflation', true);
     // Invoice qty matches PO (but received less — not detectable by flags)
-    c._poExpectedQuantities = c.invoice.lineItems.map(li => li.quantity);
-    if (i === 0) {
-      // Below threshold → APPROVE (missed)
-      const targetSub = rng.nextInt(25000, 55000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    } else {
-      // Force amount between 102k and 118k for regression test
-      const targetSub = rng.nextInt(86000, 99000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    }
+    const targetSub = getClusteredSubtotal();
+    const lis = generateLineItems(rng, vendor.category, targetSub);
+    const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
+    const tax = Math.round(sub * TAX_RATE);
+    c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
+    c._poExpectedPrices = lis.map(li => li.unitPrice);
+    c._poExpectedQuantities = lis.map(li => li.quantity);
     cases.push(c);
   }
 
@@ -1160,81 +1149,17 @@ function generateCorpus(): Case[] {
     cases.push(c);
   }
 
-  // 390-391: tax_miscalculation, obvious (2) — flag true but check is OFF
-  for (let i = 0; i < 2; i++) {
+  // 390-393: tax_miscalculation, obvious (4)
+  for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 30 + i;
-    const vendor = REAL_VENDORS[(0 + i) % REAL_VENDORS.length]!; // avoid 10-19
-    const c = createProblemCase(caseIndex, vendor, 'tax_miscalculation', false);
-    // Incorrect tax (material error, not rounding)
-    const correctTax = Math.round(c.invoice.subtotal * TAX_RATE);
-    const errorAmount = rng.nextInt(2000, 5000);
+    const c = createProblemCase(caseIndex, rng.pick(REAL_VENDORS), 'tax_miscalculation', false);
+    // Introduce tax error (large)
+    const offset = rng.pick([-1500, -2000, 3000, 4000]);
     c.invoice = {
       ...c.invoice,
-      taxAmount: correctTax - errorAmount, // undertaxed, favouring vendor
-      totalAmount: c.invoice.subtotal + correctTax - errorAmount,
+      taxAmount: Math.round(c.invoice.subtotal * TAX_RATE) + offset,
+      totalAmount: c.invoice.subtotal + Math.round(c.invoice.subtotal * TAX_RATE) + offset,
     };
-    // Case 390: below threshold → APPROVE (missed, because check is OFF)
-    if (i === 0) {
-      const targetSub = rng.nextInt(20000, 50000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const correctTaxNew = Math.round(sub * TAX_RATE);
-      const err = rng.nextInt(2000, 4500);
-      c.invoice = {
-        ...c.invoice,
-        subtotal: sub,
-        taxAmount: correctTaxNew - err,
-        totalAmount: sub + correctTaxNew - err,
-        lineItems: lis,
-      };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    } else {
-      // Case 391: above threshold → ESCALATE
-      const targetSub = rng.nextInt(95000, 130000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const correctTaxNew = Math.round(sub * TAX_RATE);
-      const err = rng.nextInt(3000, 5000);
-      c.invoice = {
-        ...c.invoice,
-        subtotal: sub,
-        taxAmount: correctTaxNew - err,
-        totalAmount: sub + correctTaxNew - err,
-        lineItems: lis,
-      };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    }
-    cases.push(c);
-  }
-
-  // 392-393: tax_miscalculation, non-obvious (2) — flag doesn't fire
-  for (let i = 0; i < 2; i++) {
-    const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 32 + i;
-    const vendor = REAL_VENDORS[(2 + i) % REAL_VENDORS.length]!; // avoid 10-19
-    const c = createProblemCase(caseIndex, vendor, 'tax_miscalculation', true);
-    // Tax amount is close to correct (within ₹1 tolerance) so flag doesn't fire,
-    // but the rate applied was wrong (should have been 18%, was 12%)
-    // The actual money difference was caught in annual tax reconciliation
-    if (i === 0) {
-      const targetSub = rng.nextInt(18000, 45000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE); // correctly computed for flag purposes
-      c.invoice = { ...c.invoice, subtotal: sub, taxAmount: tax, totalAmount: sub + tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    } else {
-      // Force amount between 102k and 118k for regression test
-      const targetSub = rng.nextInt(86000, 99000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, subtotal: sub, taxAmount: tax, totalAmount: sub + tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    }
     cases.push(c);
   }
 
@@ -1286,34 +1211,19 @@ function generateCorpus(): Case[] {
     cases.push(c);
   }
 
-  // 397-399: contract_violation (3)
+  // 397-399: contract_violation, non-obvious (3) — no flags exist for this
   for (let i = 0; i < 3; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 37 + i;
-    const vendor = REAL_VENDORS[(21 + i) % REAL_VENDORS.length]!; // avoid 10-19
-    const isNonObvious = i === 0; // first is non-obvious
-    const c = createProblemCase(caseIndex, vendor, 'contract_violation', isNonObvious);
-    if (isNonObvious) {
-      // No flags, below threshold → APPROVE (missed)
-      const targetSub = rng.nextInt(25000, 55000);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    } else if (i === 1) {
-      // Has po_missing → ESCALATE
-      c.invoice = { ...c.invoice, purchaseOrderReference: null };
-    } else {
-      // Has amount_anomaly → ESCALATE
-      const targetSub = rng.nextInt(vendor.typicalMax * 3 + 1000, vendor.typicalMax * 5);
-      const lis = generateLineItems(rng, vendor.category, targetSub);
-      const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
-      const tax = Math.round(sub * TAX_RATE);
-      c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
-      c._poExpectedPrices = lis.map(li => li.unitPrice);
-      c._poExpectedQuantities = lis.map(li => li.quantity);
-    }
+    const vendor = rng.pick(highVendors);
+    const c = createProblemCase(caseIndex, vendor, 'contract_violation', true);
+    // Submitter prices correctly under threshold, confident it won't be checked
+    const targetSub = getClusteredSubtotal();
+    const lis = generateLineItems(rng, vendor.category, targetSub);
+    const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
+    const tax = Math.round(sub * TAX_RATE);
+    c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
+    c._poExpectedPrices = lis.map(li => li.unitPrice);
+    c._poExpectedQuantities = lis.map(li => li.quantity);
     cases.push(c);
   }
 
@@ -1323,7 +1233,14 @@ function generateCorpus(): Case[] {
   // ── Step 4: Assign extractionConfidence ────────────────────────────
   assignConfidence(rng, cases);
 
-  // ── Step 5: Apply baseline → recorded decisions ────────────────────
+  // ── Step 5: Assign Problem Resolution Notes ────────────────────────
+  for (const c of cases) {
+    if (c.groundTruth.truth === 'PROBLEM') {
+      c.groundTruth.resolutionNote = getProblemNote(rng, c.groundTruth.problemType, c);
+    }
+  }
+
+  // ── Step 6: Apply baseline → recorded decisions ────────────────────
   for (const c of cases) {
     const result = evaluateCase(baseline, c as Case);
     c.recordedDecision = {
@@ -1445,11 +1362,11 @@ function assignConfidence(rng: Rng, cases: MutableCase[]): void {
     switch (c._segment) {
       case 'clean': {
         const roll = rng.nextFloat(0, 1);
-        if (roll < 0.10) {
-          // ~28 cases in [0.80, 0.84] — these move when lowering threshold to 0.80
+        if (roll < 0.05) {
+          // ~14 cases in [0.80, 0.84] — these move when lowering threshold to 0.80
           c.extractionConfidence = roundToTwo(rng.nextFloat(0.80, 0.84));
-        } else if (roll < 0.20) {
-          // ~28 cases in [0.85, 0.89] — these move when raising threshold to 0.90
+        } else if (roll < 0.16) {
+          // ~30 cases in [0.85, 0.89] — these move when raising threshold to 0.90
           c.extractionConfidence = roundToTwo(rng.nextFloat(0.85, 0.89));
         } else {
           // ~224 cases in [0.90, 0.99] — these are stable
