@@ -468,7 +468,7 @@ function createBaseCase(
   const totalAmount = actualSubtotal + taxAmount;
 
   return {
-    id: `INV-2026-${String(index + 1).padStart(4, '0')}`,
+    id: '__PLACEHOLDER__',
     submissionDate: date,
     source: generateSource(rng),
     vendor: {
@@ -621,30 +621,48 @@ function getProblemNote(rng: Rng, problemType: ProblemType, c: MutableCase): str
     case 'quantity_inflation': {
       const badItemIndex = c.invoice.lineItems.findIndex((li, idx) => li.quantity > c._poExpectedQuantities[idx]!);
       if (badItemIndex >= 0) {
-        const billed = c.invoice.lineItems[badItemIndex]!.quantity;
+        const item = c.invoice.lineItems[badItemIndex]!;
         const expected = c._poExpectedQuantities[badItemIndex]!;
-        return `Billed for ${billed} units but only ${expected} received`;
+        return `Billed for ${item.quantity} ${item.quantity === 1 ? 'unit' : 'units'} of "${item.description}" but only ${expected} received per delivery receipt`;
       }
-      return 'Billed quantity exceeds PO or received quantity';
+      // Non-obvious: PO qty matches invoice, but physical receipt differs
+      const firstItem = c.invoice.lineItems[0]!;
+      const receivedQty = Math.max(1, firstItem.quantity - rng.nextInt(2, 4));
+      return `Goods receipt for "${firstItem.description}" records ${receivedQty} ${receivedQty === 1 ? 'unit' : 'units'} delivered; invoice bills ${firstItem.quantity}`;
     }
     case 'price_inflation': {
+      const firstItem = c.invoice.lineItems[0]!;
       if (c.intakeFlags && c.intakeFlags.po_price_variance > 0) {
-        return `Price variance detected: ${c.intakeFlags.po_price_variance.toFixed(2)}% above contracted rate`;
+        const poPrice = c._poExpectedPrices[0]!;
+        return `"${firstItem.description}" invoiced at ₹${firstItem.unitPrice.toLocaleString('en-IN')}/unit; PO contracted rate is ₹${poPrice.toLocaleString('en-IN')}/unit (${c.intakeFlags.po_price_variance.toFixed(1)}% variance)`;
       }
-      return 'Unit prices exceed contracted rates';
+      // Non-obvious: PO itself was inflated, so no variance flag fires
+      return `Market rate audit found "${firstItem.description}" at ₹${firstItem.unitPrice.toLocaleString('en-IN')}/unit exceeds comparable vendor quotes by 30-50%; PO was raised at the inflated rate`;
     }
-    case 'duplicate_submission':
-      return 'Confirmed duplicate; identical invoice submitted previously';
-    case 'duplicate_across_formats':
-      return 'Duplicate submission across different intake channels (e.g., email and portal)';
+    case 'duplicate_submission': {
+      if (c._duplicateSource) {
+        return `Duplicate of invoice from ${c._duplicateSource.submissionDate}; same vendor (${c.vendor.name}), same amount (₹${c.invoice.totalAmount.toLocaleString('en-IN')})`;
+      }
+      return `Duplicate charge identified; ${c.vendor.name} submitted identical ₹${c.invoice.totalAmount.toLocaleString('en-IN')} invoice on a different date`;
+    }
+    case 'duplicate_across_formats': {
+      const otherChannel = c.source === 'email' ? 'portal' : 'email';
+      return `Same ₹${c.invoice.totalAmount.toLocaleString('en-IN')} charge from ${c.vendor.name} submitted via ${c.source} and ${otherChannel}; reconciliation confirmed single underlying transaction`;
+    }
     case 'fraudulent_bank_details':
       return `Payment details altered to redirect funds to unauthorized account ending in ${c.invoice.paymentBankDetails.accountNumber.slice(-4)}`;
-    case 'phantom_vendor':
-      return 'Vendor could not be verified; physical address check failed and contact numbers unresponsive';
-    case 'tax_miscalculation':
-      return 'Tax applied at incorrect rate (e.g., 18% instead of 12%) leading to material overpayment';
-    case 'contract_violation':
-      return 'Items billed do not conform to master service agreement restrictions';
+    case 'phantom_vendor': {
+      return `"${c.vendor.name}" (${c.vendor.id}) could not be verified; registered address is a vacant lot, phone numbers route to voicemail, no GST filings found`;
+    }
+    case 'tax_miscalculation': {
+      const correctTax = Math.round(c.invoice.subtotal * TAX_RATE);
+      const overcharge = c.invoice.taxAmount - correctTax;
+      return `Tax stated as ₹${c.invoice.taxAmount.toLocaleString('en-IN')} on subtotal ₹${c.invoice.subtotal.toLocaleString('en-IN')}; correct 18% GST is ₹${correctTax.toLocaleString('en-IN')} — overbilled by ₹${overcharge.toLocaleString('en-IN')}`;
+    }
+    case 'contract_violation': {
+      const item = c.invoice.lineItems[0]!;
+      return `"${item.description}" (${item.quantity} ${item.quantity === 1 ? 'unit' : 'units'} at ₹${item.unitPrice.toLocaleString('en-IN')}) not covered under master service agreement with ${c.vendor.name}; no amendment on file`;
+    }
     default:
       return 'Investigation confirmed problem';
   }
@@ -874,15 +892,12 @@ function generateCorpus(): Case[] {
   }
 
   // 342-359: misc unusual (18 cases) — combinations or other flags
-  const midVendors = REAL_VENDORS.filter(v => v.typicalMax <= 60000);
   for (let i = 0; i < 18; i++) {
     const caseIndex = CLEAN_COUNT + 62 + i;
-    const vendor = midVendors[(caseIndex + 23) % midVendors.length]!;
+    const vendor = REAL_VENDORS[(caseIndex + 23) % REAL_VENDORS.length]!;
     const flagType = rng.pick([
-      'amount_anomaly', 'amount_anomaly', 'amount_anomaly',
-      'po_quantity_mismatch', 'po_quantity_mismatch', 'po_quantity_mismatch',
-      'currency_mismatch', 'currency_mismatch', 'currency_mismatch',
-      'tax_miscalculation', 'tax_miscalculation', 'tax_miscalculation',
+      'amount_anomaly', 'po_missing', 'new_vendor', 'po_price_variance',
+      'bank_details_changed', 'po_quantity_mismatch',
     ]);
     const c = createUnusualCase(caseIndex, vendor, flagType);
 
@@ -972,7 +987,7 @@ function generateCorpus(): Case[] {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + i;
     const sourceIndex = i; // clean cases 0-3 as sources
     const sourceCase = cases[sourceIndex]!;
-    const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? REAL_VENDORS[0]!;
+    const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? rng.pick(REAL_VENDORS);
     const c = createProblemCase(caseIndex, vendorTemplate, 'duplicate_submission', false);
     c._duplicateSource = sourceCase;
     // Copy vendor, date, and total to trigger duplicate_hash_match
@@ -996,7 +1011,7 @@ function generateCorpus(): Case[] {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 4 + i;
     const sourceIndex = 4 + i; // clean cases 4-7
     const sourceCase = cases[sourceIndex]!;
-    const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? REAL_VENDORS[0]!;
+    const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? rng.pick(REAL_VENDORS);
     const c = createProblemCase(caseIndex, vendorTemplate, 'duplicate_submission', true);
     // DO NOT set c._duplicateSource, so it gets a DIFFERENT date randomly from the dates list!
     c.vendor = { ...sourceCase.vendor };
@@ -1013,6 +1028,7 @@ function generateCorpus(): Case[] {
     c._poExpectedQuantities = [...sourceCase._poExpectedQuantities];
     
     // Non-obvious: set amount below threshold for APPROVE
+    // Duplicates are genuine mistakes, not deliberate fraud — no minimum floor
     if (c.invoice.totalAmount >= 100000) {
       const targetSub = rng.nextInt(25000, 70000);
       const lis = generateLineItems(rng, vendorTemplate.category, targetSub);
@@ -1028,9 +1044,11 @@ function generateCorpus(): Case[] {
   // 368-371: fraudulent_bank_details, obvious (4) — bank_details_changed = true
   for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 8 + i;
-    const vendorIdx = (16 + i) % REAL_VENDORS.length; // Use 16-19
-    const vendor = REAL_VENDORS[vendorIdx]!;
-    const c = createProblemCase(caseIndex, vendor, 'fraudulent_bank_details', false);
+    const validVendors = REAL_VENDORS.filter(v => v.typicalMax >= 40000);
+    const vendor = rng.pick(validVendors);
+    // Enforce fraud floor natively
+    const vendorForCase = { ...vendor, typicalMin: Math.max(40000, vendor.typicalMin) };
+    const c = createProblemCase(caseIndex, vendorForCase, 'fraudulent_bank_details', false);
     // Fraudulent bank details (different from vendor's default)
     c.invoice = {
       ...c.invoice,
@@ -1054,7 +1072,8 @@ function generateCorpus(): Case[] {
     const vendor = uniqueVendors[i]!;
     const c = createProblemCase(caseIndex, vendor, 'fraudulent_bank_details', true);
     // Non-obvious: amount below threshold, high confidence → APPROVE (missed)
-    const targetSub = rng.nextInt(20000, 60000);
+    // Deliberate fraud — minimum ₹40K subtotal
+    const targetSub = rng.nextInt(40000, 70000);
     const lis = generateLineItems(rng, vendor.category, targetSub);
     const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
     const tax = Math.round(sub * TAX_RATE);
@@ -1069,7 +1088,9 @@ function generateCorpus(): Case[] {
   }
 
   const highVendors = REAL_VENDORS.filter(v => v.typicalMax >= 95000);
-  
+
+  // Deliberate fraud clusters below the approval threshold.
+  // Minimum ₹40K subtotal — nobody commits deliberate fraud for less.
   function getClusteredSubtotal(): number {
     return rng.nextInt(120000, 248000);
   }
@@ -1131,6 +1152,11 @@ function generateCorpus(): Case[] {
     // Invoice qty matches PO (but received less — not detectable by flags)
     const targetSub = getClusteredSubtotal();
     const lis = generateLineItems(rng, vendor.category, targetSub);
+    // Ensure first item has enough quantity to express inflation
+    if (lis[0] && lis[0].quantity <= 2) {
+      lis[0].quantity = 4;
+      lis[0].lineTotal = lis[0].quantity * lis[0].unitPrice;
+    }
     const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
     const tax = Math.round(sub * TAX_RATE);
     c.invoice = { ...c.invoice, totalAmount: sub + tax, subtotal: sub, taxAmount: tax, lineItems: lis };
@@ -1140,21 +1166,26 @@ function generateCorpus(): Case[] {
   }
 
   // 385-389: phantom_vendor (5) — all obvious (vendor_unverified)
+  // Deliberate fraud — enforce minimum ₹40K subtotal
   for (let i = 0; i < 5; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 25 + i;
-    const vendor = PHANTOM_VENDORS[i]!;
-    const c = createProblemCase(caseIndex, vendor, 'phantom_vendor', false);
+    const vendor = rng.pick(PHANTOM_VENDORS);
+    // Enforce fraud floor natively
+    const vendorForCase = { ...vendor, typicalMin: Math.max(40000, vendor.typicalMin) };
+    const c = createProblemCase(caseIndex, vendorForCase, 'phantom_vendor', false);
     c.vendor.relationshipAgeDays = rng.nextInt(5, 60);
     c.vendor.historicalInvoiceCount = rng.nextInt(0, 3);
     cases.push(c);
   }
 
   // 390-393: tax_miscalculation, obvious (4)
+  // Tax miscalculation always overbills — the error is in the vendor's favour.
+  // Tax errors can be genuine mistakes, so no fraud-amount floor applies.
   for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 30 + i;
     const c = createProblemCase(caseIndex, rng.pick(REAL_VENDORS), 'tax_miscalculation', false);
-    // Introduce tax error (large)
-    const offset = rng.pick([-1500, -2000, 3000, 4000]);
+    // Positive offset only: vendor charges more tax than correct
+    const offset = rng.pick([1500, 2000, 3000, 4000]);
     c.invoice = {
       ...c.invoice,
       taxAmount: Math.round(c.invoice.subtotal * TAX_RATE) + offset,
@@ -1168,7 +1199,7 @@ function generateCorpus(): Case[] {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 34 + i;
     const sourceIndex = 20 + i; // clean cases as sources
     const sourceCase = cases[sourceIndex]!;
-    const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? REAL_VENDORS[0]!;
+    const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? rng.pick(REAL_VENDORS);
     const c = createProblemCase(caseIndex, vendorTemplate, 'duplicate_across_formats', true);
     c.vendor = { ...sourceCase.vendor };
     // Same vendor and amount but different source format and different date → no hash match
@@ -1227,21 +1258,29 @@ function generateCorpus(): Case[] {
     cases.push(c);
   }
 
+  // ── Shuffle then assign sequential IDs ──────────────────────────────
+  // All 400 case objects exist; shuffle so problem cases are distributed
+  // throughout the corpus rather than clustered at the end.
+  const shuffledCases = rng.shuffle(cases);
+  for (let i = 0; i < shuffledCases.length; i++) {
+    shuffledCases[i]!.id = `INV-2026-${String(i + 1).padStart(4, '0')}`;
+  }
+
   // ── Step 3: Compute intake flags mechanically ──────────────────────
-  computeFlags(cases);
+  computeFlags(shuffledCases);
 
   // ── Step 4: Assign extractionConfidence ────────────────────────────
-  assignConfidence(rng, cases);
+  assignConfidence(rng, shuffledCases);
 
   // ── Step 5: Assign Problem Resolution Notes ────────────────────────
-  for (const c of cases) {
+  for (const c of shuffledCases) {
     if (c.groundTruth.truth === 'PROBLEM') {
       c.groundTruth.resolutionNote = getProblemNote(rng, c.groundTruth.problemType, c);
     }
   }
 
   // ── Step 6: Apply baseline → recorded decisions ────────────────────
-  for (const c of cases) {
+  for (const c of shuffledCases) {
     const result = evaluateCase(baseline, c as Case);
     c.recordedDecision = {
       decision: result.decision,
@@ -1256,7 +1295,7 @@ function generateCorpus(): Case[] {
   }
 
   // Strip internal fields and return
-  return cases.map(stripInternalFields);
+  return shuffledCases.map(stripInternalFields);
 }
 
 // ============================================================
@@ -1362,11 +1401,11 @@ function assignConfidence(rng: Rng, cases: MutableCase[]): void {
     switch (c._segment) {
       case 'clean': {
         const roll = rng.nextFloat(0, 1);
-        if (roll < 0.05) {
-          // ~14 cases in [0.80, 0.84] — these move when lowering threshold to 0.80
+        if (roll < 0.10) {
+          // ~28 cases in [0.80, 0.84] — these move when lowering threshold to 0.80
           c.extractionConfidence = roundToTwo(rng.nextFloat(0.80, 0.84));
-        } else if (roll < 0.16) {
-          // ~30 cases in [0.85, 0.89] — these move when raising threshold to 0.90
+        } else if (roll < 0.20) {
+          // ~28 cases in [0.85, 0.89] — these move when raising threshold to 0.90
           c.extractionConfidence = roundToTwo(rng.nextFloat(0.85, 0.89));
         } else {
           // ~224 cases in [0.90, 0.99] — these are stable
@@ -1445,6 +1484,14 @@ const missedProblems = corpus.filter(
   (c) => c.groundTruth.truth === 'PROBLEM' && c.recordedDecision.decision === 'APPROVE',
 ).length;
 console.log(`  Missed problems (baseline): ${missedProblems}`);
+
+// Print problem case IDs and vendor IDs
+console.log(`\nProblem cases (ID → Vendor ID):`);
+for (const c of corpus) {
+  if (c.groundTruth.truth === 'PROBLEM') {
+    console.log(`  ${c.id}  ${c.vendor.id}  (${c.groundTruth.problemType})`);
+  }
+}
 
 // Write output
 const dataDir = resolve(__dirname, '..', 'data');

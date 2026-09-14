@@ -1,20 +1,36 @@
 {
   "version": 1,
   "thresholds": {
-    "amountThreshold": 100000,
+    "amountThreshold": 250000,
     "extractionConfidenceThreshold": 0.85
   },
   "policyChecks": {
     "duplicate_hash_match": true,
     "bank_details_changed": true,
-    "new_vendor": true,
+    "new_vendor": false,
     "amount_anomaly": true,
-    "po_missing": true,
-    "po_quantity_mismatch": false,
-    "po_price_variance": false,
-    "tax_miscalculation": false,
+    "po_missing": false,
+    "po_quantity_mismatch": true,
+    "po_price_variance": true,
+    "tax_miscalculation": true,
     "currency_mismatch": true,
     "vendor_unverified": true
   },
-  "vendorExceptions": []
+  "vendorExceptions": [
+    {
+      "vendorId": "V004",
+      "vendorName": "AeroTech Components Ltd",
+      "exception": { "kind": "auto_approve_below", "amount": 300000 }
+    },
+    {
+      "vendorId": "V006",
+      "vendorName": "Bharat Consulting Group",
+      "exception": { "kind": "auto_approve_below", "amount": 500000 }
+    },
+    {
+      "vendorId": "V024",
+      "vendorName": "Ravi Construction Materials",
+      "exception": { "kind": "auto_approve_below", "amount": 350000 }
+    }
+  ]
 }

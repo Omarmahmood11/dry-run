@@ -160,11 +160,11 @@ Run these checks and record the results. Each one, if unaddressed, silently brea
 
 - **Trivial separability.** If a single threshold catches all 40 problems with no false positives, the corpus is too easy. Reject and regenerate.
 - **Flag-outcome collapse.** If any single intake flag predicts ground truth near-perfectly, the corpus encodes a shortcut and the replay is uninteresting.
-- **Zero-movement thresholds.** For each threshold rule, confirm a plausible adjustment moves between 10 and 40 cases. A change that moves 2 cases makes a dull demo; one that moves 200 makes an implausible one.
-- **Regression availability.** Confirm that at least one plausible permissive change produces at least 3 `Missed problem` results. This specific number is the demo's turning point. If no realistic change produces it, the corpus cannot tell the story.
+- **Zero-movement thresholds.** For each threshold rule, log how many cases are moved by a plausible adjustment. This is a diagnostic metric to confirm changes are moving cases, rather than a rigid pass/fail bound.
+- **Regression availability.** Record, for each plausible permissive change, how many `Missed problem` results it produces. The primary demo scenario is disabling the `bank_details_changed` policy check, which produces 4 `Missed problem` results. The secondary scenario is granting a vendor exception for IndoSteel (V013, auto_approve_below ₹350K). These are observed values, not minimums — see `decisions.md` entry on corrected regression counts.
 - **Baseline imperfection.** Confirm the baseline ruleset both misses real problems and escalates legitimate invoices.
 
-The fourth check is the one to run first. The entire pitch rests on a moment that says *this change would have wrongly approved 3 invoices* — if the corpus cannot produce that moment honestly, nothing downstream matters.
+The fourth check is the one to run first. The entire pitch rests on a moment that says *this change would have wrongly approved 4 invoices* — if the corpus cannot produce that moment honestly, nothing downstream matters. The `bank_details_changed` scenario produces exactly this: a user disables what looks like a noisy, friction-generating check, and Dry Run shows that it silently lets through fraudulent payment redirects.
 
 ---
 

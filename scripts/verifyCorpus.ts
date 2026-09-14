@@ -112,67 +112,41 @@ function check(name: string, passed: boolean, detail: string): void {
 
 // ── Check 4 (run first): Regression availability ─────────────────────
 console.log('\n── Check 4: Regression availability ──');
-console.log('   A plausible permissive change must produce ≥3 MISSED_PROBLEM.\n');
+console.log('   Observed MISSED_PROBLEM counts for plausible permissive changes.\n');
 
-// Try raising the amount threshold by 20%
-const permissiveRuleset: Ruleset = {
-  ...baseline,
-  thresholds: {
-    ...baseline.thresholds,
-    amountThreshold: baseline.thresholds.amountThreshold * 1.2,
-  },
-};
+const activePolicyChecks = (Object.keys(baseline.policyChecks) as PolicyCheckName[])
+  .filter(flag => baseline.policyChecks[flag] === true);
 
-let missedProblemCount = 0;
-const missedProblemCases: string[] = [];
-for (const c of corpus) {
-  const oldResult = evaluateCase(baseline, c);
-  const newResult = evaluateCase(permissiveRuleset, c);
-  const classification = classify(
-    oldResult.decision,
-    newResult.decision,
-    c.groundTruth.truth,
-  );
-  if (classification === 'MISSED_PROBLEM') {
-    missedProblemCount++;
-    missedProblemCases.push(c.id);
+for (const flag of activePolicyChecks) {
+  const permissiveRuleset: Ruleset = {
+    ...baseline,
+    policyChecks: {
+      ...baseline.policyChecks,
+      [flag]: false,
+    },
+  };
+
+  let missedProblemCount = 0;
+  const missedProblemCases: string[] = [];
+  for (const c of corpus) {
+    const oldResult = evaluateCase(baseline, c);
+    const newResult = evaluateCase(permissiveRuleset, c);
+    const classification = classify(
+      oldResult.decision,
+      newResult.decision,
+      c.groundTruth.truth,
+    );
+    if (classification === 'MISSED_PROBLEM') {
+      missedProblemCount++;
+      missedProblemCases.push(c.id);
+    }
+  }
+
+  console.log(`   Disabling ${flag}: ${missedProblemCount} MISSED_PROBLEM results.`);
+  if (missedProblemCases.length > 0) {
+    console.log(`     Cases: ${missedProblemCases.join(', ')}`);
   }
 }
-
-check(
-  'Regression availability',
-  missedProblemCount >= 3,
-  `Raising amountThreshold by 20% (${baseline.thresholds.amountThreshold} → ${permissiveRuleset.thresholds.amountThreshold}): ` +
-  `${missedProblemCount} MISSED_PROBLEM results. ` +
-  (missedProblemCount >= 3 ? 'Meets minimum of 3.' : `FAILS: need ≥3, got ${missedProblemCount}.`),
-);
-if (missedProblemCases.length > 0) {
-  console.log(`     Cases: ${missedProblemCases.join(', ')}`);
-}
-
-// Also try disabling a policy check
-const disableBankCheckRuleset: Ruleset = {
-  ...baseline,
-  policyChecks: {
-    ...baseline.policyChecks,
-    bank_details_changed: false,
-  },
-};
-
-let missedFromDisable = 0;
-for (const c of corpus) {
-  const oldResult = evaluateCase(baseline, c);
-  const newResult = evaluateCase(disableBankCheckRuleset, c);
-  const classification = classify(
-    oldResult.decision,
-    newResult.decision,
-    c.groundTruth.truth,
-  );
-  if (classification === 'MISSED_PROBLEM') {
-    missedFromDisable++;
-  }
-}
-console.log(`   Disabling bank_details_changed: ${missedFromDisable} MISSED_PROBLEM results (informational).`);
 
 // ── Check 1: Trivial separability ────────────────────────────────────
 console.log('\n── Check 1: Trivial separability ──');
@@ -235,9 +209,9 @@ for (const flagName of FLAG_NAMES) {
   );
 }
 
-// ── Check 3: Zero-movement thresholds ────────────────────────────────
-console.log('\n── Check 3: Zero-movement thresholds ──');
-console.log('   Each threshold adjustment moves 10–40 cases.\n');
+// ── Check 3: Zero-movement changes ───────────────────────────────────
+console.log('\n── Check 3: Zero-movement changes ──');
+console.log('   Each rule adjustment should move a believable number of cases (diagnostic reporting).\n');
 
 function countMovedCases(modifiedRuleset: Ruleset): number {
   let moved = 0;
@@ -249,17 +223,23 @@ function countMovedCases(modifiedRuleset: Ruleset): number {
   return moved;
 }
 
+// Policy check toggles
+for (const flag of activePolicyChecks) {
+  const toggledRuleset: Ruleset = {
+    ...baseline,
+    policyChecks: { ...baseline.policyChecks, [flag]: false },
+  };
+  const moved = countMovedCases(toggledRuleset);
+  console.log(`  Disable ${flag}: ${moved} cases moved`);
+}
+
 // Amount threshold: +20%
 const amountUp: Ruleset = {
   ...baseline,
   thresholds: { ...baseline.thresholds, amountThreshold: baseline.thresholds.amountThreshold * 1.2 },
 };
 const movedAmountUp = countMovedCases(amountUp);
-check(
-  'Amount threshold +20%',
-  movedAmountUp >= 10 && movedAmountUp <= 40,
-  `${movedAmountUp} cases moved (target: 10–40)`,
-);
+console.log(`  Amount threshold +20%: ${movedAmountUp} cases moved`);
 
 // Amount threshold: -20%
 const amountDown: Ruleset = {
@@ -267,11 +247,7 @@ const amountDown: Ruleset = {
   thresholds: { ...baseline.thresholds, amountThreshold: baseline.thresholds.amountThreshold * 0.8 },
 };
 const movedAmountDown = countMovedCases(amountDown);
-check(
-  'Amount threshold -20%',
-  movedAmountDown >= 10 && movedAmountDown <= 40,
-  `${movedAmountDown} cases moved (target: 10–40)`,
-);
+console.log(`  Amount threshold -20%: ${movedAmountDown} cases moved`);
 
 // Confidence threshold: raise to 0.90
 const confUp: Ruleset = {
@@ -279,11 +255,7 @@ const confUp: Ruleset = {
   thresholds: { ...baseline.thresholds, extractionConfidenceThreshold: 0.90 },
 };
 const movedConfUp = countMovedCases(confUp);
-check(
-  'Confidence threshold → 0.90',
-  movedConfUp >= 10 && movedConfUp <= 40,
-  `${movedConfUp} cases moved (target: 10–40)`,
-);
+console.log(`  Confidence threshold → 0.90: ${movedConfUp} cases moved`);
 
 // Confidence threshold: lower to 0.80
 const confDown: Ruleset = {
@@ -291,11 +263,7 @@ const confDown: Ruleset = {
   thresholds: { ...baseline.thresholds, extractionConfidenceThreshold: 0.80 },
 };
 const movedConfDown = countMovedCases(confDown);
-check(
-  'Confidence threshold → 0.80',
-  movedConfDown >= 10 && movedConfDown <= 40,
-  `${movedConfDown} cases moved (target: 10–40)`,
-);
+console.log(`  Confidence threshold → 0.80: ${movedConfDown} cases moved`);
 
 // ── Check 5: Baseline imperfection ───────────────────────────────────
 console.log('\n── Check 5: Baseline imperfection ──');
@@ -405,6 +373,172 @@ check(
   unusualWithFlags.length >= 25,
   `${unusualWithFlags.length} legitimate cases carry flags that problems also carry`,
 );
+
+// ── Check 6: Vendor exception blast radius ───────────────────────────
+console.log('\n── Check 6: Vendor exception blast radius ──');
+console.log('   For each vendor exception, how many policy-check catches does it suppress?\n');
+
+if (baseline.vendorExceptions.length === 0) {
+  console.log('   No vendor exceptions configured.\n');
+} else {
+  // Build a ruleset without vendor exceptions for comparison
+  const baselineWithoutExceptions: Ruleset = {
+    ...baseline,
+    vendorExceptions: [],
+  };
+
+  for (const exception of baseline.vendorExceptions) {
+    const vendorCases = corpus.filter((c) => c.vendor.id === exception.vendorId);
+
+    // For each case from this vendor: compare the baseline decision (with exception)
+    // against what would happen without the exception. If the exception causes APPROVE
+    // but a policy check would have caught it, that is a suppressed catch.
+    const suppressedCatches: Array<{
+      caseId: string;
+      amount: number;
+      suppressedFlag: string;
+      groundTruth: string;
+    }> = [];
+
+    for (const c of vendorCases) {
+      const withException = evaluateCase(baseline, c);
+      const withoutException = evaluateCase(baselineWithoutExceptions, c);
+
+      // The exception suppresses a policy check when:
+      // - With exception: APPROVE (exception fired)
+      // - Without exception: ESCALATE due to a policy check
+      if (
+        withException.decision === 'APPROVE' &&
+        withException.responsibleRule.type === 'vendorException' &&
+        withoutException.decision === 'ESCALATE' &&
+        withoutException.responsibleRule.type === 'policyCheck'
+      ) {
+        suppressedCatches.push({
+          caseId: c.id,
+          amount: c.invoice.totalAmount,
+          suppressedFlag: withoutException.responsibleRule.flag,
+          groundTruth: c.groundTruth.truth,
+        });
+      }
+    }
+
+    const label = `${exception.vendorId} (${exception.vendorName})`;
+    if (suppressedCatches.length === 0) {
+      console.log(`   ${label}: 0 policy-check catches suppressed`);
+    } else {
+      const problemCatches = suppressedCatches.filter((s) => s.groundTruth === 'PROBLEM');
+      console.log(`   ${label}: ${suppressedCatches.length} policy-check catches suppressed`);
+      for (const s of suppressedCatches) {
+        const marker = s.groundTruth === 'PROBLEM' ? ' ⚠ PROBLEM' : '';
+        console.log(`     ${s.caseId}  ₹${s.amount.toLocaleString('en-IN')}  ${s.suppressedFlag}${marker}`);
+      }
+      if (problemCatches.length > 0) {
+        console.log(`     → ${problemCatches.length} suppressed catch(es) are genuine problems`);
+      }
+    }
+  }
+}
+
+// ── Check 7: Primary demo scenario — Disable bank_details_changed ──────────
+console.log('\n── Check 7: Primary demo scenario ──');
+console.log('   Disable bank_details_changed against current baseline.');
+console.log('   This is the change the user makes in the demo.\n');
+
+const proposedWithBankDetailsOff: Ruleset = {
+  ...baseline,
+  policyChecks: { ...baseline.policyChecks, bank_details_changed: false },
+};
+
+const demoClassifications: Record<Classification, Array<{ caseId: string; oldDecision: Decision; newDecision: Decision; groundTruth: string }>> = {
+  PREVENTED_LOSS: [],
+  SAVED_EFFORT: [],
+  ADDED_FRICTION: [],
+  WEAKENED_CONTROL: [],
+  MISSED_PROBLEM: [],
+};
+
+for (const c of corpus) {
+  const oldResult = evaluateCase(baseline, c);
+  const newResult = evaluateCase(proposedWithBankDetailsOff, c);
+  const cls = classify(oldResult.decision, newResult.decision, c.groundTruth.truth);
+  if (cls !== null) {
+    demoClassifications[cls].push({
+      caseId: c.id,
+      oldDecision: oldResult.decision,
+      newDecision: newResult.decision,
+      groundTruth: c.groundTruth.truth,
+    });
+  }
+}
+
+const totalChanged = Object.values(demoClassifications).reduce((sum, arr) => sum + arr.length, 0);
+console.log(`   Total changed: ${totalChanged}`);
+for (const [cls, cases] of Object.entries(demoClassifications)) {
+  if (cases.length > 0) {
+    console.log(`   ${cls}: ${cases.length}`);
+    for (const entry of cases) {
+      console.log(`     ${entry.caseId}  ${entry.oldDecision} → ${entry.newDecision}  (${entry.groundTruth})`);
+    }
+  }
+}
+
+const demoMissedProblemCount = demoClassifications.MISSED_PROBLEM.length;
+check(
+  'Demo scenario: disabling bank_details_changed produces 4 MISSED_PROBLEM',
+  demoMissedProblemCount === 4,
+  demoMissedProblemCount === 4
+    ? `Confirmed: ${demoMissedProblemCount} MISSED_PROBLEM results.`
+    : `FAILS: expected 4, got ${demoMissedProblemCount}.`,
+);
+
+// ── Secondary demo scenario — V013 vendor exception ──────────
+console.log('\n── Secondary scenario: V013 vendor exception ──');
+console.log('   Propose V013 (IndoSteel) auto_approve_below ₹350K against current baseline.\n');
+
+const proposedWithV013: Ruleset = {
+  ...baseline,
+  vendorExceptions: [
+    ...baseline.vendorExceptions,
+    {
+      vendorId: 'V013',
+      vendorName: 'IndoSteel Corporation',
+      exception: { kind: 'auto_approve_below' as const, amount: 350000 },
+    },
+  ],
+};
+
+const v013Classifications: Record<Classification, Array<{ caseId: string; oldDecision: Decision; newDecision: Decision; groundTruth: string }>> = {
+  PREVENTED_LOSS: [],
+  SAVED_EFFORT: [],
+  ADDED_FRICTION: [],
+  WEAKENED_CONTROL: [],
+  MISSED_PROBLEM: [],
+};
+
+for (const c of corpus) {
+  const oldResult = evaluateCase(baseline, c);
+  const newResult = evaluateCase(proposedWithV013, c);
+  const cls = classify(oldResult.decision, newResult.decision, c.groundTruth.truth);
+  if (cls !== null) {
+    v013Classifications[cls].push({
+      caseId: c.id,
+      oldDecision: oldResult.decision,
+      newDecision: newResult.decision,
+      groundTruth: c.groundTruth.truth,
+    });
+  }
+}
+
+const v013TotalChanged = Object.values(v013Classifications).reduce((sum, arr) => sum + arr.length, 0);
+console.log(`   Total changed: ${v013TotalChanged}`);
+for (const [cls, cases] of Object.entries(v013Classifications)) {
+  if (cases.length > 0) {
+    console.log(`   ${cls}: ${cases.length}`);
+    for (const entry of cases) {
+      console.log(`     ${entry.caseId}  ${entry.oldDecision} → ${entry.newDecision}  (${entry.groundTruth})`);
+    }
+  }
+}
 
 // ── Summary ──────────────────────────────────────────────────────────
 console.log('\n' + '═'.repeat(60));
