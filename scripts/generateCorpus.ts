@@ -1154,8 +1154,7 @@ function generateCorpus(): Case[] {
     const lis = generateLineItems(rng, vendor.category, targetSub);
     // Ensure first item has enough quantity to express inflation
     if (lis[0] && lis[0].quantity <= 2) {
-      lis[0].quantity = 4;
-      lis[0].lineTotal = lis[0].quantity * lis[0].unitPrice;
+      lis[0] = { ...lis[0], quantity: 4, lineTotal: 4 * lis[0].unitPrice };
     }
     const sub = lis.reduce((s, li) => s + li.lineTotal, 0);
     const tax = Math.round(sub * TAX_RATE);
@@ -1275,7 +1274,7 @@ function generateCorpus(): Case[] {
   // ── Step 5: Assign Problem Resolution Notes ────────────────────────
   for (const c of shuffledCases) {
     if (c.groundTruth.truth === 'PROBLEM') {
-      c.groundTruth.resolutionNote = getProblemNote(rng, c.groundTruth.problemType, c);
+      c.groundTruth.resolutionNote = getProblemNote(rng, c.groundTruth.problemType!, c);
     }
   }
 
