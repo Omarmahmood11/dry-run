@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import type { Case, GroundTruth } from '@/lib/types';
+import type { Case, GroundTruth, EvaluationResult } from '@/lib/types';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -52,7 +52,7 @@ function sortIndicator(current: AmountSort): string {
 // ---------------------------------------------------------------------------
 
 interface CaseTableProps {
-  readonly cases: readonly Case[];
+  readonly cases: readonly (Case & { computedResult: EvaluationResult })[];
 }
 
 export default function CaseTable({ cases }: CaseTableProps) {
@@ -128,7 +128,8 @@ export default function CaseTable({ cases }: CaseTableProps) {
                 Amount{sortIndicator(amountSort)}
               </th>
               <th className="px-4 py-3">Intake Flags</th>
-              <th className="px-4 py-3">Decision</th>
+              <th className="px-4 py-3">Recorded Decision</th>
+              <th className="px-4 py-3">Computed Decision</th>
               <th className="px-4 py-3">Ground Truth</th>
             </tr>
           </thead>
@@ -180,6 +181,19 @@ export default function CaseTable({ cases }: CaseTableProps) {
                     }`}
                   >
                     {c.recordedDecision.decision}
+                  </span>
+                </td>
+                <td className="whitespace-nowrap px-4 py-2.5">
+                  <span
+                    className={`inline-block rounded px-2 py-0.5 text-xs font-medium ${
+                      c.computedResult.decision === 'APPROVE'
+                        ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400'
+                        : c.computedResult.decision === 'ESCALATE'
+                          ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400'
+                          : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'
+                    }`}
+                  >
+                    {c.computedResult.decision}
                   </span>
                 </td>
                 <td className="whitespace-nowrap px-4 py-2.5">

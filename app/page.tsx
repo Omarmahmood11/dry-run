@@ -1,7 +1,16 @@
 import { corpus } from '@/lib/corpus';
 import CaseTable from '@/app/components/CaseTable';
+import baselineRuleset from '@/data/baselineRuleset.json';
+import { evaluateCase } from '@/lib/ruleEngine';
+import type { Case, Ruleset } from '@/lib/types';
 
 export default function Home() {
+  const ruleset = baselineRuleset as unknown as Ruleset;
+  const casesWithComputed = corpus.map((c) => ({
+    ...(c as unknown as Case),
+    computedResult: evaluateCase(ruleset, c as unknown as Case),
+  }));
+
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-8">
       <header className="mb-6">
@@ -12,7 +21,8 @@ export default function Home() {
           Case corpus — {corpus.length} historical invoice decisions
         </p>
       </header>
-      <CaseTable cases={corpus as unknown as import('@/lib/types').Case[]} />
+      <CaseTable cases={casesWithComputed} />
     </div>
   );
 }
+
