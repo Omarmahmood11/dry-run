@@ -353,21 +353,9 @@ function generateLineItems(
 }
 
 function convertToForeignCurrency(c: MutableCase, currency: 'USD' | 'EUR' | 'GBP'): void {
-  const rates = { USD: 83.5, EUR: 90.2, GBP: 105.4 };
-  const rate = rates[currency];
-  
+  // Base currency is INR throughout. currency_mismatch means the invoice was
+  // denominated differently but the amounts stored in the system are the INR equivalent.
   c.invoice.currency = currency;
-  c.invoice.lineItems = c.invoice.lineItems.map(li => {
-    const unitPrice = roundToTwo(li.unitPrice / rate);
-    const lineTotal = roundToTwo(unitPrice * li.quantity);
-    return { ...li, unitPrice, lineTotal };
-  });
-  
-  c.invoice.subtotal = c.invoice.lineItems.reduce((sum, li) => sum + li.lineTotal, 0);
-  c.invoice.taxAmount = roundToTwo(c.invoice.subtotal * TAX_RATE);
-  c.invoice.totalAmount = roundToTwo(c.invoice.subtotal + c.invoice.taxAmount);
-  
-  c._poExpectedPrices = c._poExpectedPrices.map(p => roundToTwo(p / rate));
 }
 
 function generatePoReference(rng: Rng, caseIndex: number): string {
@@ -443,6 +431,7 @@ interface MutableCase {
   _poExpectedPrices: number[]; // PO expected unit prices per line item
   _poExpectedQuantities: number[]; // PO expected quantities per line item
   _duplicateSource?: MutableCase;
+  _sequenceId: number; // For stable chronological sorting of duplicates
 }
 
 // ============================================================
@@ -516,6 +505,7 @@ function createBaseCase(
     _isNonObvious: false,
     _poExpectedPrices: lineItems.map((item) => item.unitPrice),
     _poExpectedQuantities: lineItems.map((item) => item.quantity),
+    _sequenceId: index,
   };
 }
 
@@ -731,7 +721,7 @@ function generateCorpus(): Case[] {
   // Each paired with a clean case — same vendor, amount, date
   for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + i; // 280-283
-    const sourceIndex = i; // clean cases 0-3
+    const sourceIndex = 4 + i; // clean cases 4-7
     const sourceCase = cases[sourceIndex]!;
     const c = createUnusualCase(caseIndex, REAL_VENDORS[sourceIndex % REAL_VENDORS.length]!, 'duplicate_hash_match');
     // Copy vendor, amount, and date to create a matching hash
@@ -985,7 +975,7 @@ function generateCorpus(): Case[] {
   // 360-363: duplicate_submission, obvious (4) — duplicate_hash_match = true
   for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + i;
-    const sourceIndex = i; // clean cases 0-3 as sources
+    const sourceIndex = 8 + i; // clean cases 8-11 as sources
     const sourceCase = cases[sourceIndex]!;
     const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? rng.pick(REAL_VENDORS);
     const c = createProblemCase(caseIndex, vendorTemplate, 'duplicate_submission', false);
@@ -1009,7 +999,7 @@ function generateCorpus(): Case[] {
   // 364-367: duplicate_submission, non-obvious (4) — dates differ so no hash match
   for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 4 + i;
-    const sourceIndex = 4 + i; // clean cases 4-7
+    const sourceIndex = 12 + i; // clean cases 12-15
     const sourceCase = cases[sourceIndex]!;
     const vendorTemplate = REAL_VENDORS.find(v => v.id === sourceCase.vendor.id) ?? rng.pick(REAL_VENDORS);
     const c = createProblemCase(caseIndex, vendorTemplate, 'duplicate_submission', true);
@@ -1044,7 +1034,7 @@ function generateCorpus(): Case[] {
   // 368-371: fraudulent_bank_details, obvious (4) — bank_details_changed = true
   for (let i = 0; i < 4; i++) {
     const caseIndex = CLEAN_COUNT + UNUSUAL_COUNT + 8 + i;
-    const validVendors = REAL_VENDORS.filter(v => v.typicalMax >= 40000);
+    const validVendors = REAL_VENDORS.filter(v => v.typicalMax >= 40000 && !['V004', 'V006', 'V024'].includes(v.id));
     const vendor = rng.pick(validVendors);
     // Enforce fraud floor natively
     const vendorForCase = { ...vendor, typicalMin: Math.max(40000, vendor.typicalMin) };
@@ -1302,9 +1292,7 @@ function generateCorpus(): Case[] {
 // ============================================================
 
 function computeFlags(cases: MutableCase[]): void {
-  // Build vendor bank history for bank_details_changed detection
-  // Track (vendorId → last seen bank details) in submission-date order
-  const vendorBankHistory = new Map<string, { accountNumber: string; ifscCode: string }>();
+  // removed seenVendors
 
   // Build hash set for duplicate_hash_match detection
   // Key: "vendorId|totalAmount|date"
@@ -1318,7 +1306,7 @@ function computeFlags(cases: MutableCase[]): void {
       const dateB = cases[b]!.submissionDate;
       if (dateA < dateB) return -1;
       if (dateA > dateB) return 1;
-      return a - b; // stable sort by index
+      return cases[a]!._sequenceId - cases[b]!._sequenceId; // stable sort by creation order
     });
 
   for (const idx of sortedIndices) {
@@ -1332,17 +1320,17 @@ function computeFlags(cases: MutableCase[]): void {
     }
     invoiceHashes.add(hashKey);
 
-    // bank_details_changed: payment details differ from vendor's last invoice
-    const lastBank = vendorBankHistory.get(c.vendor.id);
-    if (lastBank !== undefined) {
-      if (
-        lastBank.accountNumber !== c.invoice.paymentBankDetails.accountNumber ||
-        lastBank.ifscCode !== c.invoice.paymentBankDetails.ifscCode
-      ) {
+    // bank_details_changed: payment details differ from vendor's default
+    const vendorTemplate = ALL_VENDORS.find(v => v.id === c.vendor.id);
+    if (vendorTemplate) {
+      const isAltered = 
+        vendorTemplate.defaultAccountNumber !== c.invoice.paymentBankDetails.accountNumber ||
+        vendorTemplate.defaultIfscCode !== c.invoice.paymentBankDetails.ifscCode;
+      
+      if (isAltered) {
         flags.bank_details_changed = true;
       }
     }
-    vendorBankHistory.set(c.vendor.id, { ...c.invoice.paymentBankDetails });
 
     // new_vendor: relationship under 30 days
     flags.new_vendor = c.vendor.relationshipAgeDays < 30;
@@ -1417,9 +1405,9 @@ function assignConfidence(rng: Rng, cases: MutableCase[]): void {
         c.extractionConfidence = roundToTwo(rng.nextFloat(0.78, 0.95));
         break;
       case 'problem':
-        if (c._isNonObvious) {
-          // Non-obvious problems should have high confidence (to pass threshold)
-          c.extractionConfidence = roundToTwo(rng.nextFloat(0.88, 0.96));
+        if (c._isNonObvious || c.groundTruth.problemType === 'fraudulent_bank_details') {
+          // Non-obvious problems (and demo target cases) must pass threshold
+          c.extractionConfidence = roundToTwo(rng.nextFloat(0.90, 0.96));
         } else {
           // Obvious problems: varied confidence
           c.extractionConfidence = roundToTwo(rng.nextFloat(0.80, 0.95));

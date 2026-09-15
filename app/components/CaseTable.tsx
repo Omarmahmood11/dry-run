@@ -22,7 +22,7 @@ function activeFlags(c: Case): string[] {
   if (c.intakeFlags.po_missing) flags.push('po_missing');
   if (c.intakeFlags.po_quantity_mismatch) flags.push('qty_mismatch');
   if (c.intakeFlags.po_price_variance > 0)
-    flags.push(`price_var(${(c.intakeFlags.po_price_variance * 100).toFixed(0)}%)`);
+    flags.push(`price_var(${c.intakeFlags.po_price_variance.toFixed(0)}%)`);
   if (c.intakeFlags.tax_miscalculation) flags.push('tax_miscalc');
   if (c.intakeFlags.currency_mismatch) flags.push('currency');
   if (c.intakeFlags.vendor_unverified) flags.push('unverified');

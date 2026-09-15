@@ -35,7 +35,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": true,
       "amount_anomaly": false,
       "po_missing": false,
@@ -54,7 +54,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "New supplier replacing discontinued vendor; approved by sourcing team"
-    }
+    },
+    "_sequenceId": 325
   },
   {
     "id": "INV-2026-0002",
@@ -122,7 +123,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 113
   },
   {
     "id": "INV-2026-0003",
@@ -184,7 +186,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 29
   },
   {
     "id": "INV-2026-0004",
@@ -252,7 +255,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 48
   },
   {
     "id": "INV-2026-0005",
@@ -309,7 +313,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 18
   },
   {
     "id": "INV-2026-0006",
@@ -365,7 +370,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 70
   },
   {
     "id": "INV-2026-0007",
@@ -428,7 +434,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "One-time capital equipment purchase; approved via separate capex process"
-    }
+    },
+    "_sequenceId": 313
   },
   {
     "id": "INV-2026-0008",
@@ -484,7 +491,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 128
   },
   {
     "id": "INV-2026-0009",
@@ -552,7 +560,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 191
   },
   {
     "id": "INV-2026-0010",
@@ -569,17 +578,17 @@
       }
     },
     "invoice": {
-      "totalAmount": 404.79,
-      "subtotal": 343.04,
+      "totalAmount": 36514,
+      "subtotal": 30944,
       "taxRate": 0.18,
-      "taxAmount": 61.75,
+      "taxAmount": 5570,
       "currency": "EUR",
       "lineItems": [
         {
           "description": "Safety Equipment - PPE Kit",
           "quantity": 16,
-          "unitPrice": 21.44,
-          "lineTotal": 343.04
+          "unitPrice": 1934,
+          "lineTotal": 30944
         }
       ],
       "purchaseOrderReference": "PO-2026-01335",
@@ -609,7 +618,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Software license from overseas vendor; standard practice for this category"
-    }
+    },
+    "_sequenceId": 335
   },
   {
     "id": "INV-2026-0011",
@@ -666,7 +676,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 112
   },
   {
     "id": "INV-2026-0012",
@@ -722,7 +733,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 53
   },
   {
     "id": "INV-2026-0013",
@@ -790,7 +802,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 81
   },
   {
     "id": "INV-2026-0014",
@@ -846,7 +859,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 84
   },
   {
     "id": "INV-2026-0015",
@@ -902,7 +916,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 277
   },
   {
     "id": "INV-2026-0016",
@@ -958,7 +973,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 177
   },
   {
     "id": "INV-2026-0017",
@@ -1033,7 +1049,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Annual contract renewal; higher than typical monthly invoices but within annual budget"
-    }
+    },
+    "_sequenceId": 352
   },
   {
     "id": "INV-2026-0018",
@@ -1107,7 +1124,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 94
   },
   {
     "id": "INV-2026-0019",
@@ -1163,7 +1181,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 92
   },
   {
     "id": "INV-2026-0020",
@@ -1225,7 +1244,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 165
   },
   {
     "id": "INV-2026-0021",
@@ -1287,7 +1307,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 142
   },
   {
     "id": "INV-2026-0022",
@@ -1347,7 +1368,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.89,
+    "extractionConfidence": 0.9,
     "recordedDecision": {
       "decision": "ESCALATE",
       "rulesetVersion": 1,
@@ -1357,7 +1378,8 @@
       "truth": "PROBLEM",
       "problemType": "quantity_inflation",
       "resolutionNote": "Goods receipt for \"Monthly Cloud Hosting - Standard Plan\" records 2 units delivered; invoice bills 5"
-    }
+    },
+    "_sequenceId": 383
   },
   {
     "id": "INV-2026-0023",
@@ -1432,7 +1454,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "One-time capital equipment purchase; approved via separate capex process"
-    }
+    },
+    "_sequenceId": 353
   },
   {
     "id": "INV-2026-0024",
@@ -1500,62 +1523,63 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 238
   },
   {
     "id": "INV-2026-0025",
-    "submissionDate": "2026-01-03",
-    "source": "portal",
+    "submissionDate": "2026-01-04",
+    "source": "edi",
     "vendor": {
-      "name": "AeroTech Components Ltd",
-      "id": "V004",
-      "relationshipAgeDays": 1029,
-      "historicalInvoiceCount": 22,
+      "name": "Priya Electronics Ltd",
+      "id": "V008",
+      "relationshipAgeDays": 552,
+      "historicalInvoiceCount": 170,
       "typicalAmountRange": {
-        "min": 10000,
-        "max": 200000
+        "min": 8000,
+        "max": 90000
       }
     },
     "invoice": {
-      "totalAmount": 107144,
-      "subtotal": 167823,
+      "totalAmount": 26890,
+      "subtotal": 69197,
       "taxRate": 0.18,
-      "taxAmount": 30208,
+      "taxAmount": 12455,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "CNC Machining Components",
+          "description": "UPS Battery Replacement",
           "quantity": 1,
-          "unitPrice": 57052,
-          "lineTotal": 57052
+          "unitPrice": 7984,
+          "lineTotal": 7984
         },
         {
-          "description": "Steel Plate - Grade 304 - 10 Sheets",
+          "description": "CCTV Camera System - 8 Channel",
           "quantity": 1,
-          "unitPrice": 38378,
-          "lineTotal": 38378
+          "unitPrice": 23973,
+          "lineTotal": 23973
         },
         {
-          "description": "Hydraulic Cylinders - Set of 4",
+          "description": "Network Switches - 24 Port",
           "quantity": 1,
-          "unitPrice": 49143,
-          "lineTotal": 49143
+          "unitPrice": 11661,
+          "lineTotal": 11661
         },
         {
-          "description": "Industrial Fasteners - Assorted Box",
-          "quantity": 3,
-          "unitPrice": 7750,
-          "lineTotal": 23250
+          "description": "LED Display Panels - 55 inch",
+          "quantity": 1,
+          "unitPrice": 25579,
+          "lineTotal": 25579
         }
       ],
       "purchaseOrderReference": "PO-2026-01283",
       "paymentBankDetails": {
-        "accountNumber": "4001234567",
-        "ifscCode": "UTIB0004567"
+        "accountNumber": "8001234567",
+        "ifscCode": "CNRB0008901"
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": false,
+      "duplicate_hash_match": true,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -1568,13 +1592,14 @@
     },
     "extractionConfidence": 0.9,
     "recordedDecision": {
-      "decision": "APPROVE",
+      "decision": "BLOCK",
       "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Re-submission after documentation correction; original invoice was rejected for missing PO reference"
-    }
+      "resolutionNote": "Vendor resubmitted after correcting bank details on the original; legitimate second filing"
+    },
+    "_sequenceId": 283
   },
   {
     "id": "INV-2026-0026",
@@ -1631,62 +1656,57 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 64
   },
   {
     "id": "INV-2026-0027",
-    "submissionDate": "2026-01-02",
-    "source": "email",
+    "submissionDate": "2026-01-04",
+    "source": "edi",
     "vendor": {
-      "name": "Vertex Solutions Pvt Ltd",
-      "id": "V001",
-      "relationshipAgeDays": 826,
-      "historicalInvoiceCount": 152,
+      "name": "Sunrise Logistics Pvt Ltd",
+      "id": "V009",
+      "relationshipAgeDays": 1464,
+      "historicalInvoiceCount": 88,
       "typicalAmountRange": {
-        "min": 20000,
-        "max": 150000
+        "min": 5000,
+        "max": 60000
       }
     },
     "invoice": {
-      "totalAmount": 144049,
-      "subtotal": 122075,
+      "totalAmount": 65312,
+      "subtotal": 55349,
       "taxRate": 0.18,
-      "taxAmount": 21974,
+      "taxAmount": 9963,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Cybersecurity Assessment",
-          "quantity": 1,
-          "unitPrice": 25799,
-          "lineTotal": 25799
+          "description": "Packaging and Dispatch",
+          "quantity": 5,
+          "unitPrice": 3318,
+          "lineTotal": 16590
         },
         {
-          "description": "Data Backup and Recovery Service",
-          "quantity": 4,
-          "unitPrice": 8164,
-          "lineTotal": 32656
+          "description": "Courier Services - Bulk",
+          "quantity": 3,
+          "unitPrice": 5121,
+          "lineTotal": 15363
         },
         {
-          "description": "Server Migration Services",
-          "quantity": 1,
-          "unitPrice": 35388,
-          "lineTotal": 35388
-        },
-        {
-          "description": "IT Support Services - Quarterly",
-          "quantity": 1,
-          "unitPrice": 28232,
-          "lineTotal": 28232
+          "description": "Cold Chain Transport",
+          "quantity": 2,
+          "unitPrice": 11698,
+          "lineTotal": 23396
         }
       ],
       "purchaseOrderReference": "PO-2026-01360",
       "paymentBankDetails": {
-        "accountNumber": "1001234567",
-        "ifscCode": "SBIN0001234"
+        "accountNumber": "9001234567",
+        "ifscCode": "SBIN0009012"
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": false,
+      "duplicate_hash_match": true,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -1699,68 +1719,63 @@
     },
     "extractionConfidence": 0.95,
     "recordedDecision": {
-      "decision": "APPROVE",
+      "decision": "BLOCK",
       "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate of invoice from 2026-01-02; same vendor (Vertex Solutions Pvt Ltd), same amount (₹1,44,049)"
+      "resolutionNote": "Duplicate of invoice from 2026-01-04; same vendor (Sunrise Logistics Pvt Ltd), same amount (₹65,312)"
     },
+    "_sequenceId": 360,
     "_duplicateSource": {
-      "id": "INV-2026-0309",
-      "submissionDate": "2026-01-02",
-      "source": "edi",
+      "id": "INV-2026-0112",
+      "submissionDate": "2026-01-04",
+      "source": "portal",
       "vendor": {
-        "name": "Vertex Solutions Pvt Ltd",
-        "id": "V001",
-        "relationshipAgeDays": 826,
-        "historicalInvoiceCount": 152,
+        "name": "Sunrise Logistics Pvt Ltd",
+        "id": "V009",
+        "relationshipAgeDays": 1464,
+        "historicalInvoiceCount": 88,
         "typicalAmountRange": {
-          "min": 20000,
-          "max": 150000
+          "min": 5000,
+          "max": 60000
         }
       },
       "invoice": {
-        "totalAmount": 144049,
-        "subtotal": 122075,
+        "totalAmount": 65312,
+        "subtotal": 55349,
         "taxRate": 0.18,
-        "taxAmount": 21974,
+        "taxAmount": 9963,
         "currency": "INR",
         "lineItems": [
           {
-            "description": "Cybersecurity Assessment",
-            "quantity": 1,
-            "unitPrice": 25799,
-            "lineTotal": 25799
+            "description": "Packaging and Dispatch",
+            "quantity": 5,
+            "unitPrice": 3318,
+            "lineTotal": 16590
           },
           {
-            "description": "Data Backup and Recovery Service",
-            "quantity": 4,
-            "unitPrice": 8164,
-            "lineTotal": 32656
+            "description": "Courier Services - Bulk",
+            "quantity": 3,
+            "unitPrice": 5121,
+            "lineTotal": 15363
           },
           {
-            "description": "Server Migration Services",
-            "quantity": 1,
-            "unitPrice": 35388,
-            "lineTotal": 35388
-          },
-          {
-            "description": "IT Support Services - Quarterly",
-            "quantity": 1,
-            "unitPrice": 28232,
-            "lineTotal": 28232
+            "description": "Cold Chain Transport",
+            "quantity": 2,
+            "unitPrice": 11698,
+            "lineTotal": 23396
           }
         ],
-        "purchaseOrderReference": "PO-2026-01000",
+        "purchaseOrderReference": "PO-2026-01008",
         "paymentBankDetails": {
-          "accountNumber": "1001234567",
-          "ifscCode": "SBIN0001234"
+          "accountNumber": "9001234567",
+          "ifscCode": "SBIN0009012"
         }
       },
       "intakeFlags": {
-        "duplicate_hash_match": true,
+        "duplicate_hash_match": false,
         "bank_details_changed": false,
         "new_vendor": false,
         "amount_anomaly": false,
@@ -1771,29 +1786,28 @@
         "currency_mismatch": false,
         "vendor_unverified": false
       },
-      "extractionConfidence": 0.84,
+      "extractionConfidence": 0.97,
       "recordedDecision": {
-        "decision": "BLOCK",
+        "decision": "APPROVE",
         "rulesetVersion": 1
       },
       "groundTruth": {
         "truth": "LEGITIMATE",
-        "resolutionNote": "Routine invoice processed without incident"
+        "resolutionNote": "Monthly service fee, consistent with agreement"
       },
       "_segment": "clean",
       "_isNonObvious": false,
       "_poExpectedPrices": [
-        25799,
-        8164,
-        35388,
-        28232
+        3318,
+        5121,
+        11698
       ],
       "_poExpectedQuantities": [
-        1,
-        4,
-        1,
-        1
-      ]
+        5,
+        3,
+        2
+      ],
+      "_sequenceId": 8
     }
   },
   {
@@ -1868,7 +1882,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 268
   },
   {
     "id": "INV-2026-0029",
@@ -1930,7 +1945,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 278
   },
   {
     "id": "INV-2026-0030",
@@ -1992,7 +2008,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 146
   },
   {
     "id": "INV-2026-0031",
@@ -2066,7 +2083,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 197
   },
   {
     "id": "INV-2026-0032",
@@ -2128,7 +2146,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 45
   },
   {
     "id": "INV-2026-0033",
@@ -2202,7 +2221,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 27
   },
   {
     "id": "INV-2026-0034",
@@ -2258,7 +2278,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 195
   },
   {
     "id": "INV-2026-0035",
@@ -2275,35 +2296,35 @@
       }
     },
     "invoice": {
-      "totalAmount": 2075.58,
-      "subtotal": 1758.9699999999998,
+      "totalAmount": 173310,
+      "subtotal": 146873,
       "taxRate": 0.18,
-      "taxAmount": 316.61,
+      "taxAmount": 26437,
       "currency": "USD",
       "lineItems": [
         {
           "description": "Software License Renewal - Annual",
           "quantity": 1,
-          "unitPrice": 549.63,
-          "lineTotal": 549.63
+          "unitPrice": 45894,
+          "lineTotal": 45894
         },
         {
           "description": "Web Application Development",
           "quantity": 1,
-          "unitPrice": 555.9,
-          "lineTotal": 555.9
+          "unitPrice": 46418,
+          "lineTotal": 46418
         },
         {
           "description": "Server Migration Services",
           "quantity": 1,
-          "unitPrice": 388.06,
-          "lineTotal": 388.06
+          "unitPrice": 32403,
+          "lineTotal": 32403
         },
         {
           "description": "Data Backup and Recovery Service",
           "quantity": 3,
-          "unitPrice": 88.46,
-          "lineTotal": 265.38
+          "unitPrice": 7386,
+          "lineTotal": 22158
         }
       ],
       "purchaseOrderReference": "PO-2026-01333",
@@ -2333,7 +2354,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Cross-border service billed in EUR; approved under international procurement policy"
-    }
+    },
+    "_sequenceId": 333
   },
   {
     "id": "INV-2026-0036",
@@ -2390,7 +2412,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 240
   },
   {
     "id": "INV-2026-0037",
@@ -2465,7 +2488,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Raw material cost pass-through per contract terms; supporting documents attached"
-    }
+    },
+    "_sequenceId": 299
   },
   {
     "id": "INV-2026-0038",
@@ -2539,7 +2563,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 190
   },
   {
     "id": "INV-2026-0039",
@@ -2607,7 +2632,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 40
   },
   {
     "id": "INV-2026-0040",
@@ -2669,7 +2695,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 17
   },
   {
     "id": "INV-2026-0041",
@@ -2719,7 +2746,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": true,
       "po_missing": false,
@@ -2738,7 +2765,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Bulk order for Q1 inventory; pre-approved by department head"
-    }
+    },
+    "_sequenceId": 308
   },
   {
     "id": "INV-2026-0042",
@@ -2800,7 +2828,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 160
   },
   {
     "id": "INV-2026-0043",
@@ -2875,7 +2904,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 193
   },
   {
     "id": "INV-2026-0044",
@@ -2949,7 +2979,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 163
   },
   {
     "id": "INV-2026-0045",
@@ -3018,7 +3049,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 102
   },
   {
     "id": "INV-2026-0046",
@@ -3086,7 +3118,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "New supplier replacing discontinued vendor; approved by sourcing team"
-    }
+    },
+    "_sequenceId": 344
   },
   {
     "id": "INV-2026-0047",
@@ -3160,7 +3193,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 115
   },
   {
     "id": "INV-2026-0048",
@@ -3222,7 +3256,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 73
   },
   {
     "id": "INV-2026-0049",
@@ -3231,7 +3266,7 @@
     "vendor": {
       "name": "Akash IT Infra",
       "id": "V037",
-      "relationshipAgeDays": 247,
+      "relationshipAgeDays": 215,
       "historicalInvoiceCount": 0,
       "typicalAmountRange": {
         "min": 15000,
@@ -3239,35 +3274,17 @@
       }
     },
     "invoice": {
-      "totalAmount": 126412,
-      "subtotal": 107129,
+      "totalAmount": 75775,
+      "subtotal": 64216,
       "taxRate": 0.18,
-      "taxAmount": 19283,
+      "taxAmount": 11559,
       "currency": "INR",
       "lineItems": [
         {
           "description": "Monthly Cloud Hosting - Standard Plan",
-          "quantity": 1,
-          "unitPrice": 16414,
-          "lineTotal": 16414
-        },
-        {
-          "description": "Network Maintenance - Monthly",
-          "quantity": 1,
-          "unitPrice": 12489,
-          "lineTotal": 12489
-        },
-        {
-          "description": "Software License Renewal - Annual",
-          "quantity": 1,
-          "unitPrice": 48215,
-          "lineTotal": 48215
-        },
-        {
-          "description": "IT Support Services - Quarterly",
-          "quantity": 1,
-          "unitPrice": 30011,
-          "lineTotal": 30011
+          "quantity": 4,
+          "unitPrice": 16054,
+          "lineTotal": 64216
         }
       ],
       "purchaseOrderReference": "PO-2026-01373",
@@ -3288,7 +3305,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.88,
+    "extractionConfidence": 0.9,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -3297,7 +3314,8 @@
       "truth": "PROBLEM",
       "problemType": "fraudulent_bank_details",
       "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 4567"
-    }
+    },
+    "_sequenceId": 373
   },
   {
     "id": "INV-2026-0050",
@@ -3371,7 +3389,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 63
   },
   {
     "id": "INV-2026-0051",
@@ -3439,7 +3458,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 158
   },
   {
     "id": "INV-2026-0052",
@@ -3501,7 +3521,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 182
   },
   {
     "id": "INV-2026-0053",
@@ -3557,7 +3578,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 7
   },
   {
     "id": "INV-2026-0054",
@@ -3631,7 +3653,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 192
   },
   {
     "id": "INV-2026-0055",
@@ -3706,46 +3729,41 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 224
   },
   {
     "id": "INV-2026-0056",
     "submissionDate": "2026-03-05",
-    "source": "email",
+    "source": "edi",
     "vendor": {
       "name": "TechPro Solutions",
       "id": "V011",
-      "relationshipAgeDays": 1145,
-      "historicalInvoiceCount": 89,
+      "relationshipAgeDays": 483,
+      "historicalInvoiceCount": 147,
       "typicalAmountRange": {
         "min": 25000,
         "max": 180000
       }
     },
     "invoice": {
-      "totalAmount": 210418,
-      "subtotal": 178320,
+      "totalAmount": 116247,
+      "subtotal": 98514,
       "taxRate": 0.18,
-      "taxAmount": 32098,
+      "taxAmount": 17733,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Monthly Cloud Hosting - Standard Plan",
-          "quantity": 6,
-          "unitPrice": 15750,
-          "lineTotal": 94500
-        },
-        {
           "description": "Data Backup and Recovery Service",
-          "quantity": 11,
-          "unitPrice": 7620,
-          "lineTotal": 83820
+          "quantity": 13,
+          "unitPrice": 7578,
+          "lineTotal": 98514
         }
       ],
       "purchaseOrderReference": "PO-2026-01288",
       "paymentBankDetails": {
-        "accountNumber": "V011ALT5107",
-        "ifscCode": "ICIC0008583"
+        "accountNumber": "V011ALT2500",
+        "ifscCode": "ICIC0008493"
       }
     },
     "intakeFlags": {
@@ -3769,7 +3787,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor switched to a bank offering better settlement times; confirmed by procurement"
-    }
+    },
+    "_sequenceId": 288
   },
   {
     "id": "INV-2026-0057",
@@ -3844,7 +3863,8 @@
       "truth": "PROBLEM",
       "problemType": "quantity_inflation",
       "resolutionNote": "Billed for 2 units of \"Training Workshop - 2 Day\" but only 1 received per delivery receipt"
-    }
+    },
+    "_sequenceId": 380
   },
   {
     "id": "INV-2026-0058",
@@ -3913,7 +3933,8 @@
       "truth": "PROBLEM",
       "problemType": "tax_miscalculation",
       "resolutionNote": "Tax stated as ₹20,576 on subtotal ₹92,089; correct 18% GST is ₹16,576 — overbilled by ₹4,000"
-    }
+    },
+    "_sequenceId": 393
   },
   {
     "id": "INV-2026-0059",
@@ -3981,7 +4002,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 33
   },
   {
     "id": "INV-2026-0060",
@@ -4056,7 +4078,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "New supplier replacing discontinued vendor; approved by sourcing team"
-    }
+    },
+    "_sequenceId": 331
   },
   {
     "id": "INV-2026-0061",
@@ -4130,7 +4153,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 208
   },
   {
     "id": "INV-2026-0062",
@@ -4186,7 +4210,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 58
   },
   {
     "id": "INV-2026-0063",
@@ -4242,7 +4267,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 210
   },
   {
     "id": "INV-2026-0064",
@@ -4311,7 +4337,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor shipped overage within tolerance per contract Section 3.1"
-    }
+    },
+    "_sequenceId": 354
   },
   {
     "id": "INV-2026-0065",
@@ -4386,7 +4413,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Partial delivery billed separately; combined quantity matches PO"
-    }
+    },
+    "_sequenceId": 351
   },
   {
     "id": "INV-2026-0066",
@@ -4448,7 +4476,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 267
   },
   {
     "id": "INV-2026-0067",
@@ -4510,7 +4539,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 66
   },
   {
     "id": "INV-2026-0068",
@@ -4584,7 +4614,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 252
   },
   {
     "id": "INV-2026-0069",
@@ -4658,7 +4689,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 266
   },
   {
     "id": "INV-2026-0070",
@@ -4714,7 +4746,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 46
   },
   {
     "id": "INV-2026-0071",
@@ -4782,7 +4815,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 198
   },
   {
     "id": "INV-2026-0072",
@@ -4838,7 +4872,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 274
   },
   {
     "id": "INV-2026-0073",
@@ -4912,7 +4947,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 47
   },
   {
     "id": "INV-2026-0074",
@@ -4975,7 +5011,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 220
   },
   {
     "id": "INV-2026-0075",
@@ -4984,43 +5021,31 @@
     "vendor": {
       "name": "Fresh Foods Supply Co",
       "id": "V018",
-      "relationshipAgeDays": 1318,
-      "historicalInvoiceCount": 194,
+      "relationshipAgeDays": 591,
+      "historicalInvoiceCount": 170,
       "typicalAmountRange": {
         "min": 5000,
         "max": 40000
       }
     },
     "invoice": {
-      "totalAmount": 35557,
-      "subtotal": 30135,
+      "totalAmount": 33883,
+      "subtotal": 28713,
       "taxRate": 0.18,
-      "taxAmount": 5422,
+      "taxAmount": 5170,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Snack Vending Machine Refill",
-          "quantity": 1,
-          "unitPrice": 3321,
-          "lineTotal": 3321
-        },
-        {
           "description": "Tea and Coffee Supplies - Monthly",
-          "quantity": 1,
-          "unitPrice": 3878,
-          "lineTotal": 3878
-        },
-        {
-          "description": "Event Catering Services",
-          "quantity": 1,
-          "unitPrice": 14842,
-          "lineTotal": 14842
+          "quantity": 3,
+          "unitPrice": 3947,
+          "lineTotal": 11841
         },
         {
           "description": "Corporate Lunch Catering - Daily",
-          "quantity": 1,
-          "unitPrice": 8094,
-          "lineTotal": 8094
+          "quantity": 2,
+          "unitPrice": 8436,
+          "lineTotal": 16872
         }
       ],
       "purchaseOrderReference": "PO-2026-01287",
@@ -5049,8 +5074,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Composition scheme vendor; lower rate is correct per their GST registration"
-    }
+      "resolutionNote": "Rounding difference of ₹2 in GST calculation; within acceptable tolerance"
+    },
+    "_sequenceId": 287
   },
   {
     "id": "INV-2026-0076",
@@ -5059,43 +5085,37 @@
     "vendor": {
       "name": "IndoSteel Corporation",
       "id": "V013",
-      "relationshipAgeDays": 1344,
-      "historicalInvoiceCount": 132,
+      "relationshipAgeDays": 127,
+      "historicalInvoiceCount": 62,
       "typicalAmountRange": {
         "min": 20000,
         "max": 250000
       }
     },
     "invoice": {
-      "totalAmount": 127347,
-      "subtotal": 107921,
+      "totalAmount": 241977,
+      "subtotal": 205065,
       "taxRate": 0.18,
-      "taxAmount": 19426,
+      "taxAmount": 36912,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "CNC Machining Components",
-          "quantity": 1,
-          "unitPrice": 57843,
-          "lineTotal": 57843
-        },
-        {
-          "description": "Hydraulic Cylinders - Set of 4",
-          "quantity": 1,
-          "unitPrice": 42674,
-          "lineTotal": 42674
+          "description": "Precision Bearings - Lot of 100",
+          "quantity": 5,
+          "unitPrice": 23433,
+          "lineTotal": 117165
         },
         {
           "description": "Industrial Fasteners - Assorted Box",
-          "quantity": 1,
-          "unitPrice": 7404,
-          "lineTotal": 7404
+          "quantity": 10,
+          "unitPrice": 8790,
+          "lineTotal": 87900
         }
       ],
       "purchaseOrderReference": "PO-2026-01290",
       "paymentBankDetails": {
-        "accountNumber": "V013ALT7759",
-        "ifscCode": "ICIC0008898"
+        "accountNumber": "V013ALT6136",
+        "ifscCode": "ICIC0008619"
       }
     },
     "intakeFlags": {
@@ -5118,8 +5138,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Bank merger resulted in new account number; vendor provided official notice"
-    }
+      "resolutionNote": "Vendor notified bank change via registered letter two weeks prior; change verified"
+    },
+    "_sequenceId": 290
   },
   {
     "id": "INV-2026-0077",
@@ -5188,7 +5209,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 250
   },
   {
     "id": "INV-2026-0078",
@@ -5262,7 +5284,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Subscription renewal; standing order, no individual PO required per policy"
-    }
+    },
+    "_sequenceId": 343
   },
   {
     "id": "INV-2026-0079",
@@ -5318,7 +5341,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 129
   },
   {
     "id": "INV-2026-0080",
@@ -5393,7 +5417,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 52
   },
   {
     "id": "INV-2026-0081",
@@ -5455,7 +5480,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Petty cash reimbursement submitted as invoice; below PO threshold"
-    }
+    },
+    "_sequenceId": 321
   },
   {
     "id": "INV-2026-0082",
@@ -5517,7 +5543,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 223
   },
   {
     "id": "INV-2026-0083",
@@ -5580,7 +5607,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Partial delivery billed separately; combined quantity matches PO"
-    }
+    },
+    "_sequenceId": 340
   },
   {
     "id": "INV-2026-0084",
@@ -5649,50 +5677,51 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 218
   },
   {
     "id": "INV-2026-0085",
-    "submissionDate": "2026-01-02",
-    "source": "edi",
+    "submissionDate": "2026-01-04",
+    "source": "email",
     "vendor": {
-      "name": "Rajesh Trading Co",
-      "id": "V003",
-      "relationshipAgeDays": 379,
-      "historicalInvoiceCount": 108,
+      "name": "TechPro Solutions",
+      "id": "V011",
+      "relationshipAgeDays": 920,
+      "historicalInvoiceCount": 42,
       "typicalAmountRange": {
-        "min": 5000,
-        "max": 60000
+        "min": 25000,
+        "max": 180000
       }
     },
     "invoice": {
-      "totalAmount": 19023,
-      "subtotal": 16121,
+      "totalAmount": 87364,
+      "subtotal": 74037,
       "taxRate": 0.18,
-      "taxAmount": 2902,
+      "taxAmount": 13327,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Industrial Solvents - 20L Drum",
-          "quantity": 1,
-          "unitPrice": 4931,
-          "lineTotal": 4931
+          "description": "Network Maintenance - Monthly",
+          "quantity": 3,
+          "unitPrice": 12231,
+          "lineTotal": 36693
         },
         {
-          "description": "Cleaning Supplies - Monthly",
-          "quantity": 3,
-          "unitPrice": 3730,
-          "lineTotal": 11190
+          "description": "Server Migration Services",
+          "quantity": 1,
+          "unitPrice": 37344,
+          "lineTotal": 37344
         }
       ],
       "purchaseOrderReference": "PO-2026-01362",
       "paymentBankDetails": {
-        "accountNumber": "3001234567",
-        "ifscCode": "ICIC0003456"
+        "accountNumber": "1201234567",
+        "ifscCode": "ICIC0011234"
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": false,
+      "duplicate_hash_match": true,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -5705,57 +5734,57 @@
     },
     "extractionConfidence": 0.83,
     "recordedDecision": {
-      "decision": "ESCALATE",
-      "rulesetVersion": 1,
-      "humanAction": "BLOCK"
+      "decision": "BLOCK",
+      "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate of invoice from 2026-01-02; same vendor (Rajesh Trading Co), same amount (₹19,023)"
+      "resolutionNote": "Duplicate of invoice from 2026-01-04; same vendor (TechPro Solutions), same amount (₹87,364)"
     },
+    "_sequenceId": 362,
     "_duplicateSource": {
-      "id": "INV-2026-0340",
-      "submissionDate": "2026-01-02",
+      "id": "INV-2026-0179",
+      "submissionDate": "2026-01-04",
       "source": "email",
       "vendor": {
-        "name": "Rajesh Trading Co",
-        "id": "V003",
-        "relationshipAgeDays": 379,
-        "historicalInvoiceCount": 108,
+        "name": "TechPro Solutions",
+        "id": "V011",
+        "relationshipAgeDays": 920,
+        "historicalInvoiceCount": 42,
         "typicalAmountRange": {
-          "min": 5000,
-          "max": 60000
+          "min": 25000,
+          "max": 180000
         }
       },
       "invoice": {
-        "totalAmount": 19023,
-        "subtotal": 16121,
+        "totalAmount": 87364,
+        "subtotal": 74037,
         "taxRate": 0.18,
-        "taxAmount": 2902,
+        "taxAmount": 13327,
         "currency": "INR",
         "lineItems": [
           {
-            "description": "Industrial Solvents - 20L Drum",
-            "quantity": 1,
-            "unitPrice": 4931,
-            "lineTotal": 4931
+            "description": "Network Maintenance - Monthly",
+            "quantity": 3,
+            "unitPrice": 12231,
+            "lineTotal": 36693
           },
           {
-            "description": "Cleaning Supplies - Monthly",
-            "quantity": 3,
-            "unitPrice": 3730,
-            "lineTotal": 11190
+            "description": "Server Migration Services",
+            "quantity": 1,
+            "unitPrice": 37344,
+            "lineTotal": 37344
           }
         ],
-        "purchaseOrderReference": "PO-2026-01002",
+        "purchaseOrderReference": "PO-2026-01010",
         "paymentBankDetails": {
-          "accountNumber": "3001234567",
-          "ifscCode": "ICIC0003456"
+          "accountNumber": "1201234567",
+          "ifscCode": "ICIC0011234"
         }
       },
       "intakeFlags": {
-        "duplicate_hash_match": true,
+        "duplicate_hash_match": false,
         "bank_details_changed": false,
         "new_vendor": false,
         "amount_anomaly": false,
@@ -5766,25 +5795,26 @@
         "currency_mismatch": false,
         "vendor_unverified": false
       },
-      "extractionConfidence": 0.91,
+      "extractionConfidence": 0.86,
       "recordedDecision": {
-        "decision": "BLOCK",
+        "decision": "APPROVE",
         "rulesetVersion": 1
       },
       "groundTruth": {
         "truth": "LEGITIMATE",
-        "resolutionNote": "Monthly service fee, consistent with agreement"
+        "resolutionNote": "Standard procurement, no issues noted during review"
       },
       "_segment": "clean",
       "_isNonObvious": false,
       "_poExpectedPrices": [
-        4931,
-        3730
+        12231,
+        37344
       ],
       "_poExpectedQuantities": [
-        1,
-        3
-      ]
+        3,
+        1
+      ],
+      "_sequenceId": 10
     }
   },
   {
@@ -5847,7 +5877,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 184
   },
   {
     "id": "INV-2026-0087",
@@ -5904,7 +5935,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Partial delivery billed separately; combined quantity matches PO"
-    }
+    },
+    "_sequenceId": 339
   },
   {
     "id": "INV-2026-0088",
@@ -5960,7 +5992,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 161
   },
   {
     "id": "INV-2026-0089",
@@ -6028,7 +6061,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 80
   },
   {
     "id": "INV-2026-0090",
@@ -6092,7 +6126,8 @@
       "truth": "PROBLEM",
       "problemType": "phantom_vendor",
       "resolutionNote": "\"Zenith Procurement Services\" (V027) could not be verified; registered address is a vacant lot, phone numbers route to voicemail, no GST filings found"
-    }
+    },
+    "_sequenceId": 387
   },
   {
     "id": "INV-2026-0091",
@@ -6148,7 +6183,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 93
   },
   {
     "id": "INV-2026-0092",
@@ -6222,7 +6258,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 56
   },
   {
     "id": "INV-2026-0093",
@@ -6278,7 +6315,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 55
   },
   {
     "id": "INV-2026-0094",
@@ -6353,7 +6391,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 121
   },
   {
     "id": "INV-2026-0095",
@@ -6409,7 +6448,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 28
   },
   {
     "id": "INV-2026-0096",
@@ -6483,7 +6523,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 251
   },
   {
     "id": "INV-2026-0097",
@@ -6546,7 +6587,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "New supplier onboarding in progress; invoice pre-approved by procurement"
-    }
+    },
+    "_sequenceId": 303
   },
   {
     "id": "INV-2026-0098",
@@ -6602,7 +6644,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 88
   },
   {
     "id": "INV-2026-0099",
@@ -6664,46 +6707,41 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 217
   },
   {
     "id": "INV-2026-0100",
     "submissionDate": "2026-03-05",
-    "source": "email",
+    "source": "portal",
     "vendor": {
       "name": "Digital Wave Technologies",
       "id": "V017",
-      "relationshipAgeDays": 1344,
-      "historicalInvoiceCount": 119,
+      "relationshipAgeDays": 1415,
+      "historicalInvoiceCount": 110,
       "typicalAmountRange": {
         "min": 18000,
         "max": 130000
       }
     },
     "invoice": {
-      "totalAmount": 125032,
-      "subtotal": 105961,
+      "totalAmount": 85863,
+      "subtotal": 72761,
       "taxRate": 0.18,
-      "taxAmount": 19071,
+      "taxAmount": 13102,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "IT Support Services - Quarterly",
-          "quantity": 1,
-          "unitPrice": 32723,
-          "lineTotal": 32723
+          "description": "Monthly Cloud Hosting - Standard Plan",
+          "quantity": 2,
+          "unitPrice": 13660,
+          "lineTotal": 27320
         },
         {
-          "description": "Software License Renewal - Annual",
+          "description": "Web Application Development",
           "quantity": 1,
-          "unitPrice": 47871,
-          "lineTotal": 47871
-        },
-        {
-          "description": "Cybersecurity Assessment",
-          "quantity": 1,
-          "unitPrice": 25367,
-          "lineTotal": 25367
+          "unitPrice": 45441,
+          "lineTotal": 45441
         }
       ],
       "purchaseOrderReference": "PO-2026-01286",
@@ -6732,47 +6770,48 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Vendor applied inter-state rate; corrected during reconciliation, amount valid"
-    }
+      "resolutionNote": "Reverse charge mechanism applied; vendor not liable for GST on this service"
+    },
+    "_sequenceId": 286
   },
   {
     "id": "INV-2026-0101",
     "submissionDate": "2026-03-22",
-    "source": "portal",
+    "source": "edi",
     "vendor": {
-      "name": "Rajesh Trading Co",
-      "id": "V003",
-      "relationshipAgeDays": 808,
-      "historicalInvoiceCount": 144,
+      "name": "IndoSteel Corporation",
+      "id": "V013",
+      "relationshipAgeDays": 583,
+      "historicalInvoiceCount": 23,
       "typicalAmountRange": {
         "min": 40000,
-        "max": 60000
+        "max": 250000
       }
     },
     "invoice": {
-      "totalAmount": 51500,
-      "subtotal": 43644,
+      "totalAmount": 191375,
+      "subtotal": 162182,
       "taxRate": 0.18,
-      "taxAmount": 7856,
+      "taxAmount": 29193,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Safety Equipment - PPE Kit",
-          "quantity": 14,
-          "unitPrice": 1746,
-          "lineTotal": 24444
+          "description": "Steel Plate - Grade 304 - 10 Sheets",
+          "quantity": 2,
+          "unitPrice": 35641,
+          "lineTotal": 71282
         },
         {
-          "description": "Cleaning Supplies - Monthly",
-          "quantity": 6,
-          "unitPrice": 3200,
-          "lineTotal": 19200
+          "description": "Industrial Fasteners - Assorted Box",
+          "quantity": 12,
+          "unitPrice": 7575,
+          "lineTotal": 90900
         }
       ],
       "purchaseOrderReference": "PO-2026-01368",
       "paymentBankDetails": {
-        "accountNumber": "FRAUD46693",
-        "ifscCode": "UTIB0099175"
+        "accountNumber": "FRAUD76249",
+        "ifscCode": "UTIB0099558"
       }
     },
     "intakeFlags": {
@@ -6787,7 +6826,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.92,
+    "extractionConfidence": 0.95,
     "recordedDecision": {
       "decision": "ESCALATE",
       "rulesetVersion": 1,
@@ -6796,8 +6835,9 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "fraudulent_bank_details",
-      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 6693"
-    }
+      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 6249"
+    },
+    "_sequenceId": 368
   },
   {
     "id": "INV-2026-0102",
@@ -6853,7 +6893,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 130
   },
   {
     "id": "INV-2026-0103",
@@ -6909,7 +6950,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 134
   },
   {
     "id": "INV-2026-0104",
@@ -6984,7 +7026,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Bulk order for Q1 inventory; pre-approved by department head"
-    }
+    },
+    "_sequenceId": 356
   },
   {
     "id": "INV-2026-0105",
@@ -7046,7 +7089,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 51
   },
   {
     "id": "INV-2026-0106",
@@ -7102,7 +7146,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 245
   },
   {
     "id": "INV-2026-0107",
@@ -7158,7 +7203,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 209
   },
   {
     "id": "INV-2026-0108",
@@ -7214,7 +7260,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 35
   },
   {
     "id": "INV-2026-0109",
@@ -7277,7 +7324,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "First invoice from this vendor; contract signed 2 weeks ago"
-    }
+    },
+    "_sequenceId": 330
   },
   {
     "id": "INV-2026-0110",
@@ -7339,7 +7387,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 138
   },
   {
     "id": "INV-2026-0111",
@@ -7395,7 +7444,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 244
   },
   {
     "id": "INV-2026-0112",
@@ -7463,7 +7513,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 8
   },
   {
     "id": "INV-2026-0113",
@@ -7525,7 +7576,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 201
   },
   {
     "id": "INV-2026-0114",
@@ -7581,7 +7633,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 101
   },
   {
     "id": "INV-2026-0115",
@@ -7656,7 +7709,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 179
   },
   {
     "id": "INV-2026-0116",
@@ -7718,7 +7772,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 247
   },
   {
     "id": "INV-2026-0117",
@@ -7774,7 +7829,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 140
   },
   {
     "id": "INV-2026-0118",
@@ -7834,7 +7890,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.89,
+    "extractionConfidence": 0.9,
     "recordedDecision": {
       "decision": "ESCALATE",
       "rulesetVersion": 1,
@@ -7844,7 +7900,8 @@
       "truth": "PROBLEM",
       "problemType": "duplicate_across_formats",
       "resolutionNote": "Same ₹1,08,303 charge from Lakshmi Paper Industries submitted via portal and email; reconciliation confirmed single underlying transaction"
-    }
+    },
+    "_sequenceId": 395
   },
   {
     "id": "INV-2026-0119",
@@ -7919,7 +7976,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 241
   },
   {
     "id": "INV-2026-0120",
@@ -7993,7 +8051,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 264
   },
   {
     "id": "INV-2026-0121",
@@ -8061,7 +8120,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 222
   },
   {
     "id": "INV-2026-0122",
@@ -8124,7 +8184,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Annual contract renewal; higher than typical monthly invoices but within annual budget"
-    }
+    },
+    "_sequenceId": 357
   },
   {
     "id": "INV-2026-0123",
@@ -8186,34 +8247,35 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 41
   },
   {
     "id": "INV-2026-0124",
     "submissionDate": "2026-03-06",
-    "source": "portal",
+    "source": "email",
     "vendor": {
       "name": "Global Travel Services",
       "id": "V023",
-      "relationshipAgeDays": 201,
-      "historicalInvoiceCount": 143,
+      "relationshipAgeDays": 1000,
+      "historicalInvoiceCount": 127,
       "typicalAmountRange": {
         "min": 10000,
         "max": 80000
       }
     },
     "invoice": {
-      "totalAmount": 84464,
-      "subtotal": 71580,
+      "totalAmount": 88755,
+      "subtotal": 75216,
       "taxRate": 0.18,
-      "taxAmount": 12884,
+      "taxAmount": 13539,
       "currency": "INR",
       "lineItems": [
         {
           "description": "Hotel Accommodation - Corporate",
           "quantity": 6,
-          "unitPrice": 11930,
-          "lineTotal": 71580
+          "unitPrice": 12536,
+          "lineTotal": 75216
         }
       ],
       "purchaseOrderReference": "PO-2026-01294",
@@ -8229,7 +8291,7 @@
       "amount_anomaly": false,
       "po_missing": false,
       "po_quantity_mismatch": false,
-      "po_price_variance": 9.25,
+      "po_price_variance": 19.02,
       "tax_miscalculation": false,
       "currency_mismatch": false,
       "vendor_unverified": false
@@ -8242,8 +8304,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Raw material cost pass-through per contract terms; supporting documents attached"
-    }
+      "resolutionNote": "Exchange rate adjustment clause triggered; variance within contractual bounds"
+    },
+    "_sequenceId": 294
   },
   {
     "id": "INV-2026-0125",
@@ -8299,7 +8362,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 228
   },
   {
     "id": "INV-2026-0126",
@@ -8361,7 +8425,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 178
   },
   {
     "id": "INV-2026-0127",
@@ -8430,7 +8495,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Annual contract renewal; higher than typical monthly invoices but within annual budget"
-    }
+    },
+    "_sequenceId": 316
   },
   {
     "id": "INV-2026-0128",
@@ -8493,7 +8559,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor registry update pending; company verified through trade references"
-    }
+    },
+    "_sequenceId": 306
   },
   {
     "id": "INV-2026-0129",
@@ -8557,7 +8624,8 @@
       "truth": "PROBLEM",
       "problemType": "quantity_inflation",
       "resolutionNote": "Billed for 3 units of \"Recruitment Fee - Mid Level\" but only 1 received per delivery receipt"
-    }
+    },
+    "_sequenceId": 382
   },
   {
     "id": "INV-2026-0130",
@@ -8631,7 +8699,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 207
   },
   {
     "id": "INV-2026-0131",
@@ -8699,7 +8768,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 110
   },
   {
     "id": "INV-2026-0132",
@@ -8767,7 +8837,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 147
   },
   {
     "id": "INV-2026-0133",
@@ -8836,7 +8907,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor changed primary bank due to branch closure; pre-announced"
-    }
+    },
+    "_sequenceId": 345
   },
   {
     "id": "INV-2026-0134",
@@ -8892,7 +8964,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": true,
       "po_missing": false,
@@ -8911,7 +8983,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Seasonal peak order; consistent with prior year Q1 volumes"
-    }
+    },
+    "_sequenceId": 307
   },
   {
     "id": "INV-2026-0135",
@@ -8967,7 +9040,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 96
   },
   {
     "id": "INV-2026-0136",
@@ -9031,7 +9105,8 @@
       "truth": "PROBLEM",
       "problemType": "phantom_vendor",
       "resolutionNote": "\"QuickServe Enterprises\" (V026) could not be verified; registered address is a vacant lot, phone numbers route to voicemail, no GST filings found"
-    }
+    },
+    "_sequenceId": 385
   },
   {
     "id": "INV-2026-0137",
@@ -9099,7 +9174,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 108
   },
   {
     "id": "INV-2026-0138",
@@ -9162,34 +9238,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 235
   },
   {
     "id": "INV-2026-0139",
     "submissionDate": "2026-03-06",
-    "source": "email",
+    "source": "edi",
     "vendor": {
       "name": "Vertex Solutions Pvt Ltd",
       "id": "V001",
-      "relationshipAgeDays": 687,
-      "historicalInvoiceCount": 179,
+      "relationshipAgeDays": 1097,
+      "historicalInvoiceCount": 88,
       "typicalAmountRange": {
         "min": 20000,
         "max": 150000
       }
     },
     "invoice": {
-      "totalAmount": 147660,
-      "subtotal": 125136,
+      "totalAmount": 155421,
+      "subtotal": 131713,
       "taxRate": 0.18,
-      "taxAmount": 22524,
+      "taxAmount": 23708,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Monthly Cloud Hosting - Standard Plan",
-          "quantity": 8,
-          "unitPrice": 15642,
-          "lineTotal": 125136
+          "description": "IT Support Services - Quarterly",
+          "quantity": 1,
+          "unitPrice": 28065,
+          "lineTotal": 28065
+        },
+        {
+          "description": "Software License Renewal - Annual",
+          "quantity": 1,
+          "unitPrice": 42434,
+          "lineTotal": 42434
+        },
+        {
+          "description": "Cybersecurity Assessment",
+          "quantity": 1,
+          "unitPrice": 25574,
+          "lineTotal": 25574
+        },
+        {
+          "description": "Network Maintenance - Monthly",
+          "quantity": 3,
+          "unitPrice": 11880,
+          "lineTotal": 35640
         }
       ],
       "purchaseOrderReference": "PO-2026-01297",
@@ -9205,7 +9300,7 @@
       "amount_anomaly": false,
       "po_missing": false,
       "po_quantity_mismatch": false,
-      "po_price_variance": 13.86,
+      "po_price_variance": 22.73,
       "tax_miscalculation": false,
       "currency_mismatch": false,
       "vendor_unverified": false
@@ -9218,8 +9313,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Exchange rate adjustment clause triggered; variance within contractual bounds"
-    }
+      "resolutionNote": "Bulk discount reversal per minimum order clause; PO amendment on file"
+    },
+    "_sequenceId": 297
   },
   {
     "id": "INV-2026-0140",
@@ -9281,7 +9377,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 211
   },
   {
     "id": "INV-2026-0141",
@@ -9337,7 +9434,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 265
   },
   {
     "id": "INV-2026-0142",
@@ -9393,7 +9491,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 169
   },
   {
     "id": "INV-2026-0143",
@@ -9449,7 +9548,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 234
   },
   {
     "id": "INV-2026-0144",
@@ -9518,7 +9618,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Government fee payment; no PO applicable per company procurement policy"
-    }
+    },
+    "_sequenceId": 359
   },
   {
     "id": "INV-2026-0145",
@@ -9580,7 +9681,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 239
   },
   {
     "id": "INV-2026-0146",
@@ -9643,7 +9745,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 87
   },
   {
     "id": "INV-2026-0147",
@@ -9718,7 +9821,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "One-time capital equipment purchase; approved via separate capex process"
-    }
+    },
+    "_sequenceId": 310
   },
   {
     "id": "INV-2026-0148",
@@ -9780,7 +9884,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 24
   },
   {
     "id": "INV-2026-0149",
@@ -9854,7 +9959,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 16
   },
   {
     "id": "INV-2026-0150",
@@ -9910,7 +10016,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 114
   },
   {
     "id": "INV-2026-0151",
@@ -9972,56 +10079,45 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 67
   },
   {
     "id": "INV-2026-0152",
-    "submissionDate": "2026-01-02",
+    "submissionDate": "2026-01-04",
     "source": "email",
     "vendor": {
-      "name": "Pinnacle Office Supplies",
-      "id": "V002",
-      "relationshipAgeDays": 213,
-      "historicalInvoiceCount": 36,
+      "name": "Mahalakshmi Enterprises",
+      "id": "V010",
+      "relationshipAgeDays": 628,
+      "historicalInvoiceCount": 170,
       "typicalAmountRange": {
-        "min": 2000,
-        "max": 25000
+        "min": 3000,
+        "max": 45000
       }
     },
     "invoice": {
-      "totalAmount": 27820,
-      "subtotal": 23576,
+      "totalAmount": 39761,
+      "subtotal": 33696,
       "taxRate": 0.18,
-      "taxAmount": 4244,
+      "taxAmount": 6065,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Printer Paper - A3 Ream of 500",
-          "quantity": 14,
-          "unitPrice": 566,
-          "lineTotal": 7924
-        },
-        {
-          "description": "Desk Organiser Set",
-          "quantity": 6,
-          "unitPrice": 1202,
-          "lineTotal": 7212
-        },
-        {
-          "description": "Filing Cabinets - 4 Drawer",
-          "quantity": 2,
-          "unitPrice": 4220,
-          "lineTotal": 8440
+          "description": "Adhesive Tape - Carton of 48",
+          "quantity": 13,
+          "unitPrice": 2592,
+          "lineTotal": 33696
         }
       ],
       "purchaseOrderReference": "PO-2026-01361",
       "paymentBankDetails": {
-        "accountNumber": "2001234567",
-        "ifscCode": "HDFC0002345"
+        "accountNumber": "1101234567",
+        "ifscCode": "HDFC0010123"
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": false,
+      "duplicate_hash_match": true,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -10034,63 +10130,51 @@
     },
     "extractionConfidence": 0.81,
     "recordedDecision": {
-      "decision": "ESCALATE",
-      "rulesetVersion": 1,
-      "humanAction": "BLOCK"
+      "decision": "BLOCK",
+      "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate of invoice from 2026-01-02; same vendor (Pinnacle Office Supplies), same amount (₹27,820)"
+      "resolutionNote": "Duplicate of invoice from 2026-01-04; same vendor (Mahalakshmi Enterprises), same amount (₹39,761)"
     },
+    "_sequenceId": 361,
     "_duplicateSource": {
-      "id": "INV-2026-0287",
-      "submissionDate": "2026-01-02",
-      "source": "edi",
+      "id": "INV-2026-0194",
+      "submissionDate": "2026-01-04",
+      "source": "email",
       "vendor": {
-        "name": "Pinnacle Office Supplies",
-        "id": "V002",
-        "relationshipAgeDays": 213,
-        "historicalInvoiceCount": 36,
+        "name": "Mahalakshmi Enterprises",
+        "id": "V010",
+        "relationshipAgeDays": 628,
+        "historicalInvoiceCount": 170,
         "typicalAmountRange": {
-          "min": 2000,
-          "max": 25000
+          "min": 3000,
+          "max": 45000
         }
       },
       "invoice": {
-        "totalAmount": 27820,
-        "subtotal": 23576,
+        "totalAmount": 39761,
+        "subtotal": 33696,
         "taxRate": 0.18,
-        "taxAmount": 4244,
+        "taxAmount": 6065,
         "currency": "INR",
         "lineItems": [
           {
-            "description": "Printer Paper - A3 Ream of 500",
-            "quantity": 14,
-            "unitPrice": 566,
-            "lineTotal": 7924
-          },
-          {
-            "description": "Desk Organiser Set",
-            "quantity": 6,
-            "unitPrice": 1202,
-            "lineTotal": 7212
-          },
-          {
-            "description": "Filing Cabinets - 4 Drawer",
-            "quantity": 2,
-            "unitPrice": 4220,
-            "lineTotal": 8440
+            "description": "Adhesive Tape - Carton of 48",
+            "quantity": 13,
+            "unitPrice": 2592,
+            "lineTotal": 33696
           }
         ],
-        "purchaseOrderReference": "PO-2026-01001",
+        "purchaseOrderReference": "PO-2026-01009",
         "paymentBankDetails": {
-          "accountNumber": "2001234567",
-          "ifscCode": "HDFC0002345"
+          "accountNumber": "1101234567",
+          "ifscCode": "HDFC0010123"
         }
       },
       "intakeFlags": {
-        "duplicate_hash_match": true,
+        "duplicate_hash_match": false,
         "bank_details_changed": false,
         "new_vendor": false,
         "amount_anomaly": false,
@@ -10101,27 +10185,24 @@
         "currency_mismatch": false,
         "vendor_unverified": false
       },
-      "extractionConfidence": 0.95,
+      "extractionConfidence": 0.92,
       "recordedDecision": {
-        "decision": "BLOCK",
+        "decision": "APPROVE",
         "rulesetVersion": 1
       },
       "groundTruth": {
         "truth": "LEGITIMATE",
-        "resolutionNote": "Standard procurement, no issues noted during review"
+        "resolutionNote": "All items received as invoiced, approved in normal course"
       },
       "_segment": "clean",
       "_isNonObvious": false,
       "_poExpectedPrices": [
-        566,
-        1202,
-        4220
+        2592
       ],
       "_poExpectedQuantities": [
-        14,
-        6,
-        2
-      ]
+        13
+      ],
+      "_sequenceId": 9
     }
   },
   {
@@ -10179,7 +10260,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 76
   },
   {
     "id": "INV-2026-0154",
@@ -10249,7 +10331,8 @@
       "truth": "PROBLEM",
       "problemType": "phantom_vendor",
       "resolutionNote": "\"Alpha Trading Corp\" (V028) could not be verified; registered address is a vacant lot, phone numbers route to voicemail, no GST filings found"
-    }
+    },
+    "_sequenceId": 388
   },
   {
     "id": "INV-2026-0155",
@@ -10305,34 +10388,47 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 202
   },
   {
     "id": "INV-2026-0156",
     "submissionDate": "2026-03-06",
-    "source": "edi",
+    "source": "portal",
     "vendor": {
       "name": "DataSync Technologies",
       "id": "V025",
-      "relationshipAgeDays": 1253,
-      "historicalInvoiceCount": 25,
+      "relationshipAgeDays": 547,
+      "historicalInvoiceCount": 137,
       "typicalAmountRange": {
         "min": 20000,
         "max": 160000
       }
     },
     "invoice": {
-      "totalAmount": 129743,
-      "subtotal": 109952,
+      "totalAmount": 108201,
+      "subtotal": 91696,
       "taxRate": 0.18,
-      "taxAmount": 19791,
+      "taxAmount": 16505,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Monthly Cloud Hosting - Standard Plan",
-          "quantity": 8,
-          "unitPrice": 13744,
-          "lineTotal": 109952
+          "description": "Web Application Development",
+          "quantity": 1,
+          "unitPrice": 52724,
+          "lineTotal": 52724
+        },
+        {
+          "description": "Data Backup and Recovery Service",
+          "quantity": 2,
+          "unitPrice": 8192,
+          "lineTotal": 16384
+        },
+        {
+          "description": "Network Maintenance - Monthly",
+          "quantity": 2,
+          "unitPrice": 11294,
+          "lineTotal": 22588
         }
       ],
       "purchaseOrderReference": "PO-2026-01296",
@@ -10348,7 +10444,7 @@
       "amount_anomaly": false,
       "po_missing": false,
       "po_quantity_mismatch": false,
-      "po_price_variance": 11.18,
+      "po_price_variance": 23.45,
       "tax_miscalculation": false,
       "currency_mismatch": false,
       "vendor_unverified": false
@@ -10361,8 +10457,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Raw material cost pass-through per contract terms; supporting documents attached"
-    }
+      "resolutionNote": "Annual price escalation per contract Section 4.2; within agreed ceiling"
+    },
+    "_sequenceId": 296
   },
   {
     "id": "INV-2026-0157",
@@ -10424,7 +10521,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 105
   },
   {
     "id": "INV-2026-0158",
@@ -10478,7 +10576,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.95,
+    "extractionConfidence": 0.96,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -10487,7 +10585,8 @@
       "truth": "PROBLEM",
       "problemType": "quantity_inflation",
       "resolutionNote": "Goods receipt for \"Sand and Gravel - Truckload\" records 7 units delivered; invoice bills 9"
-    }
+    },
+    "_sequenceId": 384
   },
   {
     "id": "INV-2026-0159",
@@ -10556,7 +10655,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Bulk order for Q1 inventory; pre-approved by department head"
-    }
+    },
+    "_sequenceId": 314
   },
   {
     "id": "INV-2026-0160",
@@ -10618,7 +10718,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 154
   },
   {
     "id": "INV-2026-0161",
@@ -10680,7 +10781,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 215
   },
   {
     "id": "INV-2026-0162",
@@ -10754,7 +10856,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 14
   },
   {
     "id": "INV-2026-0163",
@@ -10811,7 +10914,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Exchange rate adjustment clause triggered; variance within contractual bounds"
-    }
+    },
+    "_sequenceId": 301
   },
   {
     "id": "INV-2026-0164",
@@ -10885,7 +10989,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 103
   },
   {
     "id": "INV-2026-0165",
@@ -10959,7 +11064,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 144
   },
   {
     "id": "INV-2026-0166",
@@ -11021,7 +11127,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Annual price escalation per contract Section 4.2; within agreed ceiling"
-    }
+    },
+    "_sequenceId": 300
   },
   {
     "id": "INV-2026-0167",
@@ -11083,7 +11190,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 166
   },
   {
     "id": "INV-2026-0168",
@@ -11153,7 +11261,8 @@
       "truth": "PROBLEM",
       "problemType": "phantom_vendor",
       "resolutionNote": "\"QuickServe Enterprises\" (V026) could not be verified; registered address is a vacant lot, phone numbers route to voicemail, no GST filings found"
-    }
+    },
+    "_sequenceId": 386
   },
   {
     "id": "INV-2026-0169",
@@ -11210,7 +11319,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "One-time capital equipment purchase; approved via separate capex process"
-    }
+    },
+    "_sequenceId": 311
   },
   {
     "id": "INV-2026-0170",
@@ -11278,7 +11388,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 257
   },
   {
     "id": "INV-2026-0171",
@@ -11353,7 +11464,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "First invoice from this vendor; contract signed 2 weeks ago"
-    }
+    },
+    "_sequenceId": 346
   },
   {
     "id": "INV-2026-0172",
@@ -11416,7 +11528,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 97
   },
   {
     "id": "INV-2026-0173",
@@ -11490,7 +11603,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 19
   },
   {
     "id": "INV-2026-0174",
@@ -11558,7 +11672,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 156
   },
   {
     "id": "INV-2026-0175",
@@ -11621,7 +11736,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor registry update pending; company verified through trade references"
-    }
+    },
+    "_sequenceId": 305
   },
   {
     "id": "INV-2026-0176",
@@ -11696,7 +11812,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 168
   },
   {
     "id": "INV-2026-0177",
@@ -11764,7 +11881,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 185
   },
   {
     "id": "INV-2026-0178",
@@ -11820,7 +11938,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
       "po_missing": true,
@@ -11832,14 +11950,14 @@
     },
     "extractionConfidence": 0.89,
     "recordedDecision": {
-      "decision": "ESCALATE",
-      "rulesetVersion": 1,
-      "humanAction": "APPROVE"
+      "decision": "APPROVE",
+      "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Petty cash reimbursement submitted as invoice; below PO threshold"
-    }
+    },
+    "_sequenceId": 324
   },
   {
     "id": "INV-2026-0179",
@@ -11901,7 +12019,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 10
   },
   {
     "id": "INV-2026-0180",
@@ -11977,7 +12096,8 @@
       "truth": "PROBLEM",
       "problemType": "tax_miscalculation",
       "resolutionNote": "Tax stated as ₹28,166 on subtotal ₹1,48,146; correct 18% GST is ₹26,666 — overbilled by ₹1,500"
-    }
+    },
+    "_sequenceId": 390
   },
   {
     "id": "INV-2026-0181",
@@ -12045,7 +12165,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 75
   },
   {
     "id": "INV-2026-0182",
@@ -12107,7 +12228,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 254
   },
   {
     "id": "INV-2026-0183",
@@ -12181,7 +12303,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 60
   },
   {
     "id": "INV-2026-0184",
@@ -12249,7 +12372,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 279
   },
   {
     "id": "INV-2026-0185",
@@ -12323,7 +12447,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 253
   },
   {
     "id": "INV-2026-0186",
@@ -12391,7 +12516,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 61
   },
   {
     "id": "INV-2026-0187",
@@ -12447,7 +12573,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Emergency repair service; verbal approval by Plant Manager, documented post-facto"
-    }
+    },
+    "_sequenceId": 317
   },
   {
     "id": "INV-2026-0188",
@@ -12503,7 +12630,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 104
   },
   {
     "id": "INV-2026-0189",
@@ -12559,7 +12687,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 227
   },
   {
     "id": "INV-2026-0190",
@@ -12615,7 +12744,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 199
   },
   {
     "id": "INV-2026-0191",
@@ -12690,40 +12820,59 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 106
   },
   {
     "id": "INV-2026-0192",
     "submissionDate": "2026-03-24",
-    "source": "portal",
+    "source": "email",
     "vendor": {
-      "name": "Ravi Construction Materials",
-      "id": "V024",
-      "relationshipAgeDays": 784,
-      "historicalInvoiceCount": 162,
+      "name": "IndoSteel Corporation",
+      "id": "V013",
+      "relationshipAgeDays": 1087,
+      "historicalInvoiceCount": 143,
       "typicalAmountRange": {
-        "min": 15000,
-        "max": 200000
+        "min": 20000,
+        "max": 250000
       }
     },
     "invoice": {
-      "totalAmount": 163683,
-      "subtotal": 138714,
+      "totalAmount": 282142,
+      "subtotal": 239103,
       "taxRate": 0.18,
-      "taxAmount": 24969,
+      "taxAmount": 43039,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Scaffolding Rental - Monthly",
-          "quantity": 6,
-          "unitPrice": 23119,
-          "lineTotal": 138714
+          "description": "Precision Bearings - Lot of 100",
+          "quantity": 2,
+          "unitPrice": 24403,
+          "lineTotal": 48806
+        },
+        {
+          "description": "Steel Plate - Grade 304 - 10 Sheets",
+          "quantity": 1,
+          "unitPrice": 37079,
+          "lineTotal": 37079
+        },
+        {
+          "description": "Hydraulic Cylinders - Set of 4",
+          "quantity": 1,
+          "unitPrice": 42244,
+          "lineTotal": 42244
+        },
+        {
+          "description": "CNC Machining Components",
+          "quantity": 2,
+          "unitPrice": 55487,
+          "lineTotal": 110974
         }
       ],
       "purchaseOrderReference": "PO-2026-01374",
       "paymentBankDetails": {
-        "accountNumber": "2511234567",
-        "ifscCode": "CNRB0024567"
+        "accountNumber": "1401234567",
+        "ifscCode": "KKBK0013456"
       }
     },
     "intakeFlags": {
@@ -12733,21 +12882,23 @@
       "amount_anomaly": false,
       "po_missing": false,
       "po_quantity_mismatch": false,
-      "po_price_variance": 39.32,
+      "po_price_variance": 43.34,
       "tax_miscalculation": false,
       "currency_mismatch": false,
       "vendor_unverified": false
     },
     "extractionConfidence": 0.91,
     "recordedDecision": {
-      "decision": "APPROVE",
-      "rulesetVersion": 1
+      "decision": "ESCALATE",
+      "rulesetVersion": 1,
+      "humanAction": "BLOCK"
     },
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "price_inflation",
-      "resolutionNote": "\"Scaffolding Rental - Monthly\" invoiced at ₹23,119/unit; PO contracted rate is ₹16,594/unit (39.3% variance)"
-    }
+      "resolutionNote": "\"Precision Bearings - Lot of 100\" invoiced at ₹24,403/unit; PO contracted rate is ₹17,024/unit (43.3% variance)"
+    },
+    "_sequenceId": 374
   },
   {
     "id": "INV-2026-0193",
@@ -12809,7 +12960,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 225
   },
   {
     "id": "INV-2026-0194",
@@ -12865,7 +13017,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 9
   },
   {
     "id": "INV-2026-0195",
@@ -12933,40 +13086,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Subscription renewal; standing order, no individual PO required per policy"
-    }
+    },
+    "_sequenceId": 318
   },
   {
     "id": "INV-2026-0196",
     "submissionDate": "2026-03-23",
-    "source": "email",
+    "source": "portal",
     "vendor": {
-      "name": "Sunrise Logistics Pvt Ltd",
-      "id": "V009",
-      "relationshipAgeDays": 792,
-      "historicalInvoiceCount": 182,
+      "name": "Clearview Security Systems",
+      "id": "V014",
+      "relationshipAgeDays": 487,
+      "historicalInvoiceCount": 32,
       "typicalAmountRange": {
         "min": 40000,
-        "max": 60000
+        "max": 50000
       }
     },
     "invoice": {
-      "totalAmount": 54171,
-      "subtotal": 45908,
+      "totalAmount": 53440,
+      "subtotal": 45288,
       "taxRate": 0.18,
-      "taxAmount": 8263,
+      "taxAmount": 8152,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Cold Chain Transport",
-          "quantity": 4,
-          "unitPrice": 11477,
-          "lineTotal": 45908
+          "description": "Security Audit Services",
+          "quantity": 1,
+          "unitPrice": 15697,
+          "lineTotal": 15697
+        },
+        {
+          "description": "CCTV Monitoring - Monthly",
+          "quantity": 1,
+          "unitPrice": 11176,
+          "lineTotal": 11176
+        },
+        {
+          "description": "Security Guard Services - Monthly",
+          "quantity": 1,
+          "unitPrice": 18415,
+          "lineTotal": 18415
         }
       ],
       "purchaseOrderReference": "PO-2026-01371",
       "paymentBankDetails": {
-        "accountNumber": "FRAUD99445",
-        "ifscCode": "UTIB0099855"
+        "accountNumber": "FRAUD54821",
+        "ifscCode": "UTIB0099912"
       }
     },
     "intakeFlags": {
@@ -12981,7 +13147,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.93,
+    "extractionConfidence": 0.95,
     "recordedDecision": {
       "decision": "ESCALATE",
       "rulesetVersion": 1,
@@ -12990,8 +13156,9 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "fraudulent_bank_details",
-      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 9445"
-    }
+      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 4821"
+    },
+    "_sequenceId": 371
   },
   {
     "id": "INV-2026-0197",
@@ -13047,7 +13214,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 49
   },
   {
     "id": "INV-2026-0198",
@@ -13115,7 +13283,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 13
   },
   {
     "id": "INV-2026-0199",
@@ -13184,7 +13353,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Petty cash reimbursement submitted as invoice; below PO threshold"
-    }
+    },
+    "_sequenceId": 322
   },
   {
     "id": "INV-2026-0200",
@@ -13244,7 +13414,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.92,
+    "extractionConfidence": 0.93,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -13253,7 +13423,8 @@
       "truth": "PROBLEM",
       "problemType": "contract_violation",
       "resolutionNote": "\"Monthly Cloud Hosting - Standard Plan\" (3 units at ₹13,830) not covered under master service agreement with Digital Wave Technologies; no amendment on file"
-    }
+    },
+    "_sequenceId": 397
   },
   {
     "id": "INV-2026-0201",
@@ -13327,7 +13498,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 243
   },
   {
     "id": "INV-2026-0202",
@@ -13383,7 +13555,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 249
   },
   {
     "id": "INV-2026-0203",
@@ -13457,7 +13630,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 173
   },
   {
     "id": "INV-2026-0204",
@@ -13532,7 +13706,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Project-based billing higher than routine; matches project cost estimate"
-    }
+    },
+    "_sequenceId": 312
   },
   {
     "id": "INV-2026-0205",
@@ -13600,7 +13775,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 181
   },
   {
     "id": "INV-2026-0206",
@@ -13662,52 +13838,35 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 136
   },
   {
     "id": "INV-2026-0207",
     "submissionDate": "2026-03-04",
-    "source": "edi",
+    "source": "email",
     "vendor": {
       "name": "Sharma & Associates",
       "id": "V015",
-      "relationshipAgeDays": 430,
-      "historicalInvoiceCount": 82,
+      "relationshipAgeDays": 1055,
+      "historicalInvoiceCount": 199,
       "typicalAmountRange": {
         "min": 20000,
         "max": 100000
       }
     },
     "invoice": {
-      "totalAmount": 105221,
-      "subtotal": 89172,
+      "totalAmount": 107443,
+      "subtotal": 91052,
       "taxRate": 0.18,
-      "taxAmount": 16049,
+      "taxAmount": 16391,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Regulatory Compliance Review",
-          "quantity": 1,
-          "unitPrice": 31056,
-          "lineTotal": 31056
-        },
-        {
-          "description": "Intellectual Property Filing",
-          "quantity": 1,
-          "unitPrice": 18210,
-          "lineTotal": 18210
-        },
-        {
           "description": "Legal Consultation - Retainer",
-          "quantity": 1,
-          "unitPrice": 24354,
-          "lineTotal": 24354
-        },
-        {
-          "description": "Contract Drafting Services",
-          "quantity": 1,
-          "unitPrice": 15552,
-          "lineTotal": 15552
+          "quantity": 4,
+          "unitPrice": 22763,
+          "lineTotal": 91052
         }
       ],
       "purchaseOrderReference": "PO-2026-01284",
@@ -13737,7 +13896,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Rounding difference of ₹2 in GST calculation; within acceptable tolerance"
-    }
+    },
+    "_sequenceId": 284
   },
   {
     "id": "INV-2026-0208",
@@ -13793,7 +13953,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 122
   },
   {
     "id": "INV-2026-0209",
@@ -13810,17 +13971,17 @@
       }
     },
     "invoice": {
-      "totalAmount": 1718.65,
-      "subtotal": 1456.48,
+      "totalAmount": 143507,
+      "subtotal": 121616,
       "taxRate": 0.18,
-      "taxAmount": 262.17,
+      "taxAmount": 21891,
       "currency": "USD",
       "lineItems": [
         {
           "description": "Industrial Fasteners - Assorted Box",
           "quantity": 16,
-          "unitPrice": 91.03,
-          "lineTotal": 1456.48
+          "unitPrice": 7601,
+          "lineTotal": 121616
         }
       ],
       "purchaseOrderReference": "PO-2026-01336",
@@ -13849,7 +14010,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "International vendor invoicing in USD as per contract terms; FX conversion applied"
-    }
+    },
+    "_sequenceId": 336
   },
   {
     "id": "INV-2026-0210",
@@ -13924,40 +14086,47 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Exchange rate adjustment clause triggered; variance within contractual bounds"
-    }
+    },
+    "_sequenceId": 358
   },
   {
     "id": "INV-2026-0211",
     "submissionDate": "2026-03-23",
     "source": "portal",
     "vendor": {
-      "name": "AeroTech Components Ltd",
-      "id": "V004",
-      "relationshipAgeDays": 1063,
-      "historicalInvoiceCount": 125,
+      "name": "Mahalakshmi Enterprises",
+      "id": "V010",
+      "relationshipAgeDays": 171,
+      "historicalInvoiceCount": 194,
       "typicalAmountRange": {
         "min": 40000,
-        "max": 200000
+        "max": 45000
       }
     },
     "invoice": {
-      "totalAmount": 174954,
-      "subtotal": 148266,
+      "totalAmount": 53088,
+      "subtotal": 44990,
       "taxRate": 0.18,
-      "taxAmount": 26688,
+      "taxAmount": 8098,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Hydraulic Cylinders - Set of 4",
-          "quantity": 3,
-          "unitPrice": 49422,
-          "lineTotal": 148266
+          "description": "Safety Equipment - PPE Kit",
+          "quantity": 10,
+          "unitPrice": 1841,
+          "lineTotal": 18410
+        },
+        {
+          "description": "Adhesive Tape - Carton of 48",
+          "quantity": 12,
+          "unitPrice": 2215,
+          "lineTotal": 26580
         }
       ],
       "purchaseOrderReference": "PO-2026-01370",
       "paymentBankDetails": {
-        "accountNumber": "FRAUD32861",
-        "ifscCode": "UTIB0099254"
+        "accountNumber": "FRAUD21104",
+        "ifscCode": "UTIB0099992"
       }
     },
     "intakeFlags": {
@@ -13972,16 +14141,18 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.87,
+    "extractionConfidence": 0.93,
     "recordedDecision": {
-      "decision": "APPROVE",
-      "rulesetVersion": 1
+      "decision": "ESCALATE",
+      "rulesetVersion": 1,
+      "humanAction": "BLOCK"
     },
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "fraudulent_bank_details",
-      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 2861"
-    }
+      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 1104"
+    },
+    "_sequenceId": 370
   },
   {
     "id": "INV-2026-0212",
@@ -14037,7 +14208,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 117
   },
   {
     "id": "INV-2026-0213",
@@ -14105,7 +14277,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 183
   },
   {
     "id": "INV-2026-0214",
@@ -14162,7 +14335,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Seasonal peak order; consistent with prior year Q1 volumes"
-    }
+    },
+    "_sequenceId": 309
   },
   {
     "id": "INV-2026-0215",
@@ -14179,17 +14353,17 @@
       }
     },
     "invoice": {
-      "totalAmount": 274.89,
-      "subtotal": 232.96,
+      "totalAmount": 24789,
+      "subtotal": 21008,
       "taxRate": 0.18,
-      "taxAmount": 41.93,
+      "taxAmount": 3781,
       "currency": "EUR",
       "lineItems": [
         {
           "description": "Whiteboard Markers - Pack of 24",
           "quantity": 26,
-          "unitPrice": 8.96,
-          "lineTotal": 232.96
+          "unitPrice": 808,
+          "lineTotal": 21008
         }
       ],
       "purchaseOrderReference": "PO-2026-01334",
@@ -14219,7 +14393,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "International vendor invoicing in USD as per contract terms; FX conversion applied"
-    }
+    },
+    "_sequenceId": 334
   },
   {
     "id": "INV-2026-0216",
@@ -14287,40 +14462,47 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 77
   },
   {
     "id": "INV-2026-0217",
     "submissionDate": "2026-03-22",
-    "source": "edi",
+    "source": "email",
     "vendor": {
-      "name": "NexGen IT Services",
-      "id": "V007",
-      "relationshipAgeDays": 1235,
-      "historicalInvoiceCount": 192,
+      "name": "Sharma & Associates",
+      "id": "V015",
+      "relationshipAgeDays": 1449,
+      "historicalInvoiceCount": 52,
       "typicalAmountRange": {
-        "min": 15000,
-        "max": 120000
+        "min": 20000,
+        "max": 100000
       }
     },
     "invoice": {
-      "totalAmount": 36088,
-      "subtotal": 30583,
+      "totalAmount": 39458,
+      "subtotal": 33439,
       "taxRate": 0.18,
-      "taxAmount": 5505,
+      "taxAmount": 6019,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "IT Support Services - Quarterly",
+          "description": "Contract Drafting Services",
           "quantity": 1,
-          "unitPrice": 30583,
-          "lineTotal": 30583
+          "unitPrice": 14137,
+          "lineTotal": 14137
+        },
+        {
+          "description": "Intellectual Property Filing",
+          "quantity": 1,
+          "unitPrice": 19302,
+          "lineTotal": 19302
         }
       ],
       "purchaseOrderReference": "PO-2026-01366",
       "paymentBankDetails": {
-        "accountNumber": "7001234567",
-        "ifscCode": "BARB0007890"
+        "accountNumber": "1601234567",
+        "ifscCode": "BARB0015678"
       }
     },
     "intakeFlags": {
@@ -14343,8 +14525,9 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate charge identified; NexGen IT Services submitted identical ₹36,088 invoice on a different date"
-    }
+      "resolutionNote": "Duplicate charge identified; Sharma & Associates submitted identical ₹39,458 invoice on a different date"
+    },
+    "_sequenceId": 366
   },
   {
     "id": "INV-2026-0218",
@@ -14418,7 +14601,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 141
   },
   {
     "id": "INV-2026-0219",
@@ -14486,7 +14670,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 149
   },
   {
     "id": "INV-2026-0220",
@@ -14548,7 +14733,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 111
   },
   {
     "id": "INV-2026-0221",
@@ -14614,7 +14800,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.92,
+    "extractionConfidence": 0.93,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -14623,7 +14809,8 @@
       "truth": "PROBLEM",
       "problemType": "duplicate_across_formats",
       "resolutionNote": "Same ₹1,02,330 charge from Premier Staffing Solutions submitted via portal and email; reconciliation confirmed single underlying transaction"
-    }
+    },
+    "_sequenceId": 394
   },
   {
     "id": "INV-2026-0222",
@@ -14666,7 +14853,7 @@
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": true,
+      "duplicate_hash_match": false,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -14679,13 +14866,14 @@
     },
     "extractionConfidence": 0.81,
     "recordedDecision": {
-      "decision": "BLOCK",
+      "decision": "APPROVE",
       "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 3
   },
   {
     "id": "INV-2026-0223",
@@ -14747,7 +14935,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 31
   },
   {
     "id": "INV-2026-0224",
@@ -14821,7 +15010,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 155
   },
   {
     "id": "INV-2026-0225",
@@ -14895,7 +15085,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 189
   },
   {
     "id": "INV-2026-0226",
@@ -14969,7 +15160,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 272
   },
   {
     "id": "INV-2026-0227",
@@ -15043,7 +15235,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 119
   },
   {
     "id": "INV-2026-0228",
@@ -15118,7 +15311,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Partial delivery billed separately; combined quantity matches PO"
-    }
+    },
+    "_sequenceId": 337
   },
   {
     "id": "INV-2026-0229",
@@ -15193,7 +15387,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 37
   },
   {
     "id": "INV-2026-0230",
@@ -15267,7 +15462,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 188
   },
   {
     "id": "INV-2026-0231",
@@ -15341,7 +15537,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 68
   },
   {
     "id": "INV-2026-0232",
@@ -15403,7 +15600,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 120
   },
   {
     "id": "INV-2026-0233",
@@ -15471,7 +15669,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 276
   },
   {
     "id": "INV-2026-0234",
@@ -15534,7 +15733,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 261
   },
   {
     "id": "INV-2026-0235",
@@ -15597,52 +15797,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 271
   },
   {
     "id": "INV-2026-0236",
     "submissionDate": "2026-03-22",
     "source": "portal",
     "vendor": {
-      "name": "Bharat Consulting Group",
-      "id": "V006",
-      "relationshipAgeDays": 1153,
-      "historicalInvoiceCount": 33,
+      "name": "Clearview Security Systems",
+      "id": "V014",
+      "relationshipAgeDays": 1068,
+      "historicalInvoiceCount": 75,
       "typicalAmountRange": {
-        "min": 30000,
-        "max": 300000
+        "min": 10000,
+        "max": 50000
       }
     },
     "invoice": {
-      "totalAmount": 228085,
-      "subtotal": 193292,
+      "totalAmount": 54358,
+      "subtotal": 46066,
       "taxRate": 0.18,
-      "taxAmount": 34793,
+      "taxAmount": 8292,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Strategy Consulting - Phase 1",
+          "description": "Security Guard Services - Monthly",
           "quantity": 1,
-          "unitPrice": 78475,
-          "lineTotal": 78475
+          "unitPrice": 17418,
+          "lineTotal": 17418
         },
         {
-          "description": "Compliance Audit Services",
+          "description": "Security Audit Services",
           "quantity": 1,
-          "unitPrice": 63426,
-          "lineTotal": 63426
+          "unitPrice": 15499,
+          "lineTotal": 15499
         },
         {
-          "description": "Process Optimization Review",
+          "description": "CCTV Monitoring - Monthly",
           "quantity": 1,
-          "unitPrice": 51391,
-          "lineTotal": 51391
+          "unitPrice": 13149,
+          "lineTotal": 13149
         }
       ],
       "purchaseOrderReference": "PO-2026-01365",
       "paymentBankDetails": {
-        "accountNumber": "6001234567",
-        "ifscCode": "PUNB0006789"
+        "accountNumber": "1501234567",
+        "ifscCode": "PUNB0014567"
       }
     },
     "intakeFlags": {
@@ -15657,7 +15858,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.93,
+    "extractionConfidence": 0.94,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -15665,8 +15866,9 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate charge identified; Bharat Consulting Group submitted identical ₹2,28,085 invoice on a different date"
-    }
+      "resolutionNote": "Duplicate charge identified; Clearview Security Systems submitted identical ₹54,358 invoice on a different date"
+    },
+    "_sequenceId": 365
   },
   {
     "id": "INV-2026-0237",
@@ -15735,7 +15937,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 137
   },
   {
     "id": "INV-2026-0238",
@@ -15809,7 +16012,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 98
   },
   {
     "id": "INV-2026-0239",
@@ -15877,7 +16081,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 174
   },
   {
     "id": "INV-2026-0240",
@@ -15934,7 +16139,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 212
   },
   {
     "id": "INV-2026-0241",
@@ -15996,7 +16202,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 259
   },
   {
     "id": "INV-2026-0242",
@@ -16044,7 +16251,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.93,
+    "extractionConfidence": 0.94,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -16053,7 +16260,8 @@
       "truth": "PROBLEM",
       "problemType": "contract_violation",
       "resolutionNote": "\"Monthly Cloud Hosting - Standard Plan\" (11 units at ₹13,895) not covered under master service agreement with Digital Wave Technologies; no amendment on file"
-    }
+    },
+    "_sequenceId": 398
   },
   {
     "id": "INV-2026-0243",
@@ -16115,7 +16323,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 131
   },
   {
     "id": "INV-2026-0244",
@@ -16178,7 +16387,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 62
   },
   {
     "id": "INV-2026-0245",
@@ -16234,7 +16444,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 79
   },
   {
     "id": "INV-2026-0246",
@@ -16308,7 +16519,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 25
   },
   {
     "id": "INV-2026-0247",
@@ -16377,7 +16589,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 50
   },
   {
     "id": "INV-2026-0248",
@@ -16445,7 +16658,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 34
   },
   {
     "id": "INV-2026-0249",
@@ -16514,7 +16728,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Recently onboarded vendor; all documentation verified during registration"
-    }
+    },
+    "_sequenceId": 326
   },
   {
     "id": "INV-2026-0250",
@@ -16576,7 +16791,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 44
   },
   {
     "id": "INV-2026-0251",
@@ -16638,46 +16854,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 42
   },
   {
     "id": "INV-2026-0252",
-    "submissionDate": "2026-01-02",
-    "source": "portal",
+    "submissionDate": "2026-01-03",
+    "source": "email",
     "vendor": {
-      "name": "Vertex Solutions Pvt Ltd",
-      "id": "V001",
-      "relationshipAgeDays": 826,
-      "historicalInvoiceCount": 152,
+      "name": "Greenfield Facilities Mgmt",
+      "id": "V005",
+      "relationshipAgeDays": 1089,
+      "historicalInvoiceCount": 10,
       "typicalAmountRange": {
-        "min": 20000,
-        "max": 150000
+        "min": 15000,
+        "max": 80000
       }
     },
     "invoice": {
-      "totalAmount": 144049,
-      "subtotal": 131530,
+      "totalAmount": 84973,
+      "subtotal": 66335,
       "taxRate": 0.18,
-      "taxAmount": 23675,
+      "taxAmount": 11940,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Server Migration Services",
-          "quantity": 2,
-          "unitPrice": 35399,
-          "lineTotal": 70798
+          "description": "Plumbing Repair Services",
+          "quantity": 3,
+          "unitPrice": 7525,
+          "lineTotal": 22575
         },
         {
-          "description": "Monthly Cloud Hosting - Standard Plan",
+          "description": "Janitorial Supplies - Monthly",
           "quantity": 4,
-          "unitPrice": 15183,
-          "lineTotal": 60732
+          "unitPrice": 5858,
+          "lineTotal": 23432
+        },
+        {
+          "description": "Pest Control - Quarterly Treatment",
+          "quantity": 4,
+          "unitPrice": 5082,
+          "lineTotal": 20328
         }
       ],
       "purchaseOrderReference": "PO-2026-01280",
       "paymentBankDetails": {
-        "accountNumber": "1001234567",
-        "ifscCode": "SBIN0001234"
+        "accountNumber": "5001234567",
+        "ifscCode": "KKBK0005678"
       }
     },
     "intakeFlags": {
@@ -16700,7 +16923,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "System flagged as duplicate but investigation confirmed separate purchase orders"
-    }
+    },
+    "_sequenceId": 280
   },
   {
     "id": "INV-2026-0253",
@@ -16762,7 +16986,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 153
   },
   {
     "id": "INV-2026-0254",
@@ -16824,7 +17049,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 65
   },
   {
     "id": "INV-2026-0255",
@@ -16899,7 +17125,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "First invoice from this vendor; contract signed 2 weeks ago"
-    }
+    },
+    "_sequenceId": 327
   },
   {
     "id": "INV-2026-0256",
@@ -16973,7 +17200,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 145
   },
   {
     "id": "INV-2026-0257",
@@ -17047,7 +17275,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 85
   },
   {
     "id": "INV-2026-0258",
@@ -17109,7 +17338,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 69
   },
   {
     "id": "INV-2026-0259",
@@ -17171,7 +17401,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 43
   },
   {
     "id": "INV-2026-0260",
@@ -17227,7 +17458,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 175
   },
   {
     "id": "INV-2026-0261",
@@ -17301,7 +17533,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 36
   },
   {
     "id": "INV-2026-0262",
@@ -17369,7 +17602,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 151
   },
   {
     "id": "INV-2026-0263",
@@ -17437,52 +17671,47 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 5
   },
   {
     "id": "INV-2026-0264",
     "submissionDate": "2026-03-05",
-    "source": "edi",
+    "source": "portal",
     "vendor": {
       "name": "Clearview Security Systems",
       "id": "V014",
-      "relationshipAgeDays": 1071,
-      "historicalInvoiceCount": 44,
+      "relationshipAgeDays": 1344,
+      "historicalInvoiceCount": 132,
       "typicalAmountRange": {
         "min": 10000,
         "max": 50000
       }
     },
     "invoice": {
-      "totalAmount": 59387,
-      "subtotal": 50328,
+      "totalAmount": 28609,
+      "subtotal": 24245,
       "taxRate": 0.18,
-      "taxAmount": 9059,
+      "taxAmount": 4364,
       "currency": "INR",
       "lineItems": [
         {
+          "description": "Access Control System Maintenance",
+          "quantity": 1,
+          "unitPrice": 7587,
+          "lineTotal": 7587
+        },
+        {
           "description": "Security Guard Services - Monthly",
           "quantity": 1,
-          "unitPrice": 19668,
-          "lineTotal": 19668
-        },
-        {
-          "description": "Access Control System Maintenance",
-          "quantity": 2,
-          "unitPrice": 7646,
-          "lineTotal": 15292
-        },
-        {
-          "description": "Security Audit Services",
-          "quantity": 1,
-          "unitPrice": 15368,
-          "lineTotal": 15368
+          "unitPrice": 16658,
+          "lineTotal": 16658
         }
       ],
       "purchaseOrderReference": "PO-2026-01291",
       "paymentBankDetails": {
-        "accountNumber": "V014ALT3038",
-        "ifscCode": "ICIC0008119"
+        "accountNumber": "V014ALT7759",
+        "ifscCode": "ICIC0008898"
       }
     },
     "intakeFlags": {
@@ -17505,8 +17734,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Vendor switched to a bank offering better settlement times; confirmed by procurement"
-    }
+      "resolutionNote": "Bank merger resulted in new account number; vendor provided official notice"
+    },
+    "_sequenceId": 291
   },
   {
     "id": "INV-2026-0265",
@@ -17580,7 +17810,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 203
   },
   {
     "id": "INV-2026-0266",
@@ -17655,7 +17886,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 12
   },
   {
     "id": "INV-2026-0267",
@@ -17717,7 +17949,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 118
   },
   {
     "id": "INV-2026-0268",
@@ -17779,7 +18012,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 91
   },
   {
     "id": "INV-2026-0269",
@@ -17853,40 +18087,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 258
   },
   {
     "id": "INV-2026-0270",
     "submissionDate": "2026-03-22",
-    "source": "email",
+    "source": "portal",
     "vendor": {
-      "name": "Priya Electronics Ltd",
-      "id": "V008",
-      "relationshipAgeDays": 552,
-      "historicalInvoiceCount": 170,
+      "name": "Patel Hardware Traders",
+      "id": "V016",
+      "relationshipAgeDays": 894,
+      "historicalInvoiceCount": 181,
       "typicalAmountRange": {
-        "min": 8000,
-        "max": 90000
+        "min": 3000,
+        "max": 40000
       }
     },
     "invoice": {
-      "totalAmount": 26890,
-      "subtotal": 22788,
+      "totalAmount": 19192,
+      "subtotal": 16264,
       "taxRate": 0.18,
-      "taxAmount": 4102,
+      "taxAmount": 2928,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "CCTV Camera System - 8 Channel",
+          "description": "Electrical Wiring - 100m Roll",
+          "quantity": 2,
+          "unitPrice": 2505,
+          "lineTotal": 5010
+        },
+        {
+          "description": "Hand Tools - Workshop Kit",
           "quantity": 1,
-          "unitPrice": 22788,
-          "lineTotal": 22788
+          "unitPrice": 7297,
+          "lineTotal": 7297
+        },
+        {
+          "description": "Paint and Coating Supplies",
+          "quantity": 1,
+          "unitPrice": 3957,
+          "lineTotal": 3957
         }
       ],
       "purchaseOrderReference": "PO-2026-01367",
       "paymentBankDetails": {
-        "accountNumber": "8001234567",
-        "ifscCode": "CNRB0008901"
+        "accountNumber": "1701234567",
+        "ifscCode": "CNRB0016789"
       }
     },
     "intakeFlags": {
@@ -17901,7 +18148,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.89,
+    "extractionConfidence": 0.91,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -17909,8 +18156,9 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate charge identified; Priya Electronics Ltd submitted identical ₹26,890 invoice on a different date"
-    }
+      "resolutionNote": "Duplicate charge identified; Patel Hardware Traders submitted identical ₹19,192 invoice on a different date"
+    },
+    "_sequenceId": 367
   },
   {
     "id": "INV-2026-0271",
@@ -17979,7 +18227,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Additional units delivered per verbal agreement; PO amendment pending"
-    }
+    },
+    "_sequenceId": 341
   },
   {
     "id": "INV-2026-0272",
@@ -18035,40 +18284,41 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 270
   },
   {
     "id": "INV-2026-0273",
     "submissionDate": "2026-03-23",
-    "source": "email",
+    "source": "portal",
     "vendor": {
-      "name": "DataSync Technologies",
-      "id": "V025",
-      "relationshipAgeDays": 437,
-      "historicalInvoiceCount": 46,
+      "name": "Fresh Foods Supply Co",
+      "id": "V018",
+      "relationshipAgeDays": 1000,
+      "historicalInvoiceCount": 116,
       "typicalAmountRange": {
         "min": 40000,
-        "max": 160000
+        "max": 40000
       }
     },
     "invoice": {
-      "totalAmount": 57327,
-      "subtotal": 48582,
+      "totalAmount": 52902,
+      "subtotal": 44832,
       "taxRate": 0.18,
-      "taxAmount": 8745,
+      "taxAmount": 8070,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Software License Renewal - Annual",
-          "quantity": 1,
-          "unitPrice": 48582,
-          "lineTotal": 48582
+          "description": "Event Catering Services",
+          "quantity": 3,
+          "unitPrice": 14944,
+          "lineTotal": 44832
         }
       ],
       "purchaseOrderReference": "PO-2026-01369",
       "paymentBankDetails": {
-        "accountNumber": "FRAUD27172",
-        "ifscCode": "UTIB0099302"
+        "accountNumber": "FRAUD57258",
+        "ifscCode": "UTIB0099777"
       }
     },
     "intakeFlags": {
@@ -18083,7 +18333,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.86,
+    "extractionConfidence": 0.92,
     "recordedDecision": {
       "decision": "ESCALATE",
       "rulesetVersion": 1,
@@ -18092,8 +18342,9 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "fraudulent_bank_details",
-      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 7172"
-    }
+      "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 7258"
+    },
+    "_sequenceId": 369
   },
   {
     "id": "INV-2026-0274",
@@ -18167,7 +18418,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 180
   },
   {
     "id": "INV-2026-0275",
@@ -18227,7 +18479,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.88,
+    "extractionConfidence": 0.9,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -18236,7 +18488,8 @@
       "truth": "PROBLEM",
       "problemType": "duplicate_across_formats",
       "resolutionNote": "Same ₹1,20,485 charge from Global Travel Services submitted via email and portal; reconciliation confirmed single underlying transaction"
-    }
+    },
+    "_sequenceId": 396
   },
   {
     "id": "INV-2026-0276",
@@ -18292,7 +18545,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 152
   },
   {
     "id": "INV-2026-0277",
@@ -18360,7 +18614,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 236
   },
   {
     "id": "INV-2026-0278",
@@ -18429,7 +18684,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 99
   },
   {
     "id": "INV-2026-0279",
@@ -18485,7 +18741,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "One-time surcharge approved by management for expedited delivery"
-    }
+    },
+    "_sequenceId": 355
   },
   {
     "id": "INV-2026-0280",
@@ -18541,40 +18798,35 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 263
   },
   {
     "id": "INV-2026-0281",
     "submissionDate": "2026-03-05",
-    "source": "email",
+    "source": "portal",
     "vendor": {
       "name": "Patel Hardware Traders",
       "id": "V016",
-      "relationshipAgeDays": 652,
-      "historicalInvoiceCount": 90,
+      "relationshipAgeDays": 337,
+      "historicalInvoiceCount": 160,
       "typicalAmountRange": {
         "min": 3000,
         "max": 40000
       }
     },
     "invoice": {
-      "totalAmount": 31621,
-      "subtotal": 26793,
+      "totalAmount": 12125,
+      "subtotal": 10274,
       "taxRate": 0.18,
-      "taxAmount": 4828,
+      "taxAmount": 1851,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Paint and Coating Supplies",
-          "quantity": 3,
-          "unitPrice": 4231,
-          "lineTotal": 12693
-        },
-        {
-          "description": "Plumbing Fittings - Assorted",
-          "quantity": 5,
-          "unitPrice": 2820,
-          "lineTotal": 14100
+          "description": "Power Tools - Drill Set",
+          "quantity": 2,
+          "unitPrice": 5137,
+          "lineTotal": 10274
         }
       ],
       "purchaseOrderReference": "PO-2026-01285",
@@ -18603,8 +18855,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Composition scheme vendor; lower rate is correct per their GST registration"
-    }
+      "resolutionNote": "Rounding difference of ₹2 in GST calculation; within acceptable tolerance"
+    },
+    "_sequenceId": 285
   },
   {
     "id": "INV-2026-0282",
@@ -18660,7 +18913,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 194
   },
   {
     "id": "INV-2026-0283",
@@ -18717,7 +18971,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Annual price escalation per contract Section 4.2; within agreed ceiling"
-    }
+    },
+    "_sequenceId": 348
   },
   {
     "id": "INV-2026-0284",
@@ -18792,7 +19047,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 200
   },
   {
     "id": "INV-2026-0285",
@@ -18854,7 +19110,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 273
   },
   {
     "id": "INV-2026-0286",
@@ -18917,7 +19174,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Petty cash reimbursement submitted as invoice; below PO threshold"
-    }
+    },
+    "_sequenceId": 320
   },
   {
     "id": "INV-2026-0287",
@@ -18966,7 +19224,7 @@
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": true,
+      "duplicate_hash_match": false,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -18979,13 +19237,14 @@
     },
     "extractionConfidence": 0.95,
     "recordedDecision": {
-      "decision": "BLOCK",
+      "decision": "APPROVE",
       "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 1
   },
   {
     "id": "INV-2026-0288",
@@ -19002,17 +19261,23 @@
       }
     },
     "invoice": {
-      "totalAmount": 17593,
-      "subtotal": 14909,
+      "totalAmount": 11294,
+      "subtotal": 9571,
       "taxRate": 0.18,
-      "taxAmount": 2684,
+      "taxAmount": 1723,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Whiteboard Markers - Pack of 24",
-          "quantity": 17,
-          "unitPrice": 877,
-          "lineTotal": 14909
+          "description": "Ballpoint Pens - Box of 50",
+          "quantity": 10,
+          "unitPrice": 464,
+          "lineTotal": 4640
+        },
+        {
+          "description": "Filing Cabinets - 4 Drawer",
+          "quantity": 1,
+          "unitPrice": 4931,
+          "lineTotal": 4931
         }
       ],
       "purchaseOrderReference": "PO-2026-01298",
@@ -19028,7 +19293,7 @@
       "amount_anomaly": false,
       "po_missing": false,
       "po_quantity_mismatch": false,
-      "po_price_variance": 6.56,
+      "po_price_variance": 6.67,
       "tax_miscalculation": false,
       "currency_mismatch": false,
       "vendor_unverified": false
@@ -19042,7 +19307,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Raw material cost pass-through per contract terms; supporting documents attached"
-    }
+    },
+    "_sequenceId": 298
   },
   {
     "id": "INV-2026-0289",
@@ -19110,7 +19376,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 275
   },
   {
     "id": "INV-2026-0290",
@@ -19172,7 +19439,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 230
   },
   {
     "id": "INV-2026-0291",
@@ -19247,46 +19515,53 @@
       "truth": "PROBLEM",
       "problemType": "price_inflation",
       "resolutionNote": "\"Cement - 50kg Bags (x100)\" invoiced at ₹35,257/unit; PO contracted rate is ₹25,347/unit (39.1% variance)"
-    }
+    },
+    "_sequenceId": 376
   },
   {
     "id": "INV-2026-0292",
-    "submissionDate": "2026-01-03",
-    "source": "edi",
+    "submissionDate": "2026-01-04",
+    "source": "portal",
     "vendor": {
-      "name": "AeroTech Components Ltd",
-      "id": "V004",
-      "relationshipAgeDays": 1029,
-      "historicalInvoiceCount": 22,
+      "name": "Kiran Stationery Mart",
+      "id": "V012",
+      "relationshipAgeDays": 171,
+      "historicalInvoiceCount": 152,
       "typicalAmountRange": {
-        "min": 10000,
-        "max": 200000
+        "min": 1000,
+        "max": 12000
       }
     },
     "invoice": {
-      "totalAmount": 107144,
-      "subtotal": 90800,
+      "totalAmount": 7028,
+      "subtotal": 5956,
       "taxRate": 0.18,
-      "taxAmount": 16344,
+      "taxAmount": 1072,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Hydraulic Cylinders - Set of 4",
+          "description": "Toner Cartridge - HP LaserJet",
           "quantity": 1,
-          "unitPrice": 42764,
-          "lineTotal": 42764
+          "unitPrice": 3787,
+          "lineTotal": 3787
         },
         {
-          "description": "Industrial Fasteners - Assorted Box",
-          "quantity": 6,
-          "unitPrice": 8006,
-          "lineTotal": 48036
+          "description": "A4 Copy Paper - Box of 10 Reams",
+          "quantity": 3,
+          "unitPrice": 315,
+          "lineTotal": 945
+        },
+        {
+          "description": "Ballpoint Pens - Box of 50",
+          "quantity": 3,
+          "unitPrice": 408,
+          "lineTotal": 1224
         }
       ],
       "purchaseOrderReference": "PO-2026-01363",
       "paymentBankDetails": {
-        "accountNumber": "4001234567",
-        "ifscCode": "UTIB0004567"
+        "accountNumber": "1301234567",
+        "ifscCode": "UTIB0012345"
       }
     },
     "intakeFlags": {
@@ -19309,50 +19584,57 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate of invoice from 2026-01-03; same vendor (AeroTech Components Ltd), same amount (₹1,07,144)"
+      "resolutionNote": "Duplicate of invoice from 2026-01-04; same vendor (Kiran Stationery Mart), same amount (₹7,028)"
     },
+    "_sequenceId": 363,
     "_duplicateSource": {
-      "id": "INV-2026-0222",
-      "submissionDate": "2026-01-03",
-      "source": "email",
+      "id": "INV-2026-0317",
+      "submissionDate": "2026-01-04",
+      "source": "portal",
       "vendor": {
-        "name": "AeroTech Components Ltd",
-        "id": "V004",
-        "relationshipAgeDays": 1029,
-        "historicalInvoiceCount": 22,
+        "name": "Kiran Stationery Mart",
+        "id": "V012",
+        "relationshipAgeDays": 171,
+        "historicalInvoiceCount": 152,
         "typicalAmountRange": {
-          "min": 10000,
-          "max": 200000
+          "min": 1000,
+          "max": 12000
         }
       },
       "invoice": {
-        "totalAmount": 107144,
-        "subtotal": 90800,
+        "totalAmount": 7028,
+        "subtotal": 5956,
         "taxRate": 0.18,
-        "taxAmount": 16344,
+        "taxAmount": 1072,
         "currency": "INR",
         "lineItems": [
           {
-            "description": "Hydraulic Cylinders - Set of 4",
+            "description": "Toner Cartridge - HP LaserJet",
             "quantity": 1,
-            "unitPrice": 42764,
-            "lineTotal": 42764
+            "unitPrice": 3787,
+            "lineTotal": 3787
           },
           {
-            "description": "Industrial Fasteners - Assorted Box",
-            "quantity": 6,
-            "unitPrice": 8006,
-            "lineTotal": 48036
+            "description": "A4 Copy Paper - Box of 10 Reams",
+            "quantity": 3,
+            "unitPrice": 315,
+            "lineTotal": 945
+          },
+          {
+            "description": "Ballpoint Pens - Box of 50",
+            "quantity": 3,
+            "unitPrice": 408,
+            "lineTotal": 1224
           }
         ],
-        "purchaseOrderReference": "PO-2026-01003",
+        "purchaseOrderReference": "PO-2026-01011",
         "paymentBankDetails": {
-          "accountNumber": "4001234567",
-          "ifscCode": "UTIB0004567"
+          "accountNumber": "1301234567",
+          "ifscCode": "UTIB0012345"
         }
       },
       "intakeFlags": {
-        "duplicate_hash_match": true,
+        "duplicate_hash_match": false,
         "bank_details_changed": false,
         "new_vendor": false,
         "amount_anomaly": false,
@@ -19363,25 +19645,28 @@
         "currency_mismatch": false,
         "vendor_unverified": false
       },
-      "extractionConfidence": 0.81,
+      "extractionConfidence": 0.87,
       "recordedDecision": {
-        "decision": "BLOCK",
+        "decision": "APPROVE",
         "rulesetVersion": 1
       },
       "groundTruth": {
         "truth": "LEGITIMATE",
-        "resolutionNote": "Standard procurement, no issues noted during review"
+        "resolutionNote": "All items received as invoiced, approved in normal course"
       },
       "_segment": "clean",
       "_isNonObvious": false,
       "_poExpectedPrices": [
-        42764,
-        8006
+        3787,
+        315,
+        408
       ],
       "_poExpectedQuantities": [
         1,
-        6
-      ]
+        3,
+        3
+      ],
+      "_sequenceId": 11
     }
   },
   {
@@ -19450,7 +19735,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 135
   },
   {
     "id": "INV-2026-0294",
@@ -19512,7 +19798,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 90
   },
   {
     "id": "INV-2026-0295",
@@ -19586,52 +19873,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 116
   },
   {
     "id": "INV-2026-0296",
     "submissionDate": "2026-03-05",
-    "source": "edi",
+    "source": "email",
     "vendor": {
       "name": "Kiran Stationery Mart",
       "id": "V012",
-      "relationshipAgeDays": 353,
-      "historicalInvoiceCount": 199,
+      "relationshipAgeDays": 300,
+      "historicalInvoiceCount": 41,
       "typicalAmountRange": {
         "min": 1000,
         "max": 12000
       }
     },
     "invoice": {
-      "totalAmount": 14245,
-      "subtotal": 12072,
+      "totalAmount": 13693,
+      "subtotal": 11604,
       "taxRate": 0.18,
-      "taxAmount": 2173,
+      "taxAmount": 2089,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Desk Organiser Set",
-          "quantity": 3,
-          "unitPrice": 1260,
-          "lineTotal": 3780
+          "description": "Sticky Notes - Pack of 12",
+          "quantity": 23,
+          "unitPrice": 201,
+          "lineTotal": 4623
         },
         {
-          "description": "Whiteboard Markers - Pack of 24",
-          "quantity": 6,
-          "unitPrice": 782,
-          "lineTotal": 4692
+          "description": "A4 Copy Paper - Box of 10 Reams",
+          "quantity": 10,
+          "unitPrice": 381,
+          "lineTotal": 3810
         },
         {
-          "description": "Printer Paper - A3 Ream of 500",
-          "quantity": 6,
-          "unitPrice": 600,
-          "lineTotal": 3600
+          "description": "Ballpoint Pens - Box of 50",
+          "quantity": 7,
+          "unitPrice": 453,
+          "lineTotal": 3171
         }
       ],
       "purchaseOrderReference": "PO-2026-01289",
       "paymentBankDetails": {
-        "accountNumber": "V012ALT1236",
-        "ifscCode": "ICIC0008347"
+        "accountNumber": "V012ALT9924",
+        "ifscCode": "ICIC0008827"
       }
     },
     "intakeFlags": {
@@ -19654,8 +19942,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Updated bank details match the vendor's new GST registration certificate"
-    }
+      "resolutionNote": "Vendor changed primary bank due to branch closure; pre-announced"
+    },
+    "_sequenceId": 289
   },
   {
     "id": "INV-2026-0297",
@@ -19723,7 +20012,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 127
   },
   {
     "id": "INV-2026-0298",
@@ -19785,16 +20075,17 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 221
   },
   {
     "id": "INV-2026-0299",
     "submissionDate": "2026-03-23",
-    "source": "portal",
+    "source": "email",
     "vendor": {
       "name": "Reliable Office Solutions",
       "id": "V036",
-      "relationshipAgeDays": 244,
+      "relationshipAgeDays": 76,
       "historicalInvoiceCount": 0,
       "typicalAmountRange": {
         "min": 5000,
@@ -19802,35 +20093,29 @@
       }
     },
     "invoice": {
-      "totalAmount": 78455,
-      "subtotal": 66487,
+      "totalAmount": 67278,
+      "subtotal": 57015,
       "taxRate": 0.18,
-      "taxAmount": 11968,
+      "taxAmount": 10263,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Filing Cabinets - 4 Drawer",
-          "quantity": 3,
-          "unitPrice": 4113,
-          "lineTotal": 12339
-        },
-        {
           "description": "Ballpoint Pens - Box of 50",
-          "quantity": 42,
-          "unitPrice": 442,
-          "lineTotal": 18564
-        },
-        {
-          "description": "Sticky Notes - Pack of 12",
-          "quantity": 76,
-          "unitPrice": 199,
-          "lineTotal": 15124
+          "quantity": 38,
+          "unitPrice": 407,
+          "lineTotal": 15466
         },
         {
           "description": "A4 Copy Paper - Box of 10 Reams",
-          "quantity": 55,
-          "unitPrice": 372,
-          "lineTotal": 20460
+          "quantity": 50,
+          "unitPrice": 368,
+          "lineTotal": 18400
+        },
+        {
+          "description": "Toner Cartridge - HP LaserJet",
+          "quantity": 7,
+          "unitPrice": 3307,
+          "lineTotal": 23149
         }
       ],
       "purchaseOrderReference": "PO-2026-01372",
@@ -19851,7 +20136,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.89,
+    "extractionConfidence": 0.91,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -19860,7 +20145,8 @@
       "truth": "PROBLEM",
       "problemType": "fraudulent_bank_details",
       "resolutionNote": "Payment details altered to redirect funds to unauthorized account ending in 4567"
-    }
+    },
+    "_sequenceId": 372
   },
   {
     "id": "INV-2026-0300",
@@ -19929,7 +20215,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 159
   },
   {
     "id": "INV-2026-0301",
@@ -19986,7 +20273,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor shipped overage within tolerance per contract Section 3.1"
-    }
+    },
+    "_sequenceId": 338
   },
   {
     "id": "INV-2026-0302",
@@ -20054,7 +20342,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Subscription renewal; standing order, no individual PO required per policy"
-    }
+    },
+    "_sequenceId": 319
   },
   {
     "id": "INV-2026-0303",
@@ -20128,7 +20417,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 6
   },
   {
     "id": "INV-2026-0304",
@@ -20203,7 +20493,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 269
   },
   {
     "id": "INV-2026-0305",
@@ -20277,7 +20568,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 256
   },
   {
     "id": "INV-2026-0306",
@@ -20339,7 +20631,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Recently onboarded vendor; all documentation verified during registration"
-    }
+    },
+    "_sequenceId": 329
   },
   {
     "id": "INV-2026-0307",
@@ -20407,7 +20700,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 133
   },
   {
     "id": "INV-2026-0308",
@@ -20475,7 +20769,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 54
   },
   {
     "id": "INV-2026-0309",
@@ -20530,7 +20825,7 @@
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": true,
+      "duplicate_hash_match": false,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -20543,13 +20838,15 @@
     },
     "extractionConfidence": 0.84,
     "recordedDecision": {
-      "decision": "BLOCK",
-      "rulesetVersion": 1
+      "decision": "ESCALATE",
+      "rulesetVersion": 1,
+      "humanAction": "APPROVE"
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 0
   },
   {
     "id": "INV-2026-0310",
@@ -20612,7 +20909,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 164
   },
   {
     "id": "INV-2026-0311",
@@ -20680,7 +20978,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 171
   },
   {
     "id": "INV-2026-0312",
@@ -20724,7 +21023,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
       "po_missing": false,
@@ -20736,15 +21035,15 @@
     },
     "extractionConfidence": 0.93,
     "recordedDecision": {
-      "decision": "ESCALATE",
-      "rulesetVersion": 1,
-      "humanAction": "BLOCK"
+      "decision": "APPROVE",
+      "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "price_inflation",
       "resolutionNote": "Market rate audit found \"Network Maintenance - Monthly\" at ₹11,534/unit exceeds comparable vendor quotes by 30-50%; PO was raised at the inflated rate"
-    }
+    },
+    "_sequenceId": 378
   },
   {
     "id": "INV-2026-0313",
@@ -20807,7 +21106,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Seasonal peak order; consistent with prior year Q1 volumes"
-    }
+    },
+    "_sequenceId": 315
   },
   {
     "id": "INV-2026-0314",
@@ -20869,7 +21169,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 30
   },
   {
     "id": "INV-2026-0315",
@@ -20923,7 +21224,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.89,
+    "extractionConfidence": 0.9,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -20932,7 +21233,8 @@
       "truth": "PROBLEM",
       "problemType": "price_inflation",
       "resolutionNote": "Market rate audit found \"Web Application Development\" at ₹51,307/unit exceeds comparable vendor quotes by 30-50%; PO was raised at the inflated rate"
-    }
+    },
+    "_sequenceId": 379
   },
   {
     "id": "INV-2026-0316",
@@ -21000,7 +21302,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 26
   },
   {
     "id": "INV-2026-0317",
@@ -21068,7 +21371,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 11
   },
   {
     "id": "INV-2026-0318",
@@ -21137,7 +21441,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor notified bank change via registered letter two weeks prior; change verified"
-    }
+    },
+    "_sequenceId": 342
   },
   {
     "id": "INV-2026-0319",
@@ -21193,7 +21498,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
       "po_missing": false,
@@ -21212,7 +21517,8 @@
       "truth": "PROBLEM",
       "problemType": "price_inflation",
       "resolutionNote": "\"Steel Plate - Grade 304 - 10 Sheets\" invoiced at ₹38,106/unit; PO contracted rate is ₹26,305/unit (44.9% variance)"
-    }
+    },
+    "_sequenceId": 377
   },
   {
     "id": "INV-2026-0320",
@@ -21268,7 +21574,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 167
   },
   {
     "id": "INV-2026-0321",
@@ -21330,7 +21637,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 255
   },
   {
     "id": "INV-2026-0322",
@@ -21392,7 +21700,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 162
   },
   {
     "id": "INV-2026-0323",
@@ -21466,7 +21775,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 21
   },
   {
     "id": "INV-2026-0324",
@@ -21528,7 +21838,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 139
   },
   {
     "id": "INV-2026-0325",
@@ -21586,7 +21897,8 @@
       "truth": "PROBLEM",
       "problemType": "price_inflation",
       "resolutionNote": "\"Contract Staff Services - Monthly\" invoiced at ₹34,467/unit; PO contracted rate is ₹21,565/unit (59.8% variance)"
-    }
+    },
+    "_sequenceId": 375
   },
   {
     "id": "INV-2026-0326",
@@ -21654,7 +21966,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 95
   },
   {
     "id": "INV-2026-0327",
@@ -21717,7 +22030,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 157
   },
   {
     "id": "INV-2026-0328",
@@ -21791,7 +22105,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 82
   },
   {
     "id": "INV-2026-0329",
@@ -21860,52 +22175,59 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 15
   },
   {
     "id": "INV-2026-0330",
-    "submissionDate": "2026-01-02",
-    "source": "email",
+    "submissionDate": "2026-01-04",
+    "source": "portal",
     "vendor": {
-      "name": "Rajesh Trading Co",
-      "id": "V003",
-      "relationshipAgeDays": 379,
-      "historicalInvoiceCount": 108,
+      "name": "NexGen IT Services",
+      "id": "V007",
+      "relationshipAgeDays": 1235,
+      "historicalInvoiceCount": 192,
       "typicalAmountRange": {
-        "min": 5000,
-        "max": 60000
+        "min": 15000,
+        "max": 120000
       }
     },
     "invoice": {
-      "totalAmount": 19023,
-      "subtotal": 18473,
+      "totalAmount": 171120,
+      "subtotal": 150103,
       "taxRate": 0.18,
-      "taxAmount": 3325,
+      "taxAmount": 27019,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Adhesive Tape - Carton of 48",
-          "quantity": 2,
-          "unitPrice": 2287,
-          "lineTotal": 4574
-        },
-        {
-          "description": "Cleaning Supplies - Monthly",
-          "quantity": 2,
-          "unitPrice": 3183,
-          "lineTotal": 6366
-        },
-        {
-          "description": "Packaging Material - Bulk Order",
+          "description": "IT Support Services - Quarterly",
           "quantity": 1,
-          "unitPrice": 7533,
-          "lineTotal": 7533
+          "unitPrice": 27285,
+          "lineTotal": 27285
+        },
+        {
+          "description": "Cybersecurity Assessment",
+          "quantity": 2,
+          "unitPrice": 23540,
+          "lineTotal": 47080
+        },
+        {
+          "description": "Server Migration Services",
+          "quantity": 1,
+          "unitPrice": 36243,
+          "lineTotal": 36243
+        },
+        {
+          "description": "Data Backup and Recovery Service",
+          "quantity": 5,
+          "unitPrice": 7899,
+          "lineTotal": 39495
         }
       ],
       "purchaseOrderReference": "PO-2026-01282",
       "paymentBankDetails": {
-        "accountNumber": "3001234567",
-        "ifscCode": "ICIC0003456"
+        "accountNumber": "7001234567",
+        "ifscCode": "BARB0007890"
       }
     },
     "intakeFlags": {
@@ -21927,8 +22249,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Re-submission after documentation correction; original invoice was rejected for missing PO reference"
-    }
+      "resolutionNote": "Vendor resubmitted after correcting bank details on the original; legitimate second filing"
+    },
+    "_sequenceId": 282
   },
   {
     "id": "INV-2026-0331",
@@ -21996,7 +22319,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 176
   },
   {
     "id": "INV-2026-0332",
@@ -22052,7 +22376,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 23
   },
   {
     "id": "INV-2026-0333",
@@ -22120,7 +22445,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 4
   },
   {
     "id": "INV-2026-0334",
@@ -22188,7 +22514,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 72
   },
   {
     "id": "INV-2026-0335",
@@ -22244,7 +22571,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 143
   },
   {
     "id": "INV-2026-0336",
@@ -22318,7 +22646,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 246
   },
   {
     "id": "INV-2026-0337",
@@ -22356,7 +22685,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
       "po_missing": false,
@@ -22376,7 +22705,8 @@
       "truth": "PROBLEM",
       "problemType": "contract_violation",
       "resolutionNote": "\"Precision Bearings - Lot of 100\" (10 units at ₹23,652) not covered under master service agreement with IndoSteel Corporation; no amendment on file"
-    }
+    },
+    "_sequenceId": 399
   },
   {
     "id": "INV-2026-0338",
@@ -22439,7 +22769,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 237
   },
   {
     "id": "INV-2026-0339",
@@ -22495,7 +22826,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 186
   },
   {
     "id": "INV-2026-0340",
@@ -22538,7 +22870,7 @@
       }
     },
     "intakeFlags": {
-      "duplicate_hash_match": true,
+      "duplicate_hash_match": false,
       "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
@@ -22551,64 +22883,65 @@
     },
     "extractionConfidence": 0.91,
     "recordedDecision": {
-      "decision": "BLOCK",
+      "decision": "APPROVE",
       "rulesetVersion": 1
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 2
   },
   {
     "id": "INV-2026-0341",
     "submissionDate": "2026-03-06",
-    "source": "portal",
+    "source": "email",
     "vendor": {
       "name": "Patel Hardware Traders",
       "id": "V016",
-      "relationshipAgeDays": 1222,
-      "historicalInvoiceCount": 200,
+      "relationshipAgeDays": 1489,
+      "historicalInvoiceCount": 176,
       "typicalAmountRange": {
         "min": 3000,
         "max": 40000
       }
     },
     "invoice": {
-      "totalAmount": 38086,
-      "subtotal": 32276,
+      "totalAmount": 41557,
+      "subtotal": 35218,
       "taxRate": 0.18,
-      "taxAmount": 5810,
+      "taxAmount": 6339,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Plumbing Fittings - Assorted",
-          "quantity": 3,
-          "unitPrice": 3069,
-          "lineTotal": 9207
-        },
-        {
           "description": "Paint and Coating Supplies",
           "quantity": 2,
-          "unitPrice": 3845,
-          "lineTotal": 7690
+          "unitPrice": 3893,
+          "lineTotal": 7786
+        },
+        {
+          "description": "Power Tools - Drill Set",
+          "quantity": 2,
+          "unitPrice": 5913,
+          "lineTotal": 11826
         },
         {
           "description": "Hand Tools - Workshop Kit",
           "quantity": 1,
-          "unitPrice": 7801,
-          "lineTotal": 7801
+          "unitPrice": 7923,
+          "lineTotal": 7923
         },
         {
           "description": "Electrical Wiring - 100m Roll",
           "quantity": 3,
-          "unitPrice": 2526,
-          "lineTotal": 7578
+          "unitPrice": 2561,
+          "lineTotal": 7683
         }
       ],
       "purchaseOrderReference": "PO-2026-01293",
       "paymentBankDetails": {
-        "accountNumber": "V016ALT1189",
-        "ifscCode": "ICIC0008987"
+        "accountNumber": "V016ALT9988",
+        "ifscCode": "ICIC0008835"
       }
     },
     "intakeFlags": {
@@ -22632,7 +22965,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Updated bank details match the vendor's new GST registration certificate"
-    }
+    },
+    "_sequenceId": 293
   },
   {
     "id": "INV-2026-0342",
@@ -22700,7 +23034,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 57
   },
   {
     "id": "INV-2026-0343",
@@ -22762,52 +23097,47 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 32
   },
   {
     "id": "INV-2026-0344",
     "submissionDate": "2026-03-22",
     "source": "email",
     "vendor": {
-      "name": "Greenfield Facilities Mgmt",
-      "id": "V005",
-      "relationshipAgeDays": 1089,
-      "historicalInvoiceCount": 10,
+      "name": "IndoSteel Corporation",
+      "id": "V013",
+      "relationshipAgeDays": 923,
+      "historicalInvoiceCount": 47,
       "typicalAmountRange": {
-        "min": 15000,
-        "max": 80000
+        "min": 20000,
+        "max": 250000
       }
     },
     "invoice": {
-      "totalAmount": 84973,
-      "subtotal": 72011,
+      "totalAmount": 67530,
+      "subtotal": 57229,
       "taxRate": 0.18,
-      "taxAmount": 12962,
+      "taxAmount": 10301,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Janitorial Supplies - Monthly",
-          "quantity": 4,
-          "unitPrice": 5970,
-          "lineTotal": 23880
+          "description": "Hydraulic Cylinders - Set of 4",
+          "quantity": 1,
+          "unitPrice": 41373,
+          "lineTotal": 41373
         },
         {
-          "description": "Fire Safety Equipment Inspection",
+          "description": "Industrial Fasteners - Assorted Box",
           "quantity": 2,
-          "unitPrice": 11881,
-          "lineTotal": 23762
-        },
-        {
-          "description": "Plumbing Repair Services",
-          "quantity": 3,
-          "unitPrice": 8123,
-          "lineTotal": 24369
+          "unitPrice": 7928,
+          "lineTotal": 15856
         }
       ],
       "purchaseOrderReference": "PO-2026-01364",
       "paymentBankDetails": {
-        "accountNumber": "5001234567",
-        "ifscCode": "KKBK0005678"
+        "accountNumber": "1401234567",
+        "ifscCode": "KKBK0013456"
       }
     },
     "intakeFlags": {
@@ -22822,7 +23152,7 @@
       "currency_mismatch": false,
       "vendor_unverified": false
     },
-    "extractionConfidence": 0.91,
+    "extractionConfidence": 0.93,
     "recordedDecision": {
       "decision": "APPROVE",
       "rulesetVersion": 1
@@ -22830,8 +23160,9 @@
     "groundTruth": {
       "truth": "PROBLEM",
       "problemType": "duplicate_submission",
-      "resolutionNote": "Duplicate charge identified; Greenfield Facilities Mgmt submitted identical ₹84,973 invoice on a different date"
-    }
+      "resolutionNote": "Duplicate charge identified; IndoSteel Corporation submitted identical ₹67,530 invoice on a different date"
+    },
+    "_sequenceId": 364
   },
   {
     "id": "INV-2026-0345",
@@ -22905,7 +23236,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 78
   },
   {
     "id": "INV-2026-0346",
@@ -22967,7 +23299,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 242
   },
   {
     "id": "INV-2026-0347",
@@ -23030,7 +23363,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 187
   },
   {
     "id": "INV-2026-0348",
@@ -23106,7 +23440,8 @@
       "truth": "PROBLEM",
       "problemType": "tax_miscalculation",
       "resolutionNote": "Tax stated as ₹14,030 on subtotal ₹66,836; correct 18% GST is ₹12,030 — overbilled by ₹2,000"
-    }
+    },
+    "_sequenceId": 392
   },
   {
     "id": "INV-2026-0349",
@@ -23162,7 +23497,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 229
   },
   {
     "id": "INV-2026-0350",
@@ -23230,7 +23566,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 20
   },
   {
     "id": "INV-2026-0351",
@@ -23298,7 +23635,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 172
   },
   {
     "id": "INV-2026-0352",
@@ -23372,7 +23710,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 123
   },
   {
     "id": "INV-2026-0353",
@@ -23428,7 +23767,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 213
   },
   {
     "id": "INV-2026-0354",
@@ -23496,7 +23836,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 100
   },
   {
     "id": "INV-2026-0355",
@@ -23564,7 +23905,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 132
   },
   {
     "id": "INV-2026-0356",
@@ -23626,7 +23968,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 226
   },
   {
     "id": "INV-2026-0357",
@@ -23701,7 +24044,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 59
   },
   {
     "id": "INV-2026-0358",
@@ -23763,7 +24107,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 219
   },
   {
     "id": "INV-2026-0359",
@@ -23838,7 +24183,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 170
   },
   {
     "id": "INV-2026-0360",
@@ -23906,7 +24252,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Emergency repair service; verbal approval by Plant Manager, documented post-facto"
-    }
+    },
+    "_sequenceId": 349
   },
   {
     "id": "INV-2026-0361",
@@ -23968,7 +24315,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 125
   },
   {
     "id": "INV-2026-0362",
@@ -24042,7 +24390,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 216
   },
   {
     "id": "INV-2026-0363",
@@ -24098,7 +24447,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 39
   },
   {
     "id": "INV-2026-0364",
@@ -24172,7 +24522,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 71
   },
   {
     "id": "INV-2026-0365",
@@ -24246,7 +24597,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 74
   },
   {
     "id": "INV-2026-0366",
@@ -24314,7 +24666,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 204
   },
   {
     "id": "INV-2026-0367",
@@ -24388,7 +24741,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 83
   },
   {
     "id": "INV-2026-0368",
@@ -24450,7 +24804,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 22
   },
   {
     "id": "INV-2026-0369",
@@ -24518,7 +24873,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 232
   },
   {
     "id": "INV-2026-0370",
@@ -24592,7 +24948,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 148
   },
   {
     "id": "INV-2026-0371",
@@ -24667,7 +25024,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor verification delayed due to system migration; manual approval granted"
-    }
+    },
+    "_sequenceId": 304
   },
   {
     "id": "INV-2026-0372",
@@ -24730,7 +25088,8 @@
       "truth": "PROBLEM",
       "problemType": "quantity_inflation",
       "resolutionNote": "Billed for 5 units of \"Scaffolding Rental - Monthly\" but only 3 received per delivery receipt"
-    }
+    },
+    "_sequenceId": 381
   },
   {
     "id": "INV-2026-0373",
@@ -24768,7 +25127,7 @@
     },
     "intakeFlags": {
       "duplicate_hash_match": false,
-      "bank_details_changed": true,
+      "bank_details_changed": false,
       "new_vendor": false,
       "amount_anomaly": false,
       "po_missing": false,
@@ -24788,40 +25147,53 @@
       "truth": "PROBLEM",
       "problemType": "tax_miscalculation",
       "resolutionNote": "Tax stated as ₹2,222 on subtotal ₹1,232; correct 18% GST is ₹222 — overbilled by ₹2,000"
-    }
+    },
+    "_sequenceId": 391
   },
   {
     "id": "INV-2026-0374",
-    "submissionDate": "2026-01-02",
+    "submissionDate": "2026-01-03",
     "source": "portal",
     "vendor": {
-      "name": "Pinnacle Office Supplies",
-      "id": "V002",
-      "relationshipAgeDays": 213,
-      "historicalInvoiceCount": 36,
+      "name": "Bharat Consulting Group",
+      "id": "V006",
+      "relationshipAgeDays": 1153,
+      "historicalInvoiceCount": 33,
       "typicalAmountRange": {
-        "min": 2000,
-        "max": 25000
+        "min": 30000,
+        "max": 300000
       }
     },
     "invoice": {
-      "totalAmount": 27820,
-      "subtotal": 23260,
+      "totalAmount": 206825,
+      "subtotal": 180918,
       "taxRate": 0.18,
-      "taxAmount": 4187,
+      "taxAmount": 32565,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Desk Organiser Set",
-          "quantity": 20,
-          "unitPrice": 1163,
-          "lineTotal": 23260
+          "description": "Process Optimization Review",
+          "quantity": 1,
+          "unitPrice": 52777,
+          "lineTotal": 52777
+        },
+        {
+          "description": "Market Research Report",
+          "quantity": 2,
+          "unitPrice": 36759,
+          "lineTotal": 73518
+        },
+        {
+          "description": "Compliance Audit Services",
+          "quantity": 1,
+          "unitPrice": 54623,
+          "lineTotal": 54623
         }
       ],
       "purchaseOrderReference": "PO-2026-01281",
       "paymentBankDetails": {
-        "accountNumber": "2001234567",
-        "ifscCode": "HDFC0002345"
+        "accountNumber": "6001234567",
+        "ifscCode": "PUNB0006789"
       }
     },
     "intakeFlags": {
@@ -24844,7 +25216,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Re-submission after documentation correction; original invoice was rejected for missing PO reference"
-    }
+    },
+    "_sequenceId": 281
   },
   {
     "id": "INV-2026-0375",
@@ -24919,7 +25292,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "New supplier replacing discontinued vendor; approved by sourcing team"
-    }
+    },
+    "_sequenceId": 328
   },
   {
     "id": "INV-2026-0376",
@@ -24994,7 +25368,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "New supplier onboarding in progress; invoice pre-approved by procurement"
-    }
+    },
+    "_sequenceId": 302
   },
   {
     "id": "INV-2026-0377",
@@ -25050,7 +25425,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 124
   },
   {
     "id": "INV-2026-0378",
@@ -25119,7 +25495,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Recently onboarded vendor; all documentation verified during registration"
-    }
+    },
+    "_sequenceId": 332
   },
   {
     "id": "INV-2026-0379",
@@ -25187,7 +25564,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard vendor payment, all documentation verified"
-    }
+    },
+    "_sequenceId": 107
   },
   {
     "id": "INV-2026-0380",
@@ -25243,7 +25621,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 89
   },
   {
     "id": "INV-2026-0381",
@@ -25311,7 +25690,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Standard procurement, no issues noted during review"
-    }
+    },
+    "_sequenceId": 196
   },
   {
     "id": "INV-2026-0382",
@@ -25373,7 +25753,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 38
   },
   {
     "id": "INV-2026-0383",
@@ -25435,34 +25816,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 205
   },
   {
     "id": "INV-2026-0384",
     "submissionDate": "2026-03-06",
-    "source": "portal",
+    "source": "email",
     "vendor": {
       "name": "Ravi Construction Materials",
       "id": "V024",
-      "relationshipAgeDays": 1425,
-      "historicalInvoiceCount": 23,
+      "relationshipAgeDays": 960,
+      "historicalInvoiceCount": 25,
       "typicalAmountRange": {
         "min": 15000,
         "max": 200000
       }
     },
     "invoice": {
-      "totalAmount": 119522,
-      "subtotal": 101290,
+      "totalAmount": 176270,
+      "subtotal": 149381,
       "taxRate": 0.18,
-      "taxAmount": 18232,
+      "taxAmount": 26889,
       "currency": "INR",
       "lineItems": [
         {
+          "description": "Cement - 50kg Bags (x100)",
+          "quantity": 1,
+          "unitPrice": 32451,
+          "lineTotal": 32451
+        },
+        {
+          "description": "TMT Steel Bars - Per Tonne",
+          "quantity": 1,
+          "unitPrice": 51964,
+          "lineTotal": 51964
+        },
+        {
           "description": "Sand and Gravel - Truckload",
-          "quantity": 7,
-          "unitPrice": 14470,
-          "lineTotal": 101290
+          "quantity": 3,
+          "unitPrice": 13783,
+          "lineTotal": 41349
+        },
+        {
+          "description": "Scaffolding Rental - Monthly",
+          "quantity": 1,
+          "unitPrice": 23617,
+          "lineTotal": 23617
         }
       ],
       "purchaseOrderReference": "PO-2026-01295",
@@ -25478,7 +25878,7 @@
       "amount_anomaly": false,
       "po_missing": false,
       "po_quantity_mismatch": false,
-      "po_price_variance": 20.44,
+      "po_price_variance": 20.77,
       "tax_miscalculation": false,
       "currency_mismatch": false,
       "vendor_unverified": false
@@ -25490,8 +25890,9 @@
     },
     "groundTruth": {
       "truth": "LEGITIMATE",
-      "resolutionNote": "Raw material cost pass-through per contract terms; supporting documents attached"
-    }
+      "resolutionNote": "One-time surcharge approved by management for expedited delivery"
+    },
+    "_sequenceId": 295
   },
   {
     "id": "INV-2026-0385",
@@ -25559,7 +25960,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 214
   },
   {
     "id": "INV-2026-0386",
@@ -25615,7 +26017,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 86
   },
   {
     "id": "INV-2026-0387",
@@ -25677,7 +26080,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "All items received as invoiced, approved in normal course"
-    }
+    },
+    "_sequenceId": 150
   },
   {
     "id": "INV-2026-0388",
@@ -25733,7 +26137,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "New supplier replacing discontinued vendor; approved by sourcing team"
-    }
+    },
+    "_sequenceId": 347
   },
   {
     "id": "INV-2026-0389",
@@ -25807,7 +26212,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Petty cash reimbursement submitted as invoice; below PO threshold"
-    }
+    },
+    "_sequenceId": 323
   },
   {
     "id": "INV-2026-0390",
@@ -25875,7 +26281,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Routine invoice processed without incident"
-    }
+    },
+    "_sequenceId": 248
   },
   {
     "id": "INV-2026-0391",
@@ -25943,7 +26350,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Verified against contract, processed on schedule"
-    }
+    },
+    "_sequenceId": 206
   },
   {
     "id": "INV-2026-0392",
@@ -26005,7 +26413,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 260
   },
   {
     "id": "INV-2026-0393",
@@ -26062,7 +26471,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 233
   },
   {
     "id": "INV-2026-0394",
@@ -26124,7 +26534,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 126
   },
   {
     "id": "INV-2026-0395",
@@ -26180,7 +26591,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Monthly service fee, consistent with agreement"
-    }
+    },
+    "_sequenceId": 262
   },
   {
     "id": "INV-2026-0396",
@@ -26248,7 +26660,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Recently onboarded vendor; all documentation verified during registration"
-    }
+    },
+    "_sequenceId": 350
   },
   {
     "id": "INV-2026-0397",
@@ -26304,7 +26717,8 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Confirmed delivery receipt, standard payment terms"
-    }
+    },
+    "_sequenceId": 231
   },
   {
     "id": "INV-2026-0398",
@@ -26374,7 +26788,8 @@
       "truth": "PROBLEM",
       "problemType": "phantom_vendor",
       "resolutionNote": "\"Zenith Procurement Services\" (V027) could not be verified; registered address is a vacant lot, phone numbers route to voicemail, no GST filings found"
-    }
+    },
+    "_sequenceId": 389
   },
   {
     "id": "INV-2026-0399",
@@ -26436,58 +26851,53 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Regular periodic billing, matched to purchase order"
-    }
+    },
+    "_sequenceId": 109
   },
   {
     "id": "INV-2026-0400",
     "submissionDate": "2026-03-06",
-    "source": "portal",
+    "source": "edi",
     "vendor": {
       "name": "Sharma & Associates",
       "id": "V015",
-      "relationshipAgeDays": 745,
-      "historicalInvoiceCount": 199,
+      "relationshipAgeDays": 1071,
+      "historicalInvoiceCount": 44,
       "typicalAmountRange": {
         "min": 20000,
         "max": 100000
       }
     },
     "invoice": {
-      "totalAmount": 125189,
-      "subtotal": 106092,
+      "totalAmount": 107162,
+      "subtotal": 90815,
       "taxRate": 0.18,
-      "taxAmount": 19097,
+      "taxAmount": 16347,
       "currency": "INR",
       "lineItems": [
         {
-          "description": "Intellectual Property Filing",
+          "description": "Legal Consultation - Retainer",
           "quantity": 1,
-          "unitPrice": 18232,
-          "lineTotal": 18232
-        },
-        {
-          "description": "Regulatory Compliance Review",
-          "quantity": 1,
-          "unitPrice": 29199,
-          "lineTotal": 29199
+          "unitPrice": 27317,
+          "lineTotal": 27317
         },
         {
           "description": "Contract Drafting Services",
-          "quantity": 2,
-          "unitPrice": 16125,
-          "lineTotal": 32250
+          "quantity": 3,
+          "unitPrice": 14336,
+          "lineTotal": 43008
         },
         {
-          "description": "Legal Consultation - Retainer",
+          "description": "Intellectual Property Filing",
           "quantity": 1,
-          "unitPrice": 26411,
-          "lineTotal": 26411
+          "unitPrice": 20490,
+          "lineTotal": 20490
         }
       ],
       "purchaseOrderReference": "PO-2026-01292",
       "paymentBankDetails": {
-        "accountNumber": "V015ALT5786",
-        "ifscCode": "ICIC0008998"
+        "accountNumber": "V015ALT3038",
+        "ifscCode": "ICIC0008119"
       }
     },
     "intakeFlags": {
@@ -26511,6 +26921,7 @@
     "groundTruth": {
       "truth": "LEGITIMATE",
       "resolutionNote": "Vendor switched to a bank offering better settlement times; confirmed by procurement"
-    }
+    },
+    "_sequenceId": 292
   }
 ]

@@ -163,3 +163,24 @@ export interface EvaluationResult {
   readonly decision: Decision;
   readonly responsibleRule: RuleAttribution;
 }
+
+// ---------------------------------------------------------------------------
+// Replay Diff
+// ---------------------------------------------------------------------------
+
+export interface ChangedCase {
+  readonly caseData: Case;
+  readonly oldDecision: Decision;
+  readonly newDecision: Decision;
+  readonly classification: Classification;
+  readonly responsibleRule: RuleAttribution;
+}
+
+export interface Diff {
+  readonly totalCasesEvaluated: number;
+  readonly unchangedCount: number;
+  readonly counts: Readonly<Record<Classification, number>>;
+  readonly changedCases: readonly ChangedCase[];
+  readonly missedProblemCount: number;
+}
+
