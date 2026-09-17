@@ -32,7 +32,8 @@ selected.forEach((c: any) => {
   const diff = replay(proposedRuleset as any, [c]);
   const newDecision = diff.changedCases.length > 0 ? diff.changedCases[0].newDecision : c.recordedDecision.decision;
   const classification = diff.changedCases.length > 0 ? diff.changedCases[0].classification : 'UNCHANGED';
-  const reason = diff.changedCases.length > 0 ? diff.changedCases[0].responsibleRule.type + (diff.changedCases[0].responsibleRule.flag ? '/' + diff.changedCases[0].responsibleRule.flag : '') : 'UNCHANGED';
+  const ruleForReason = diff.changedCases.length > 0 ? diff.changedCases[0].responsibleRule : null;
+  const reason = ruleForReason ? ruleForReason.type + ('flag' in ruleForReason ? '/' + ruleForReason.flag : '') : 'UNCHANGED';
 
   console.log(`ID: ${c.id}`);
   console.log(`  Amount: ${c.invoice.totalAmount}`);

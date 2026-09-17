@@ -3,6 +3,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* ── Dry Run palette ──────────────────────────────────────────
+     ink, paper, three accent tones. Calm, precise, conservative.
+     Colour is never the only signal — always paired with text.
+     ─────────────────────────────────────────────────────────── */
+
+  --dr-ink: #1c1f26;
+  --dr-ink-muted: #6b7080;
+  --dr-paper: #f7f7f5;
+  --dr-paper-inset: #edede8;
+  --dr-border: #d4d4cf;
+
+  /* Warning: missed problems — money leaving incorrectly */
+  --dr-warning: #943838;
+  --dr-warning-surface: #faf0f0;
+  --dr-warning-border: #dfc1c1;
+
+  /* Caution: weakened control, added friction */
+  --dr-caution: #7d6118;
+  --dr-caution-surface: #f9f4e8;
+  --dr-caution-border: #d8ccaa;
+
+  /* Positive: prevented loss, saved effort */
+  --dr-positive: #29664c;
+  --dr-positive-surface: #edf5f0;
+  --dr-positive-border: #b8d4c4;
 }
 
 @theme inline {
@@ -10,12 +36,46 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Expose palette to Tailwind utilities */
+  --color-dr-ink: var(--dr-ink);
+  --color-dr-ink-muted: var(--dr-ink-muted);
+  --color-dr-paper: var(--dr-paper);
+  --color-dr-paper-inset: var(--dr-paper-inset);
+  --color-dr-border: var(--dr-border);
+  --color-dr-warning: var(--dr-warning);
+  --color-dr-warning-surface: var(--dr-warning-surface);
+  --color-dr-warning-border: var(--dr-warning-border);
+  --color-dr-caution: var(--dr-caution);
+  --color-dr-caution-surface: var(--dr-caution-surface);
+  --color-dr-caution-border: var(--dr-caution-border);
+  --color-dr-positive: var(--dr-positive);
+  --color-dr-positive-surface: var(--dr-positive-surface);
+  --color-dr-positive-border: var(--dr-positive-border);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --dr-ink: #dfe1e7;
+    --dr-ink-muted: #8b8f9c;
+    --dr-paper: #131518;
+    --dr-paper-inset: #1b1e24;
+    --dr-border: #2c2f38;
+
+    --dr-warning: #cf6a6a;
+    --dr-warning-surface: #271919;
+    --dr-warning-border: #462929;
+
+    --dr-caution: #bfa044;
+    --dr-caution-surface: #262113;
+    --dr-caution-border: #443a1e;
+
+    --dr-positive: #5aac86;
+    --dr-positive-surface: #14261d;
+    --dr-positive-border: #1e3e2e;
   }
 }
 
