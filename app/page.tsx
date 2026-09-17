@@ -28,9 +28,9 @@ export default function Home() {
   const diff: Diff | null = useMemo(
     () =>
       proposedRuleset
-        ? replay(proposedRuleset, corpus as unknown as readonly Case[])
+        ? replay(liveRuleset, proposedRuleset, corpus as unknown as readonly Case[])
         : null,
-    [proposedRuleset],
+    [proposedRuleset, liveRuleset],
   );
 
   const handleShip = useCallback(() => {

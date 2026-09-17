@@ -158,14 +158,14 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
     }
     
     return (
-      <div className="mt-6 border-t border-zinc-200 dark:border-zinc-700 pt-4">
-        <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2">Pending Change</h3>
-        <p className="text-sm text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-800/50 p-3 rounded-md border border-zinc-200 dark:border-zinc-700">
+      <div className="mt-6 border-t border-dr-border pt-4">
+        <h3 className="text-sm font-medium text-dr-ink mb-2">Pending Change</h3>
+        <p className="text-sm text-dr-ink bg-dr-paper-inset p-3 rounded-md border border-dr-border">
           {text}
         </p>
         <button
           onClick={() => setPendingChange(null)}
-          className="mt-3 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 dark:text-red-400 dark:bg-red-900/20 dark:hover:bg-red-900/40 rounded transition-colors"
+          className="mt-3 px-3 py-1.5 text-sm font-medium text-dr-warning bg-dr-warning-surface hover:bg-dr-warning-border rounded transition-colors"
         >
           Clear Change
         </button>
@@ -174,18 +174,18 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg p-5 mb-8 shadow-sm">
-      <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Propose a Rule Change</h2>
+    <div className="bg-dr-paper border border-dr-border rounded-lg p-5 mb-8 shadow-sm">
+      <h2 className="text-base font-semibold text-dr-ink mb-4">Propose a Rule Change</h2>
       
-      <div className="flex gap-2 border-b border-zinc-200 dark:border-zinc-700 mb-5">
+      <div className="flex gap-2 border-b border-dr-border mb-5">
         {(['threshold', 'policy', 'vendor'] as const).map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
               activeTab === tab
-                ? 'border-zinc-900 text-zinc-900 dark:border-zinc-100 dark:text-zinc-100'
-                : 'border-transparent text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300'
+                ? 'border-dr-ink text-dr-ink'
+                : 'border-transparent text-dr-ink-muted hover:text-dr-ink'
             }`}
           >
             {tab === 'threshold' ? 'Threshold' : tab === 'policy' ? 'Policy Check' : 'Vendor Exception'}
@@ -196,29 +196,29 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
       <div className="min-h-[120px]">
         {activeTab === 'threshold' && (
           <div className="flex flex-col gap-3 max-w-md">
-            <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Select threshold to change</label>
+            <label className="text-sm font-medium text-dr-ink">Select threshold to change</label>
             <select
               value={thresholdField}
               onChange={(e) => setThresholdField(e.target.value as any)}
-              className="border border-zinc-300 dark:border-zinc-700 rounded-md p-2 text-sm bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+              className="border border-dr-border rounded-md p-2 text-sm bg-dr-paper text-dr-ink"
             >
               <option value="amountThreshold">Amount Limit (currently {liveRuleset.thresholds.amountThreshold})</option>
               <option value="extractionConfidenceThreshold">Confidence Min (currently {liveRuleset.thresholds.extractionConfidenceThreshold})</option>
             </select>
             <div className="flex flex-col gap-1 mt-2">
-              <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">New value</label>
+              <label className="text-sm font-medium text-dr-ink">New value</label>
               <input
                 type="text"
                 value={thresholdInput}
                 onChange={(e) => setThresholdInput(e.target.value)}
                 placeholder="e.g. 300000"
-                className="border border-zinc-300 dark:border-zinc-700 rounded-md p-2 text-sm bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+                className="border border-dr-border rounded-md p-2 text-sm bg-dr-paper text-dr-ink"
               />
-              {thresholdError && <span className="text-xs text-red-600 dark:text-red-400 mt-1">{thresholdError}</span>}
+              {thresholdError && <span className="text-xs text-dr-warning mt-1">{thresholdError}</span>}
             </div>
             <button
               onClick={handleProposeThreshold}
-              className="mt-2 self-start px-4 py-2 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 rounded-md text-sm font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+              className="mt-2 self-start px-4 py-2 bg-dr-ink text-white rounded-md text-sm font-medium hover:opacity-90 transition-colors cursor-pointer"
             >
               Propose Change
             </button>
@@ -227,11 +227,11 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
 
         {activeTab === 'policy' && (
           <div className="flex flex-col gap-3 max-w-md">
-            <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Select policy check to toggle</label>
+            <label className="text-sm font-medium text-dr-ink">Select policy check to toggle</label>
             <select
               value={policyField}
               onChange={(e) => setPolicyField(e.target.value as PolicyCheckName)}
-              className="border border-zinc-300 dark:border-zinc-700 rounded-md p-2 text-sm bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+              className="border border-dr-border rounded-md p-2 text-sm bg-dr-paper text-dr-ink"
             >
               {POLICY_CHECK_NAMES.map(name => (
                 <option key={name} value={name}>
@@ -241,7 +241,7 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
             </select>
             <button
               onClick={handleProposePolicy}
-              className="mt-2 self-start px-4 py-2 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 rounded-md text-sm font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+              className="mt-2 self-start px-4 py-2 bg-dr-ink text-white rounded-md text-sm font-medium hover:opacity-90 transition-colors cursor-pointer"
             >
               Propose Toggle
             </button>
@@ -250,11 +250,11 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
 
         {activeTab === 'vendor' && (
           <div className="flex flex-col gap-3 max-w-md">
-            <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Select vendor</label>
+            <label className="text-sm font-medium text-dr-ink">Select vendor</label>
             <select
               value={vendorId}
               onChange={(e) => setVendorId(e.target.value)}
-              className="border border-zinc-300 dark:border-zinc-700 rounded-md p-2 text-sm bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+              className="border border-dr-border rounded-md p-2 text-sm bg-dr-paper text-dr-ink"
             >
               {uniqueVendors.map(v => {
                 const currentExc = liveRuleset.vendorExceptions.find(e => e.vendorId === v.id);
@@ -263,11 +263,11 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
               })}
             </select>
             
-            <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-2">Exception type</label>
+            <label className="text-sm font-medium text-dr-ink mt-2">Exception type</label>
             <select
               value={vendorExceptionType}
               onChange={(e) => setVendorExceptionType(e.target.value as any)}
-              className="border border-zinc-300 dark:border-zinc-700 rounded-md p-2 text-sm bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+              className="border border-dr-border rounded-md p-2 text-sm bg-dr-paper text-dr-ink"
             >
               <option value="auto_approve_below">Auto-approve below limit</option>
               <option value="always_escalate">Always escalate</option>
@@ -276,21 +276,21 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
             
             {vendorExceptionType === 'auto_approve_below' && (
               <div className="flex flex-col gap-1 mt-2">
-                <label className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Limit amount</label>
+                <label className="text-sm font-medium text-dr-ink">Limit amount</label>
                 <input
                   type="text"
                   value={vendorAmountInput}
                   onChange={(e) => setVendorAmountInput(e.target.value)}
                   placeholder="e.g. 350000"
-                  className="border border-zinc-300 dark:border-zinc-700 rounded-md p-2 text-sm bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
+                  className="border border-dr-border rounded-md p-2 text-sm bg-dr-paper text-dr-ink"
                 />
-                {vendorError && <span className="text-xs text-red-600 dark:text-red-400 mt-1">{vendorError}</span>}
+                {vendorError && <span className="text-xs text-dr-warning mt-1">{vendorError}</span>}
               </div>
             )}
             
             <button
               onClick={handleProposeVendor}
-              className="mt-2 self-start px-4 py-2 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 rounded-md text-sm font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+              className="mt-2 self-start px-4 py-2 bg-dr-ink text-white rounded-md text-sm font-medium hover:opacity-90 transition-colors cursor-pointer"
             >
               Propose Exception
             </button>

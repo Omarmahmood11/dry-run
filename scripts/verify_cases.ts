@@ -29,7 +29,7 @@ const caseIds = [
 const selected = corpus.filter((c: any) => caseIds.includes(c.id));
 
 selected.forEach((c: any) => {
-  const diff = replay(proposedRuleset as any, [c]);
+  const diff = replay(baselineRuleset as any, proposedRuleset as any, [c]);
   const newDecision = diff.changedCases.length > 0 ? diff.changedCases[0].newDecision : c.recordedDecision.decision;
   const classification = diff.changedCases.length > 0 ? diff.changedCases[0].classification : 'UNCHANGED';
   const ruleForReason = diff.changedCases.length > 0 ? diff.changedCases[0].responsibleRule : null;

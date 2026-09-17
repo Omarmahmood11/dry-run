@@ -38,7 +38,7 @@ describe('replayEngine classification', () => {
 
 describe('replayEngine', () => {
   test('produces an empty diff for a change that alters nothing', () => {
-    const diff = replay(baselineRuleset, corpus as unknown as readonly Case[]);
+    const diff = replay(baselineRuleset, baselineRuleset, corpus as unknown as readonly Case[]);
     
     // Baseline reproduces the recorded decisions perfectly for all 400 cases.
     assert.strictEqual(diff.totalCasesEvaluated, 400);
@@ -72,7 +72,7 @@ describe('replayEngine', () => {
       vendorExceptions: [],
     };
 
-    const diff = replay(permissiveRuleset, corpus as unknown as readonly Case[]);
+    const diff = replay(baselineRuleset, permissiveRuleset, corpus as unknown as readonly Case[]);
 
     const nonApproveInBaseline = (corpus as unknown as readonly Case[]).filter(
       (c) => c.recordedDecision.decision !== 'APPROVE'
@@ -102,7 +102,7 @@ describe('replayEngine', () => {
       },
     };
 
-    replay(rulesetWithChange, corpus as unknown as readonly Case[]);
+    replay(baselineRuleset, rulesetWithChange, corpus as unknown as readonly Case[]);
 
     assert.strictEqual(JSON.stringify(corpus), originalCorpusJson);
     assert.strictEqual(JSON.stringify(baselineRuleset), originalRulesetJson);

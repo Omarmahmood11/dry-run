@@ -46,7 +46,7 @@ export function classifyChange(
   throw new Error(`Unexpected change transition: ${oldDecision} -> ${newDecision} with truth ${groundTruth}`);
 }
 
-export function replay(proposedRuleset: Ruleset, corpus: readonly Case[]): Diff {
+export function replay(liveRuleset: Ruleset, proposedRuleset: Ruleset, corpus: readonly Case[]): Diff {
   const counts: Record<Classification, number> = {
     PREVENTED_LOSS: 0,
     SAVED_EFFORT: 0,
@@ -59,8 +59,8 @@ export function replay(proposedRuleset: Ruleset, corpus: readonly Case[]): Diff 
   const changedCases: ChangedCase[] = [];
 
   for (const caseData of corpus) {
-    const oldDecision = caseData.recordedDecision.decision;
-    const { decision: newDecision, responsibleRule } = evaluateCase(proposedRuleset, caseData);
+    const { decision: oldDecision, responsibleRule: oldRule } = evaluateCase(liveRuleset, caseData);
+    const { decision: newDecision, responsibleRule: newRule } = evaluateCase(proposedRuleset, caseData);
 
     if (oldDecision === newDecision) {
       unchangedCount++;
@@ -70,12 +70,16 @@ export function replay(proposedRuleset: Ruleset, corpus: readonly Case[]): Diff 
     const classification = classifyChange(oldDecision, newDecision, caseData.groundTruth.truth);
     counts[classification]++;
 
+    const oldRank = DECISION_ORDER[oldDecision];
+    const newRank = DECISION_ORDER[newDecision];
+    const isMorePermissive = newRank < oldRank;
+
     changedCases.push({
       caseData,
       oldDecision,
       newDecision,
       classification,
-      responsibleRule,
+      responsibleRule: isMorePermissive ? oldRule : newRule,
     });
   }
 
