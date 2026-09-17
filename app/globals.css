@@ -54,30 +54,6 @@
   --color-dr-positive-border: var(--dr-positive-border);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-
-    --dr-ink: #dfe1e7;
-    --dr-ink-muted: #8b8f9c;
-    --dr-paper: #131518;
-    --dr-paper-inset: #1b1e24;
-    --dr-border: #2c2f38;
-
-    --dr-warning: #cf6a6a;
-    --dr-warning-surface: #271919;
-    --dr-warning-border: #462929;
-
-    --dr-caution: #bfa044;
-    --dr-caution-surface: #262113;
-    --dr-caution-border: #443a1e;
-
-    --dr-positive: #5aac86;
-    --dr-positive-surface: #14261d;
-    --dr-positive-border: #1e3e2e;
-  }
-}
 
 body {
   background: var(--background);

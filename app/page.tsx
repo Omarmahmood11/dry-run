@@ -53,22 +53,32 @@ export default function Home() {
         </p>
       </header>
 
-      {/* Key resets the form when the live ruleset version changes (on ship) */}
-      <ChangeProposalForm
-        key={liveRuleset.version}
-        liveRuleset={liveRuleset}
-        onChange={setProposedRuleset}
-      />
+      <div className="lg:flex lg:gap-8 lg:items-start mb-8">
+        <div className="lg:w-[360px] shrink-0 mb-8 lg:mb-0">
+          {/* Key resets the form when the live ruleset version changes (on ship) */}
+          <ChangeProposalForm
+            key={liveRuleset.version}
+            liveRuleset={liveRuleset}
+            onChange={setProposedRuleset}
+          />
+        </div>
 
-      {diff && (
-        diff.changedCases.length > 0 ? (
-          <ReplayPreview diff={diff} onShip={handleShip} />
-        ) : (
-          <div className="mb-8 p-5 border rounded-lg border-dr-border bg-dr-paper-inset text-sm text-dr-ink-muted">
-            This change would not affect any of the {diff.totalCasesEvaluated} historical decisions.
-          </div>
-        )
-      )}
+        <div className="lg:flex-1 min-w-0">
+          {diff ? (
+            diff.changedCases.length > 0 ? (
+              <ReplayPreview diff={diff} onShip={handleShip} />
+            ) : (
+              <div className="p-5 border rounded-lg border-dr-border bg-dr-paper-inset text-sm text-dr-ink-muted">
+                This change would not affect any of the {diff.totalCasesEvaluated} historical decisions.
+              </div>
+            )
+          ) : (
+            <div className="p-10 border border-dashed rounded-lg border-dr-border flex items-center justify-center text-sm text-dr-ink-muted">
+              Select a rule to propose a change and see its impact here.
+            </div>
+          )}
+        </div>
+      </div>
 
       <CaseTable cases={casesWithComputed} />
     </div>

@@ -270,29 +270,58 @@ export default function ReplayPreview({ diff, onShip }: ReplayPreviewProps) {
       </div>
 
       {/* ── Five classification counts ─────────────────────────── */}
-      <div
-        className="grid grid-cols-5 gap-3 mb-5"
-        id="classification-counts"
-      >
-        {CLASSIFICATION_ORDER.map((classification) => {
-          const count = diff.counts[classification];
-          const tone = CLASSIFICATION_TONE[classification];
+      <div className="flex flex-col gap-3 mb-5" id="classification-counts">
+        {(() => {
+          const missedCount = diff.counts.MISSED_PROBLEM;
+          const missedZero = missedCount === 0;
           return (
             <div
-              key={classification}
-              className={`border rounded-lg p-3 ${TONE_CARD_CLASSES[tone]}`}
-              id={`count-${classification}`}
+              className={`border rounded-lg p-5 flex items-center justify-between ${
+                missedZero
+                  ? 'border-dr-border bg-transparent opacity-60 grayscale'
+                  : TONE_CARD_CLASSES.warning
+              }`}
+              id="count-MISSED_PROBLEM"
             >
-              <p className="text-2xl font-bold tabular-nums">{count}</p>
-              <p className="text-sm font-medium mt-1">
-                {CLASSIFICATION_LABELS[classification]}
-              </p>
-              <p className="text-xs mt-0.5 opacity-70">
-                {CLASSIFICATION_DESCRIPTIONS[classification]}
-              </p>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider mb-1">
+                  {CLASSIFICATION_LABELS.MISSED_PROBLEM}
+                </p>
+                <p className="text-sm opacity-90 max-w-sm">
+                  {CLASSIFICATION_DESCRIPTIONS.MISSED_PROBLEM}
+                </p>
+              </div>
+              <p className="text-5xl font-bold tabular-nums">{missedCount}</p>
             </div>
           );
-        })}
+        })()}
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {CLASSIFICATION_ORDER.slice(1).map((classification) => {
+            const count = diff.counts[classification];
+            const tone = CLASSIFICATION_TONE[classification];
+            const isZero = count === 0;
+            return (
+              <div
+                key={classification}
+                className={`border rounded-lg p-3 ${
+                  isZero
+                    ? 'border-dr-border bg-transparent opacity-60 grayscale'
+                    : TONE_CARD_CLASSES[tone]
+                }`}
+                id={`count-${classification}`}
+              >
+                <p className="text-2xl font-bold tabular-nums">{count}</p>
+                <p className="text-sm font-medium mt-1">
+                  {CLASSIFICATION_LABELS[classification]}
+                </p>
+                <p className="text-xs mt-0.5 opacity-70">
+                  {CLASSIFICATION_DESCRIPTIONS[classification]}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* ── Summary stats ──────────────────────────────────────── */}
