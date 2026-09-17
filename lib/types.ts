@@ -184,3 +184,15 @@ export interface Diff {
   readonly missedProblemCount: number;
 }
 
+
+// ---------------------------------------------------------------------------
+// History
+// ---------------------------------------------------------------------------
+
+export interface RulesetHistoryEntry {
+  readonly version: number;
+  readonly ruleset: Ruleset;
+  readonly timestamp: string;
+  readonly changeSummary: string;
+  readonly replayCounts: Readonly<Record<Classification, number>> | null;
+}

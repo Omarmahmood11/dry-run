@@ -11,7 +11,7 @@ type PendingChange =
 
 interface ChangeProposalFormProps {
   liveRuleset: Ruleset;
-  onChange?: (proposedRuleset: Ruleset | null) => void;
+  onChange?: (proposedRuleset: Ruleset | null, summary?: string) => void;
 }
 
 const POLICY_CHECK_NAMES: PolicyCheckName[] = [
@@ -51,6 +51,29 @@ export function deriveProposedRuleset(base: Ruleset, change: PendingChange | nul
   return base;
 }
 
+export function generateEnglishSummary(base: Ruleset, change: PendingChange): string {
+  if (change.type === 'threshold') {
+    const oldVal = base.thresholds[change.field];
+    const name = change.field === 'amountThreshold' ? 'Auto-approve amount limit' : 'Extraction confidence minimum';
+    return `Changed ${name} from ${oldVal} to ${change.value}.`;
+  } else if (change.type === 'policy') {
+    const oldVal = base.policyChecks[change.field];
+    return `Turned ${oldVal ? 'off' : 'on'} the ${change.field} check.`;
+  } else if (change.type === 'vendor') {
+    const oldExc = base.vendorExceptions.find(e => e.vendorId === change.vendorId);
+    let oldText = 'no exception';
+    if (oldExc) {
+      oldText = oldExc.exception.kind === 'always_escalate' ? 'always escalate' : `auto-approve below ₹${oldExc.exception.amount}`;
+    }
+    let newText = 'no exception';
+    if (change.exception) {
+      newText = change.exception.kind === 'always_escalate' ? 'always escalate' : `auto-approve below ₹${change.exception.amount}`;
+    }
+    return `Changed exception for ${change.vendorName} (${change.vendorId}) from ${oldText} to ${newText}.`;
+  }
+  return '';
+}
+
 export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProposalFormProps) {
   const [activeTab, setActiveTab] = useState<'threshold' | 'policy' | 'vendor'>('threshold');
   const [pendingChange, setPendingChange] = useState<PendingChange | null>(null);
@@ -60,7 +83,7 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
       if (pendingChange === null) {
         onChange(null);
       } else {
-        onChange(deriveProposedRuleset(liveRuleset, pendingChange));
+        onChange(deriveProposedRuleset(liveRuleset, pendingChange), generateEnglishSummary(liveRuleset, pendingChange));
       }
     }
   }, [pendingChange, liveRuleset, onChange]);
@@ -136,27 +159,7 @@ export default function ChangeProposalForm({ liveRuleset, onChange }: ChangeProp
 
   const renderEnglishSummary = () => {
     if (!pendingChange) return null;
-    let text = '';
-    if (pendingChange.type === 'threshold') {
-      const oldVal = liveRuleset.thresholds[pendingChange.field];
-      const name = pendingChange.field === 'amountThreshold' ? 'Auto-approve amount limit' : 'Extraction confidence minimum';
-      text = `Changed ${name} from ${oldVal} to ${pendingChange.value}.`;
-    } else if (pendingChange.type === 'policy') {
-      const oldVal = liveRuleset.policyChecks[pendingChange.field];
-      text = `Turned ${oldVal ? 'off' : 'on'} the ${pendingChange.field} check.`;
-    } else if (pendingChange.type === 'vendor') {
-      const oldExc = liveRuleset.vendorExceptions.find(e => e.vendorId === pendingChange.vendorId);
-      let oldText = 'no exception';
-      if (oldExc) {
-        oldText = oldExc.exception.kind === 'always_escalate' ? 'always escalate' : `auto-approve below ₹${oldExc.exception.amount}`;
-      }
-      let newText = 'no exception';
-      if (pendingChange.exception) {
-        newText = pendingChange.exception.kind === 'always_escalate' ? 'always escalate' : `auto-approve below ₹${pendingChange.exception.amount}`;
-      }
-      text = `Changed exception for ${pendingChange.vendorName} (${pendingChange.vendorId}) from ${oldText} to ${newText}.`;
-    }
-    
+    const text = generateEnglishSummary(liveRuleset, pendingChange);
     return (
       <div className="mt-6 border-t border-dr-border pt-4">
         <h3 className="text-sm font-medium text-dr-ink mb-2">Pending Change</h3>

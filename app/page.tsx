@@ -5,42 +5,62 @@ import { corpus } from '@/lib/corpus';
 import CaseTable from '@/app/components/CaseTable';
 import ChangeProposalForm from '@/app/components/ChangeProposalForm';
 import ReplayPreview from '@/app/components/ReplayPreview';
-import baselineRulesetRaw from '@/data/baselineRuleset.json';
+import HistoryList from '@/app/components/HistoryList';
 import { evaluateCase } from '@/lib/ruleEngine';
 import { replay } from '@/lib/replayEngine';
 import type { Case, Ruleset, Diff } from '@/lib/types';
+import { useHistory } from '@/lib/useHistory';
 
 export default function Home() {
-  const [liveRuleset, setLiveRuleset] = useState<Ruleset>(
-    baselineRulesetRaw as unknown as Ruleset,
-  );
+  const { history, isLoaded, appendVersion } = useHistory();
   const [proposedRuleset, setProposedRuleset] = useState<Ruleset | null>(null);
+  const [proposedSummary, setProposedSummary] = useState<string>('');
+
+  const liveRuleset = useMemo(() => {
+    if (!isLoaded || history.length === 0) return null;
+    return history[history.length - 1].ruleset;
+  }, [history, isLoaded]);
 
   const casesWithComputed = useMemo(
-    () =>
-      corpus.map((c) => ({
+    () => {
+      if (!liveRuleset) return [];
+      return corpus.map((c) => ({
         ...(c as unknown as Case),
         computedResult: evaluateCase(liveRuleset, c as unknown as Case),
-      })),
+      }));
+    },
     [liveRuleset],
   );
 
   const diff: Diff | null = useMemo(
     () =>
-      proposedRuleset
+      proposedRuleset && liveRuleset
         ? replay(liveRuleset, proposedRuleset, corpus as unknown as readonly Case[])
         : null,
     [proposedRuleset, liveRuleset],
   );
 
   const handleShip = useCallback(() => {
-    if (!proposedRuleset) return;
-    setLiveRuleset({
-      ...proposedRuleset,
-      version: liveRuleset.version + 1,
-    });
+    if (!proposedRuleset || !diff) return;
+    appendVersion(proposedRuleset, proposedSummary, diff.counts);
     setProposedRuleset(null);
-  }, [proposedRuleset, liveRuleset.version]);
+    setProposedSummary('');
+  }, [proposedRuleset, proposedSummary, diff, appendVersion]);
+
+  const handleRollback = useCallback((versionToRestore: number) => {
+    if (!liveRuleset) return;
+    const targetEntry = history.find(e => e.version === versionToRestore);
+    if (!targetEntry) return;
+
+    // Diff the rollback against the current live ruleset
+    const rollbackDiff = replay(liveRuleset, targetEntry.ruleset, corpus as unknown as readonly Case[]);
+    
+    appendVersion(targetEntry.ruleset, `Rolled back to version ${versionToRestore}`, rollbackDiff.counts);
+  }, [history, liveRuleset, appendVersion]);
+
+  if (!isLoaded || !liveRuleset) {
+    return null; // Or a loading spinner
+  }
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-8">
@@ -54,13 +74,17 @@ export default function Home() {
       </header>
 
       <div className="lg:flex lg:gap-8 lg:items-start mb-8">
-        <div className="lg:w-[360px] shrink-0 mb-8 lg:mb-0">
+        <div className="lg:w-[360px] shrink-0 mb-8 lg:mb-0 flex flex-col">
           {/* Key resets the form when the live ruleset version changes (on ship) */}
           <ChangeProposalForm
             key={liveRuleset.version}
             liveRuleset={liveRuleset}
-            onChange={setProposedRuleset}
+            onChange={(ruleset, summary) => {
+              setProposedRuleset(ruleset);
+              setProposedSummary(summary || '');
+            }}
           />
+          <HistoryList history={history} onRollback={handleRollback} />
         </div>
 
         <div className="lg:flex-1 min-w-0">
