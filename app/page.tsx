@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
+import Link from 'next/link';
 import { corpus } from '@/lib/corpus';
 import CaseTable from '@/app/components/CaseTable';
 import ChangeProposalForm from '@/app/components/ChangeProposalForm';
@@ -64,13 +65,21 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-8">
-      <header className="mb-6">
-        <h1 className="text-xl font-semibold tracking-tight text-dr-ink">
-          Dry Run
-        </h1>
-        <p className="mt-1 text-sm text-dr-ink-muted">
-          Change preview — {corpus.length} historical invoice decisions
-        </p>
+      <header className="mb-6 flex items-baseline justify-between">
+        <div>
+          <h1 className="text-xl font-semibold tracking-tight text-dr-ink">
+            Dry Run
+          </h1>
+          <p className="mt-1 text-sm text-dr-ink-muted">
+            Change preview — {corpus.length} historical invoice decisions
+          </p>
+        </div>
+        <Link
+          href="/findings"
+          className="text-sm font-medium text-dr-ink-muted hover:text-dr-ink underline hover:no-underline"
+        >
+          Findings
+        </Link>
       </header>
 
       <div className="lg:flex lg:gap-8 lg:items-start mb-8">
