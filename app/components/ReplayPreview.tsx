@@ -7,19 +7,10 @@ import type {
   Decision,
   RuleAttribution,
 } from '@/lib/types';
-
-// ---------------------------------------------------------------------------
-// Constants
-// ---------------------------------------------------------------------------
-
-/** Display order: regressions first (most severe to least), then positives. */
-const CLASSIFICATION_ORDER: readonly Classification[] = [
-  'MISSED_PROBLEM',
-  'WEAKENED_CONTROL',
-  'ADDED_FRICTION',
-  'PREVENTED_LOSS',
-  'SAVED_EFFORT',
-];
+import {
+  CLASSIFICATION_ORDER,
+  getVisibleChangedCases,
+} from '@/lib/changedCases';
 
 const CLASSIFICATION_LABELS: Readonly<Record<Classification, string>> = {
   MISSED_PROBLEM: 'Missed problem',
@@ -217,6 +208,13 @@ interface ReplayPreviewProps {
 
 export default function ReplayPreview({ diff, onShip }: ReplayPreviewProps) {
   const [confirmingShip, setConfirmingShip] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [prevDiff, setPrevDiff] = useState(diff);
+
+  if (prevDiff !== diff) {
+    setPrevDiff(diff);
+    setIsExpanded(false);
+  }
 
   const state = getResponseState(diff);
   const { gainText, costText } = buildHeadline(diff);
@@ -225,11 +223,15 @@ export default function ReplayPreview({ diff, onShip }: ReplayPreviewProps) {
   const hasRegressions =
     diff.counts.MISSED_PROBLEM > 0 || diff.counts.WEAKENED_CONTROL > 0;
 
-  // Sort changed cases by classification severity
-  const sortedChangedCases = [...diff.changedCases].sort(
-    (a, b) =>
-      CLASSIFICATION_ORDER.indexOf(a.classification) -
-      CLASSIFICATION_ORDER.indexOf(b.classification),
+  const {
+    visibleCases,
+    initialCutoff,
+    hasHiddenCases,
+    canCollapse,
+  } = getVisibleChangedCases(
+    diff.changedCases,
+    diff.counts.MISSED_PROBLEM,
+    isExpanded,
   );
 
   const handleShipClick = () => {
@@ -350,7 +352,7 @@ export default function ReplayPreview({ diff, onShip }: ReplayPreviewProps) {
               </tr>
             </thead>
             <tbody className="divide-y divide-dr-border">
-              {sortedChangedCases.map((changed) => {
+              {visibleCases.map((changed) => {
                 const tone = CLASSIFICATION_TONE[changed.classification];
                 return (
                   <tr
@@ -387,6 +389,38 @@ export default function ReplayPreview({ diff, onShip }: ReplayPreviewProps) {
               })}
             </tbody>
           </table>
+
+          {/* ── Table footer with count and expand control ── */}
+          <div
+            className="border-t border-dr-border bg-dr-paper px-4 py-2.5 flex items-center justify-between text-xs text-dr-ink-muted"
+            id="changed-cases-table-footer"
+          >
+            <span id="changed-cases-count-label">
+              {hasHiddenCases && !isExpanded
+                ? `Showing ${visibleCases.length} of ${totalChanged} changed cases`
+                : `Showing all ${totalChanged} changed cases`}
+            </span>
+            {hasHiddenCases && !isExpanded && (
+              <button
+                type="button"
+                onClick={() => setIsExpanded(true)}
+                id="expand-changed-cases"
+                className="font-medium text-dr-ink underline hover:no-underline cursor-pointer"
+              >
+                Show all {totalChanged} cases &darr;
+              </button>
+            )}
+            {canCollapse && (
+              <button
+                type="button"
+                onClick={() => setIsExpanded(false)}
+                id="collapse-changed-cases"
+                className="font-medium text-dr-ink-muted hover:text-dr-ink underline hover:no-underline cursor-pointer"
+              >
+                Show fewer (first {initialCutoff}) &uarr;
+              </button>
+            )}
+          </div>
         </div>
       )}
 

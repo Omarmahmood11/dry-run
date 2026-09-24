@@ -91,3 +91,7 @@ Fixing the RNG sequence to naturally generate amounts > ₹40,000 for deliberate
 Rather than artificially tuning the dataset to restore the old numbers, the primary demo scenario was swapped. The `bank_details_changed` toggle is now the primary demo story (it is stronger with 4 regressions, and simpler to explain). The V013 vendor exception remains as a secondary diagnostic check.
 
 The baseline metrics also shifted: APPROVE rate moved to 68.0% (272), ESCALATE rate moved to 30.0% (120), and 20 problems are now missed (up from 16). Check 3 (zero-movement changes) was changed from a pass/fail gate to a reporting-only diagnostic, as the 5-40 bounds were arbitrary and no longer worth the churn of tuning against.
+
+## 2026-09-24 — Changed-cases table cutoff with full expand control
+
+To prevent long lists of changed cases from pushing the preview off-screen while ensuring that `MISSED_PROBLEM` cases are never hidden behind a cut-off, the table displays the first 5 cases (or all missed problems if `missedProblemCount > 5`) with an expand control to view all changed cases. Because missed problems are sorted to the top of the table by severity, an initial cutoff of `Math.max(5, missedProblemCount)` guarantees that every missed problem is immediately visible upon replay.
